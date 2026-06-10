@@ -1,31 +1,24 @@
 import { Outlet, Link } from "react-router-dom";
-import hyfLogo from "../../assets/hyf.svg";
+import "./Layout.css";
 
 function Layout() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <nav style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        <a
-          href="https://www.hackyourfuture.dk/"
-          target="_blank"
-          className="logo-link"
-        >
-          <img src={hyfLogo} alt="HackYourFuture logo" className="logo" />
-        </a>
-        <Link to="/nested" className="nav-link">
-          Nested page
-        </Link>
-      </nav>
+    <div className="app">
+      <header className="header">
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/explore">EXPLORE</Link>
+          <Link to="/login">LOGIN</Link>
+          <Link to="/register">REGISTER</Link>
+          <Link to="/cart">CART</Link>
+        </nav>
+      </header>
       <main>
         <Outlet />
       </main>
+      <footer className="footer">
+        <div>© 2026 Travel Gurus. All rights reserved.</div>
+      </footer>
     </div>
   );
 }
