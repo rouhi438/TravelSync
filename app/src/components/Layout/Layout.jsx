@@ -1,24 +1,17 @@
-import { Outlet, Link } from "react-router-dom";
-import "./Layout.css";
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar.jsx";
+import Footer from "./Footer.jsx";
 
 function Layout() {
   return (
-    <div className="app">
-      <header className="header">
-        <nav>
-          <Link to="/">Home</Link>
-          <Link to="/explore">EXPLORE</Link>
-          <Link to="/login">LOGIN</Link>
-          <Link to="/register">REGISTER</Link>
-          <Link to="/cart">CART</Link>
-        </nav>
+    <div className="app-shell">
+      <header className="site-header">
+        <Navbar />
       </header>
-      <main>
+      <main className="site-main">
         <Outlet />
       </main>
-      <footer className="footer">
-        <div>© 2026 Travel Gurus. All rights reserved.</div>
-      </footer>
+      <Footer />
     </div>
   );
 }
