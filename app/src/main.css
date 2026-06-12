@@ -21,8 +21,11 @@ body {
   background-color: #2c5f2d;
   display: flex;
   align-items: center;
+}
+
+.site-main {
   justify-content: center;
-  z-index: 9999
+  z-index: 9999;
 }
 
 .anime-holder video {

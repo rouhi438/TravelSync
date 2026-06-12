@@ -1,0 +1,41 @@
+.confirmation-page {
+  width: min(720px, 100%);
+  margin: 2rem auto;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.confirmation-card {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ecfeff;
+}
+
+.confirmation-message-card {
+  margin-top: 0.85rem;
+  padding: 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.confirmation-message-card h3 {
+  margin: 0 0 0.4rem;
+}
+
+.confirmation-message-card p {
+  margin: 0;
+}
+
+.confirmation-page button {
+  font: inherit;
+  padding: 0.6rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #0f766e;
+  color: #ffffff;
+}
