@@ -1,10 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/Layout/Layout.jsx";
 import { CartPage } from "../pages/CartPage/CartPage.jsx";
+import { CheckoutPage } from "../pages/Checkout/CheckoutPage.jsx";
+import { ConfirmationPage } from "../pages/Confirmation/ConfirmationPage.jsx";
 import { ExplorePage } from "../pages/ExplorePage/ExplorePage.jsx";
 import { HomePage } from "../pages/HomePage/HomePage.jsx";
 import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
+import { BookingForm } from "../pages/BookingForm/BookingForm.jsx";
+
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +20,9 @@ export const router = createBrowserRouter([
       { path: "register", element: <RegisterPage /> },
       { path: "explore", element: <ExplorePage /> },
       { path: "cart", element: <CartPage /> },
+      { path: "booking", element: <BookingForm /> },
+      { path: "checkout", element: <CheckoutPage /> },
+      { path: "confirmation", element: <ConfirmationPage /> },
     ],
   },
 ]);

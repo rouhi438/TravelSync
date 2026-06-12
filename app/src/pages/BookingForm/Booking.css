@@ -1,0 +1,78 @@
+body:has(.booking-page) {
+  background-color: #f5f071;
+}
+
+.booking-page {
+  width: min(780px, 100%);
+  margin: 2rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+  background-color: #e4fbf9;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.traveler-count-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.count-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 130px;
+}
+
+.traveler-forms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.traveler-card {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-actions button {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.booking-form input,
+.booking-form select {
+  border: 1px solid #9ca3af;
+}
+
+.booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.booking-actions button {
+  border: none;
+  background: #30d5b4;
+  color: #000000;
+  cursor: pointer;
+}
+
+.booking-actions button[type="button"] {
+  background: #30d5b4;
+}

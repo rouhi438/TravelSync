@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
+import travelLogo from "../../assets/images/Blue Minimalist Traveling Logo .jpg";
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">Travel Gurus</div>
+      <div className="navbar-brand">
+        <img
+          src={travelLogo}
+          alt="Travel Gurus logo"
+          className="navbar-logo-image"
+        />
+        <div className="navbar-logo">Travel Gurus</div>
+      </div>
       <ul className="navbar-links">
         <li>
           <Link to="/">Home</Link>
