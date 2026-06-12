@@ -1,0 +1,103 @@
+.checkout-page {
+  width: min(720px, 100%);
+  margin: 2rem auto;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.checkout-summary {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.summary-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.travel-details {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border: 1px dashed #94a3b8;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.travel-details-title {
+  margin: 0 0 0.45rem;
+  font-size: 0.98rem;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.checkout-form input,
+.checkout-form select,
+.checkout-actions button {
+  font: inherit;
+  padding: 0.55rem;
+  border-radius: 6px;
+}
+
+.checkout-form input,
+.checkout-form select {
+  border: 1px solid #94a3b8;
+}
+
+.payment-title {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.card-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.terms-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.terms-check input {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.checkout-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.checkout-actions button {
+  border: none;
+  cursor: pointer;
+  background: #0f766e;
+  color: #ffffff;
+}
+
+.checkout-actions button[type="button"] {
+  background: #475569;
+}
