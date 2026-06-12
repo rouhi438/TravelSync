@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout.jsx";
 import { CartPage } from "../pages/CartPage/CartPage.jsx";
 import { ExplorePage } from "../pages/ExplorePage/ExplorePage.jsx";
 import { HomePage } from "../pages/HomePage/HomePage.jsx";
-import { LoginPage } from "../pages/LoginPage/LoginPage.jsx";
+import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import { RegisterPage } from "../pages/RegisterPage/RegisterPage.jsx";
 
 export const router = createBrowserRouter([
