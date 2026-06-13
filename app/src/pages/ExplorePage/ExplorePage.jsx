@@ -1,3 +1,4 @@
+import BookingForm from "../BookingForm/Booking";
 import "./ExplorePage.css";
 
 export function ExplorePage() {
