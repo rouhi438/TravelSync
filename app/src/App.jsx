@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/AppRoutes.jsx";
-import animationMp4 from "./assets/animation.mp4";
+import animationMp4 from "./assets/images/animation.mp4";
 
 function IntroAnimation() {
   return (
@@ -28,7 +28,7 @@ function App() {
     return <IntroAnimation />;
   }
   return (
-    <div className="app-wrapper">
+    <div>
       <RouterProvider router={router} />
     </div>
   );
