@@ -1,4 +1,4 @@
-.login-wrapper {
+/* .login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,4 +38,125 @@
   color: red;
   margin-bottom: 12px;
   text-align: center;
+} */
+
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 2rem 1rem;
+  background: transparent;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1f2a3a;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.password-field {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.eye-icon:hover {
+  color: #00a8a8;
+}
+
+.role-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: #ffe9e9;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.8rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.register-link a {
+  color: #00a8a8;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .login-wrapper {
+    min-height: calc(100vh - 60px);
+    padding: 1rem;
+  }
+
+  .login-box {
+    padding: 1.5rem;
+  }
+
+  .login-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .role-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .role-buttons button {
+    width: 100%;
+  }
+
+  .eye-icon {
+    top: 36px;
+    right: 10px;
+  }
 }

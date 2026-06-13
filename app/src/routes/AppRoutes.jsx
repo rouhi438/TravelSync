@@ -7,8 +7,7 @@ import { ExplorePage } from "../pages/ExplorePage/ExplorePage.jsx";
 import { HomePage } from "../pages/HomePage/HomePage.jsx";
 import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
-import { BookingForm } from "../pages/BookingForm/BookingForm.jsx";
-
+import BookingForm from "../pages/BookingForm/Booking.jsx";
 
 export const router = createBrowserRouter([
   {
