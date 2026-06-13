@@ -1,13 +1,16 @@
 import { useState } from "react";
-import "./LoginPage.css";
+import { Link } from "react-router-dom";
+import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
+import "./LoginPage.css";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState(null);
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,13 +28,13 @@ export default function LoginPage() {
       setError("Password is required");
       return;
     }
-
     if (!role) {
       setError("Please select a role");
       return;
     }
     console.log("Logging in:", { email, password, role });
   };
+
   return (
     <div className="login-wrapper">
       <div className="login-box">
@@ -47,14 +50,27 @@ export default function LoginPage() {
             required
           />
 
-          <Input
-            label="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-            required
-          />
+          <div className="password-field">
+            <Input
+              label="Password"
+              type={showPassword ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              required
+            />
+            <button
+              type="button"
+              className="eye-icon"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <HiOutlineEye size={20} />
+              ) : (
+                <HiOutlineEyeOff size={20} />
+              )}
+            </button>
+          </div>
 
           <div className="role-buttons">
             <Button
@@ -64,7 +80,6 @@ export default function LoginPage() {
             >
               Traveler
             </Button>
-
             <Button
               variant={role === "business" ? "primary" : "secondary"}
               onClick={() => setRole("business")}
@@ -78,6 +93,10 @@ export default function LoginPage() {
             Login
           </Button>
         </form>
+
+        <p className="register-link">
+          Don't have an account? <Link to="/register">Register now</Link>
+        </p>
       </div>
     </div>
   );

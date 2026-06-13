@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
-
 import "./RegisterPage.css";
 
 export default function RegisterPage() {
-  const [role, setRole] = useState(null); // "traveler" or "business"
+  const [role, setRole] = useState(null);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -14,7 +15,8 @@ export default function RegisterPage() {
     businessName: "",
     phone: "",
   });
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -32,27 +34,22 @@ export default function RegisterPage() {
       setError("Please select Traveler or Business");
       return;
     }
-
     if (!formData.email.includes("@")) {
       setError("Please enter a valid email");
       return;
     }
-
     if (!formData.password) {
       setError("Password is required");
       return;
     }
-
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-
     if (role === "business" && !formData.businessName) {
       setError("Business name is required");
       return;
     }
-
     console.log("Registering:", { role, ...formData });
   };
 
@@ -60,7 +57,6 @@ export default function RegisterPage() {
     <div className="register-wrapper">
       <div className="register-box">
         <h2>Create an Account</h2>
-
         {error && <p className="error-text">{error}</p>}
 
         <div className="role-buttons">
@@ -71,7 +67,6 @@ export default function RegisterPage() {
           >
             Traveler
           </Button>
-
           <Button
             variant={role === "business" ? "primary" : "secondary"}
             type="button"
@@ -109,28 +104,58 @@ export default function RegisterPage() {
             required
           />
 
-          <Input
-            label="Password"
-            name="password"
-            type="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="password-field">
+            <Input
+              label="Password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <button
+              type="button"
+              className="eye-icon"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? (
+                <HiOutlineEye size={20} />
+              ) : (
+                <HiOutlineEyeOff size={20} />
+              )}
+            </button>
+          </div>
 
-          <Input
-            label="Confirm Password"
-            name="confirmPassword"
-            type="password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
+          <div className="password-field">
+            <Input
+              label="Confirm Password"
+              name="confirmPassword"
+              type={showConfirmPassword ? "text" : "password"}
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+            <button
+              type="button"
+              className="eye-icon"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            >
+              {showConfirmPassword ? (
+                <HiOutlineEye size={20} />
+              ) : (
+                <HiOutlineEyeOff size={20} />
+              )}
+            </button>
+          </div>
 
           <Button variant="primary" fullWidth type="submit">
             Register
           </Button>
         </form>
+
+        <p className="login-link">
+          Already have an account? <Link to="/login">Login here</Link>
+        </p>
       </div>
     </div>
   );
