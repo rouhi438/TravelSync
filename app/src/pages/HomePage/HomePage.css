@@ -54,6 +54,10 @@
     gap: 20px;
 }
 
+.text-content p {
+    line-height: 30px;
+}
+
 .right {
     flex: 1;
     display: flex;
