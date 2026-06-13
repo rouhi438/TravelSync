@@ -5,9 +5,10 @@ import { CheckoutPage } from "../pages/Checkout/CheckoutPage.jsx";
 import { ConfirmationPage } from "../pages/Confirmation/ConfirmationPage.jsx";
 import { ExplorePage } from "../pages/ExplorePage/ExplorePage.jsx";
 import { HomePage } from "../pages/HomePage/HomePage.jsx";
-import { LoginPage } from "../pages/LoginPage/LoginPage.jsx";
-import { RegisterPage } from "../pages/RegisterPage/RegisterPage.jsx";
-import BookingForm from "../pages/BookingForm/Booking.jsx";
+import LoginPage from "../pages/LoginPage/LoginPage.jsx";
+import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
+import { BookingForm } from "../pages/BookingForm/BookingForm.jsx";
+
 
 export const router = createBrowserRouter([
   {
