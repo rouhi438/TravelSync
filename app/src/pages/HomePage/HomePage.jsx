@@ -1,5 +1,5 @@
 import "./HomePage.css";
-import airplaneImg from "../../assets/airplane-removebg-preview.png";
+import airplaneImg from "../../assets/images/airplane-removebg-preview.png";
 
 export function HomePage() {
   return (

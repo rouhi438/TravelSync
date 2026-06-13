@@ -29,7 +29,7 @@
     left: 0;
     width: 100%;
     height: 40%;
-    background: url('../../assets/b-g.jpg') no-repeat bottom center / cover;
+    background: url('../../assets/images/mobile-bg.jpg') no-repeat bottom center / cover;
     mask-image: linear-gradient(to top, black 30%, transparent 100%);
     -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
     z-index: 0;
@@ -184,7 +184,7 @@
         display: block;
         height: 100%;
         width: 100%;
-        background: url('../../assets/b-g.jpg') no-repeat center center / cover;
+        background: url('../../assets/images/b-g.jpg') no-repeat center center / cover;
         mask-image: none;
         z-index: -1;
     }
@@ -207,6 +207,6 @@
 
     .air-plain-image {
         width: 80%;
-        max-width: 500px;
+        max-width: 600px;
     }
 }

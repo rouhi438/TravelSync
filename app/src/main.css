@@ -23,11 +23,6 @@ body {
   align-items: center;
 }
 
-.site-main {
-  justify-content: center;
-  z-index: 9999;
-}
-
 .anime-holder video {
   width: 100%;
   height: 100%;
