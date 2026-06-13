@@ -1,0 +1,40 @@
+.explore-container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.filters {
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+}
+
+.category-btn {
+    background: #f0f0f0;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.category-btn.active {
+    background: #00EB64;
+    color: white;
+}

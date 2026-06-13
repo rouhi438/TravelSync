@@ -22,6 +22,7 @@ export const router = createBrowserRouter([
       { path: "booking", element: <BookingForm /> },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "confirmation", element: <ConfirmationPage /> },
+      { path: "explore", element: <ExplorePage /> },
     ],
   },
 ]);
