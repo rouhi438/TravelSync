@@ -1,5 +1,4 @@
-import PackageCard from "./Package.Card";
-import { ExplorePage } from "../../pages/ExplorePage/ExplorePage";
+import PackageCard from "./PackageCard";
 import "./PackageGrid.css";
 export function PackageGrid({ packages }) {
   return (

@@ -59,15 +59,3 @@
     font-size: 0.85rem;
     margin: 0.5rem 0;
 }
-
-.details-btn {
-    display: inline-block;
-    background: #00a8a8;
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    text-align: center;
-
-    margin-top: 0.5rem;
-}

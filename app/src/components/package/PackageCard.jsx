@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "../ui/Button";
-import { Navigate } from "react-router-dom";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Rating from "../ui/Rating";
 import "./PackageCard.css";
 
 export default function PackageCard({ package: pkg }) {
-  const fullStars = Math.floor(pkg.rating);
-  const halfStar = pkg.rating % 1 !== 0;
-  const emptyStars = 5 - Math.ceil(pkg.rating);
+  const navigate = useNavigate();
   return (
     <div className="package-card">
       <img src={pkg.image} alt={pkg.name} className="package-img" />
@@ -19,19 +17,7 @@ export default function PackageCard({ package: pkg }) {
           <span className="price">€ {pkg.price}</span>
           <span className="duration">{pkg.duration}</span>
         </div>
-        <div className="rating">
-          {[...Array(fullStars)].map((_, i) => (
-            <FaStar key={i} color="#ffc107" size={14} />
-          ))}
-          {halfStar && <FaStarHalfAlt color="#ffc107" size={14} />}
-          {[...Array(emptyStars)].map((_, i) => (
-            <FaStarO key={i} color="#ffc107" size={14} />
-          ))}
-          <span className="rating-value">
-            {" "}
-            {pkg.rating} ({pkg.reviewCount} reviews)
-          </span>
-        </div>
+        <Rating rating={pkg.rating} />
         <Button
           variant="primary"
           fullWidth

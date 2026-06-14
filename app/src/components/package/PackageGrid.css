@@ -6,7 +6,7 @@
 
 @media (max-width: 987px) {
     .package-grid {
-        grid-template-columns: repeat(2, 1fr)
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
