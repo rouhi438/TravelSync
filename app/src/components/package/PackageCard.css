@@ -1,0 +1,61 @@
+.package-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.package-card:hover {
+    transform: translateY(-4px);
+}
+
+.package-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.package-info {
+    padding: 1rem;
+}
+
+.package-info h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.25rem;
+}
+
+.location {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.short-desc {
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin: 0.5rem 0;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0.5rem 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #00a8a8;
+    font-size: 1.2rem;
+}
+
+.duration {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.rating {
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+}
