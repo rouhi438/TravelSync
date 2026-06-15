@@ -47,23 +47,3 @@
     outline: 1px solid blue;
     border-color: blue;
 }
-
-.category-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-
-}
-
-.category-btn {
-    background: #f0f0f0;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.category-btn.active {
-    background: #00EB64;
-    color: white;
-}
