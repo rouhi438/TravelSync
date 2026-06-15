@@ -31,8 +31,6 @@ export const packages = [
       "Island tour",
     ],
     availableSlots: 14,
-    inWishlist: false,
-    inCart: false,
     itinerary: [
       {
         day: 1,
@@ -118,8 +116,6 @@ export const packages = [
       "Breakfast",
     ],
     availableSlots: 9,
-    inWishlist: true,
-    inCart: false,
     itinerary: [
       {
         day: 1,
@@ -172,8 +168,6 @@ export const packages = [
     highlights: ["Times Square", "Broadway night", "Food market tour"],
     includes: ["Boutique hotel", "Metro pass", "Museum entry", "Walking guide"],
     availableSlots: 20,
-    inWishlist: false,
-    inCart: true,
     itinerary: [
       {
         day: 1,
@@ -227,8 +221,6 @@ export const packages = [
     highlights: ["Big Five safari", "Luxury tent stay", "Sunrise game drive"],
     includes: ["Full-board lodging", "Safari jeep", "Guide", "Park fees"],
     availableSlots: 6,
-    inWishlist: true,
-    inCart: false,
     itinerary: [
       {
         day: 1,
@@ -278,8 +270,6 @@ export const packages = [
     highlights: ["Tea ceremony", "Temple pass", "Local cooking class"],
     includes: ["Ryokan stay", "Breakfast", "Train card", "Guide sessions"],
     availableSlots: 11,
-    inWishlist: false,
-    inCart: false,
     itinerary: [
       {
         day: 1,
@@ -329,8 +319,6 @@ export const packages = [
     ],
     includes: ["Cabin stay", "All meals", "Port transfers", "Evening shows"],
     availableSlots: 18,
-    inWishlist: true,
-    inCart: false,
     itinerary: [
       {
         day: 1,

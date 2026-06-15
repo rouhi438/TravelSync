@@ -1,47 +1,133 @@
 .register-wrapper {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 40px 0;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 2rem 1rem;
+  background: transparent;
+  width: 100%;
 }
 
 .register-box {
   width: 100%;
-  max-width: 480px;
-  background: #f0e9e9;
-  padding: 40px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 350px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.8rem 2rem;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
 }
 
 .register-box h2 {
   text-align: center;
-  margin-bottom: 24px;
-}
-.register-form {
-  text-align: left;
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1f2a3a;
 }
 
 .register-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .role-buttons {
   display: flex;
-  justify-content: space-between;
   gap: 12px;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.password-field {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 34px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.eye-icon:hover {
+  color: #00a8a8;
 }
 
 .error-text {
-  color: red;
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
   text-align: center;
-  margin-bottom: 12px;
+  background: #ffe9e9;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.login-link a {
+  color: #00a8a8;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.25rem;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 3px;
+  color: #30d5b4;
+  transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-box {
+
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .register-wrapper {
+    min-height: calc(100vh - 60px);
+    padding: 1rem;
+  }
+
+  .register-box {
+
+    margin: 0 1rem;
+    padding: 1.2rem;
+  }
+
+  .register-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .role-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .role-buttons button {
+    width: 100%;
+  }
+
+  .eye-icon {
+    top: 32px;
+  }
 }
