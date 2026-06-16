@@ -97,7 +97,6 @@
 /* Responsive */
 @media (max-width: 768px) {
   .register-box {
-
     padding: 1.5rem;
   }
 }
@@ -109,7 +108,6 @@
   }
 
   .register-box {
-
     margin: 0 1rem;
     padding: 1.2rem;
   }
