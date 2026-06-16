@@ -8,8 +8,8 @@ import { HomePage } from "../pages/HomePage/HomePage.jsx";
 import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import BookingForm from "../pages/BookingForm/Booking.jsx";
-import { PackageDetail } from "../pages/PackageDetailPage/PackageDetailPage.jsx";
-
+import { PackageDetailPage } from "../pages/PackageDetailPage/PackageDetailPage.jsx";
+import { ErrorPage } from "../pages/ErrorPage/ErrorPage.jsx";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +23,19 @@ export const router = createBrowserRouter([
       { path: "booking", element: <BookingForm /> },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "confirmation", element: <ConfirmationPage /> },
-      { path: "/package/:id", element: <PackageDetail /> },
+      {
+        path: "/package/:id",
+        element: <PackageDetailPage />,
+        loader: async ({ params }) => {
+          const id = Number(params.id);
+          if (isNaN(id)) {
+            throw new Response("Invalid ID", { status: 404 });
+          }
+          return { id };
+        },
+        errorElement: <ErrorPage />,
+      },
+      { path: "/error-test", element: <ErrorPage /> },
     ],
   },
 ]);

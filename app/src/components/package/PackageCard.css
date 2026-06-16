@@ -55,6 +55,19 @@
     color: #6c757d;
 }
 
+.details-link {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    background-color: #00a8a8;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
 .rating {
     font-size: 0.85rem;
     margin: 0.5rem 0;
