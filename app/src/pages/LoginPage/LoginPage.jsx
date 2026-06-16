@@ -44,7 +44,7 @@ export default function LoginPage() {
       setError("Invalid email, password, or role");
       return;
     }
-    navigate("/profile");
+    navigate("/profile", { state: { user: foundUser } });
   };
 
   return (
