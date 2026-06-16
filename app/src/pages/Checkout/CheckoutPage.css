@@ -1,5 +1,13 @@
+body:has(.checkout-page) {
+  background-image: url("../../assets/images/Vintage Travel Poster.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.8;
+}
+
 .checkout-page {
-  width: min(720px, 100%);
+  width: min(780px, 100%);
   margin: 2rem auto;
   padding: 1.25rem;
   box-sizing: border-box;
@@ -94,7 +102,7 @@
 .checkout-actions button {
   border: none;
   cursor: pointer;
-  background: #0f766e;
+  background: #30d5b4;
   color: #ffffff;
 }
 

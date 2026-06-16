@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "./CheckoutPage.css";
+import asset from "../../assets/images/Vintage Travel Poster.png";
 
 export function CheckoutPage() {
   const location = useLocation();
