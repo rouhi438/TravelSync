@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import styles from "./TravelerProfile.module.css";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function TravelerProfile() {
   const location = useLocation();
@@ -13,17 +14,23 @@ export default function TravelerProfile() {
       )}
 
       {user && (
-        <div className={styles.profileCard}>
-          <p>
-            <strong>Name:</strong> {user.name}
-          </p>
-          <p>
-            <strong>Email:</strong> {user.email}
-          </p>
-          <p>
-            <strong>Role:</strong> {user.role}
-          </p>
-        </div>
+        <>
+          <h2 className={styles.welcome}>Welcome back, {user?.name}!</h2>
+          <div className={styles.profileCard}>
+            <div className={styles.iconWrapper}>
+              <FaUserCircle className={styles.profileIcon} />
+            </div>
+            <p>
+              <strong>Name:</strong> {user.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {user.email}
+            </p>
+            <p>
+              <strong>Role:</strong> {user.role}
+            </p>
+          </div>
+        </>
       )}
 
       <h3 className={styles.sectionTitle}>Booking History</h3>
