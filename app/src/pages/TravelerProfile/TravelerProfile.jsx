@@ -1,6 +1,14 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import styles from "./TravelerProfile.module.css";
-import { FaUserCircle } from "react-icons/fa";
+import {
+  FaUserCircle,
+  FaUser,
+  FaEnvelope,
+  FaIdBadge,
+  FaSuitcaseRolling,
+  FaClock,
+  FaSearchLocation,
+} from "react-icons/fa";
 
 export default function TravelerProfile() {
   const location = useLocation();
@@ -21,20 +29,31 @@ export default function TravelerProfile() {
               <FaUserCircle className={styles.profileIcon} />
             </div>
             <p>
+              <FaUser />
               <strong>Name:</strong> {user.name}
             </p>
             <p>
+              <FaEnvelope />
               <strong>Email:</strong> {user.email}
             </p>
             <p>
+              <FaIdBadge />
               <strong>Role:</strong> {user.role}
             </p>
           </div>
         </>
       )}
+      <div className={styles.sectionDivider}></div>
+      <h3 className={styles.sectionTitle}>
+        <FaSuitcaseRolling /> Booking History
+      </h3>
+      <p className={styles.noBookings}>
+        <FaClock /> No bookings yet.
+      </p>
 
-      <h3 className={styles.sectionTitle}>Booking History</h3>
-      <p>No bookings yet.</p>
+      <Link to="/explore" className={styles.browseBtn}>
+        <FaSearchLocation /> Browse Trips
+      </Link>
     </div>
   );
 }
