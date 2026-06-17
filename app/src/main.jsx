@@ -4,7 +4,6 @@ import { router } from "./routes/AppRoutes.jsx";
 import { WishlistProvider } from "./context/WishlistContext.jsx";
 
 import React from "react";
-import App from "./App.jsx";
 import "./main.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -13,4 +12,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <RouterProvider router={router} />
     </WishlistProvider>
   </React.StrictMode>,
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
