@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Booking.css";
-import asset from "../../assets/images/Vintage Travel Poster.png";
 
 const buildTravelerForms = (travelerType, count) => {
   return Array.from({ length: count }, (_, index) => {
