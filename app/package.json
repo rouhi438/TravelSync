@@ -12,7 +12,9 @@
     "dev": "vite",
     "build": "vite build",
     "format": "npx prettier . --write",
-    "check": "npx eslint . --fix"
+    "format:ci": "npx prettier . --end-of-line lf --check",
+    "lint": "npx eslint . --fix",
+    "lint:ci": "npx eslint . --max-warnings 0"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -27,5 +29,8 @@
     "globals": "^15.0.0",
     "prettier": "^3.2.5",
     "vite": "^5.2.0"
+  },
+  "allowScripts": {
+    "esbuild@0.20.2": true
   }
 }
