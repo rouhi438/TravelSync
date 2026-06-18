@@ -11,6 +11,9 @@ import BookingForm from "../pages/BookingForm/Booking.jsx";
 import { PackageDetailPage } from "../pages/PackageDetailPage/PackageDetailPage.jsx";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage.jsx";
 import { packages } from "../data/package.js";
+
+import TravelerProfile from "../pages/TravelerProfile/TravelerProfile.jsx";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +27,7 @@ export const router = createBrowserRouter([
       { path: "booking", element: <BookingForm /> },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "confirmation", element: <ConfirmationPage /> },
+
       {
         path: "/package/:id",
         element: <PackageDetailPage />,
@@ -40,6 +44,7 @@ export const router = createBrowserRouter([
         },
         errorElement: <ErrorPage />,
       },
+      { path: "profile", element: <TravelerProfile /> },
     ],
   },
 ]);
