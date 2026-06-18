@@ -11,7 +11,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <WishlistProvider>
       <RouterProvider router={router} />
     </WishlistProvider>
-  </React.StrictMode>,
-    <RouterProvider router={router} />
   </React.StrictMode>
 );

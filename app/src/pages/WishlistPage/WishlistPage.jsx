@@ -8,7 +8,7 @@ export function WishlistPage() {
   const { wishlistIds } = useWishlist();
 
   const wishlistPackages = packages.filter((pkg) =>
-    wishlistIds.includes(pkg.id),
+    wishlistIds.includes(pkg.id)
   );
 
   if (wishlistPackages.length === 0) {

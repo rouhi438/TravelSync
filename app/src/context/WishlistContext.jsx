@@ -23,7 +23,7 @@ export function WishlistProvider({ children }) {
 
   const addToWishlist = (packageId) => {
     setWishlistIds((prev) =>
-      prev.includes(packageId) ? prev : [...prev, packageId],
+      prev.includes(packageId) ? prev : [...prev, packageId]
     );
   };
 
@@ -35,7 +35,7 @@ export function WishlistProvider({ children }) {
     setWishlistIds((prev) =>
       prev.includes(packageId)
         ? prev.filter((id) => id !== packageId)
-        : [...prev, packageId],
+        : [...prev, packageId]
     );
   };
 
@@ -50,7 +50,7 @@ export function WishlistProvider({ children }) {
       toggleWishlist,
       isInWishlist,
     }),
-    [wishlistIds],
+    [wishlistIds]
   );
 
   return (
