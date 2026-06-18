@@ -1,226 +1,216 @@
 .hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem;
-  overflow-x: hidden;
-  background: transparent;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    overflow-x: hidden;
+    background: transparent;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 55%;
-  height: 75%;
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #ffffff 60%,
-    transparent 100%
-  );
-  z-index: 0;
-  pointer-events: none;
-  border-radius: 0 50% 0 0;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 55%;
+    height: 75%;
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 60%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 0 50% 0 0;
 }
 
 .hero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: url("../../assets/images/mobile-bg.jpg") no-repeat bottom center /
-    cover;
-  mask-image: linear-gradient(to top, black 30%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
-  z-index: 0;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: url('../../assets/images/mobile-bg.jpg') no-repeat bottom center / cover;
+    mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 30%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .left,
 .right {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
 }
 
 .left {
-  flex: 1;
-  padding-right: 1rem;
-  text-align: center;
+    flex: 1;
+    padding-right: 1rem;
+    text-align: center;
 }
 
 .text-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .text-content p {
-  line-height: 30px;
+    line-height: 30px;
 }
 
 .right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  z-index: 3;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
 }
 
 .air-plain-image {
-  max-width: 100%;
-  width: 450px;
-  display: block;
+    max-width: 100%;
+    width: 450px;
+    display: block;
 }
 
 .left h1 {
-  font-size: 2.7rem;
-  color: #30d5b4;
-  font-style: italic;
-  margin-bottom: 1rem;
+    font-size: 2.7rem;
+    color: #30d5b4;
+    font-style: italic;
+    margin-bottom: 1rem;
 }
 
 .left p {
-  font-size: 1.1rem;
-  color: #1f2937;
-  max-width: 90%;
+    font-size: 1.1rem;
+    color: #1f2937;
+    max-width: 90%;
 }
 
 .hero-buttons button {
-  margin: 0.5rem 0.5rem 0 0;
-  padding: 0.75rem 1.5rem;
-  width: 180px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
+    margin: 0.5rem 0.5rem 0 0;
+    padding: 0.75rem 1.5rem;
+    width: 180px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
 }
 
 .btn-primary {
-  background-color: #30d5b4;
-  color: white;
+    background-color: #30d5b4;
+    color: white;
 }
 
 .btn-primary:hover {
-  background-color: #87ceeb;
-  color: #333;
-  transform: translateY(-2px);
-  transition: all 0.06s;
+    background-color: #87ceeb;
+    color: #333;
+    transform: translateY(-2px);
+    transition: all 0.06s;
 }
 
 .btn-secondary {
-  background-color: #87ceeb;
-  color: #333;
+    background-color: #87ceeb;
+    color: #333;
 }
 
 .btn-secondary:hover {
-  background-color: #30d5b4;
-  transform: translateY(-2px);
-  color: white;
-  transition: all 0.06s;
+    background-color: #30d5b4;
+    transform: translateY(-2px);
+    color: white;
+    transition: all 0.06s;
 }
 
 @media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    justify-content: center;
-    padding: 1rem;
-  }
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem;
+    }
 
-  .hero::before {
-    width: 100%;
-    height: 65%;
-    border-radius: 0;
-    background: linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #ffffff 70%,
-      transparent 100%
-    );
-  }
+    .hero::before {
+        width: 100%;
+        height: 65%;
+        border-radius: 0;
+        background: linear-gradient(180deg, #ffffff 0%, #ffffff 70%, transparent 100%);
+    }
 
-  .hero::after {
-    height: 35%;
-    mask-image: linear-gradient(to top, black 20%, transparent 100%);
-  }
+    .hero::after {
+        height: 35%;
+        mask-image: linear-gradient(to top, black 20%, transparent 100%);
+    }
 
-  .left {
-    order: 2;
-    text-align: center;
-    padding: 1rem;
-    margin-top: -40px;
-    z-index: 2;
-    width: 90%;
-  }
+    .left {
+        order: 2;
+        text-align: center;
+        padding: 1rem;
+        margin-top: -40px;
+        z-index: 2;
+        width: 90%;
+    }
 
-  .right {
-    order: 1;
-    margin-bottom: -30px;
-    z-index: 3;
-  }
+    .right {
+        order: 1;
+        margin-bottom: -30px;
+        z-index: 3;
+    }
 
-  .air-plain-image {
-    width: 70%;
-    max-width: 450px;
-  }
+    .air-plain-image {
+        width: 70%;
+        max-width: 450px;
+    }
 
-  .left h1 {
-    font-size: 2rem;
-  }
+    .left h1 {
+        font-size: 2rem;
+    }
 
-  .hero-buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
+    .hero-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }
 
+
 @media (min-width: 769px) {
-  .hero::before {
-    display: block;
-    width: 55%;
-    height: 100%;
-    background: linear-gradient(90deg, white 0%, white 50%, transparent 100%);
-    border-radius: 0;
-    bottom: 0;
-    left: 0;
-    top: 0;
-  }
 
-  .hero::after {
-    display: block;
-    height: 100%;
-    width: 100%;
-    background: url("../../assets/images/b-g.jpg") no-repeat center center /
-      cover;
-    mask-image: none;
-    z-index: -1;
-  }
+    .hero::before {
+        display: block;
+        width: 55%;
+        height: 100%;
+        background: linear-gradient(90deg, white 0%, white 50%, transparent 100%);
+        border-radius: 0;
+        bottom: 0;
+        left: 0;
+        top: 0;
+    }
 
-  .left {
-    background: transparent;
-    padding: 2rem;
-    margin: 0;
-    width: auto;
-    order: 0;
-    flex: 1;
-    z-index: 2;
-  }
+    .hero::after {
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: url('../../assets/images/b-g.jpg') no-repeat center center / cover;
+        mask-image: none;
+        z-index: -1;
+    }
 
-  .right {
-    background: transparent;
-    flex: 1;
-    z-index: 2;
-  }
+    .left {
+        background: transparent;
+        padding: 2rem;
+        margin: 0;
+        width: auto;
+        order: 0;
+        flex: 1;
+        z-index: 2;
+    }
 
-  .air-plain-image {
-    width: 80%;
-    max-width: 600px;
-  }
+    .right {
+        background: transparent;
+        flex: 1;
+        z-index: 2;
+    }
+
+    .air-plain-image {
+        width: 80%;
+        max-width: 600px;
+    }
 }
