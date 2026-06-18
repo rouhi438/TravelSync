@@ -1,22 +1,27 @@
 .error-container {
     width: 100%;
-    height: 100vh;
+    height: var(--error-min-height);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: var(--error-gap);
 }
 
 .error-link {
-    color: #fff;
+
+    color: var(--color-white);
     font-weight: 500;
     text-decoration: none;
-    background-color: #00a8a8;
+    background-color: var(--color-primary);
     width: 100%;
-    max-width: 250px;
+    max-width: var(--max-width-button);
     text-align: center;
-    padding: 12px;
-    border-radius: 10px;
+    padding: var(--button-padding);
+    border-radius: var(--border-radius-medium);
     box-sizing: border-box;
+}
+
+.error-link:hover {
+    background-color: var(--color-primary-dark);
 }

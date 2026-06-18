@@ -16,13 +16,13 @@ export function ErrorPage() {
       "We are having trouble loading this page. Please try again later.";
   }
   return (
-    <div className="error-container">
+    <main className="error-container">
       <h1 className="error-code">{error?.status || "Error"}</h1>
       <h2 className="error-title">{title}</h2>
       <p className="error-message">{message}</p>
       <Link to="/" className="error-link">
         Go Back Home
       </Link>
-    </div>
+    </main>
   );
 }

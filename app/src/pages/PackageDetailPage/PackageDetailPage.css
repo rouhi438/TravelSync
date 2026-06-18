@@ -12,7 +12,7 @@
 }
 
 .detail-image {
-    width: calc(50% - 1rem);
+    width: var(--image-width);
     border-radius: var(--border-radius-large);
     object-fit: cover;
     box-shadow: var(--box-shadow-default);
@@ -27,7 +27,7 @@
     padding: var(--spacing-small);
     border-radius: var(--border-radius-small);
     text-decoration: underline;
-    text-underline-offset: 5px;
+    text-underline-offset: var(--underline-offset);
 }
 
 .detail-content {

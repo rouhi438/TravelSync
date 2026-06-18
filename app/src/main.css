@@ -8,10 +8,11 @@ body,
 }
 
 :root {
+  --error-min-height: calc(100vh - 100px);
   --color-primary: #00a8a8;
   --color-primary-dark: #008888;
-  --color-white: #ffffff;
-  --color-text: #333333;
+  --color-text-on-primary: #ffffff;
+  --color-text-body: #333333;
   --color-shadow: rgba(0, 0, 0, 0.2);
 
   --spacing-small: 1px;
@@ -28,8 +29,9 @@ body,
 
   --max-width-container: 1200px;
   --max-width-button: 200px;
-
+  --underline-offset: 5px;
   --button-padding: 12px;
+  --image-width: calc(50% - var(--image-offset));
 }
 
 

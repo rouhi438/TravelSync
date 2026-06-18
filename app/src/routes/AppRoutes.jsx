@@ -10,6 +10,7 @@ import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import BookingForm from "../pages/BookingForm/Booking.jsx";
 import { PackageDetailPage } from "../pages/PackageDetailPage/PackageDetailPage.jsx";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage.jsx";
+import { packages } from "../data/package.js";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -31,11 +32,14 @@ export const router = createBrowserRouter([
           if (isNaN(id)) {
             throw new Response("Invalid ID", { status: 404 });
           }
-          return { id };
+          const pkg = packages.find((p) => p.id === id);
+          if (!pkg) {
+            throw new Response("Package not found", { status: 404 });
+          }
+          return { pkg };
         },
         errorElement: <ErrorPage />,
       },
-      { path: "/error-test", element: <ErrorPage /> },
     ],
   },
 ]);

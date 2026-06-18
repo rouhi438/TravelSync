@@ -1,25 +1,22 @@
-import { useNavigate, useLoaderData, Link } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 import { packages } from "../../data/package";
-import { ErrorPage } from "../ErrorPage/ErrorPage";
 import "./PackageDetailPage.css";
+import placeholderImage from "../../assets/images/placeholder.png";
 
 export function PackageDetailPage() {
-  const { id } = useLoaderData();
-  const navigate = useNavigate();
-
-  const pkg = packages.find((p) => p.id === id);
-  if (!pkg) return <ErrorPage />;
-
-  const replaceImage = "../../assets/images/placeholder.png";
+  const { pkg } = useLoaderData();
 
   return (
     <main className="package-detail-container">
       <h1 className="package-detail-name">{pkg.name}</h1>
       <article className="detail-row">
         <img
-          src={pkg.image || replaceImage}
+          src={pkg.image || placeholderImage}
           alt={pkg.name}
           className="detail-image"
+          onError={(e) => {
+            e.target.src = placeholderImage;
+          }}
         />
         <div className="detail-content">
           <p className="detail-location">{pkg.location}</p>

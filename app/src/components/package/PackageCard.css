@@ -56,16 +56,21 @@
 }
 
 .details-link {
-    color: #fff;
+    color: var(--color-white);
     font-weight: 500;
     text-decoration: none;
-    background-color: #00a8a8;
+    background-color: var(--color-primary);
     display: inline-block;
     width: 100%;
     text-align: center;
-    padding: 12px;
-    border-radius: 10px;
+    padding: var(--button-padding);
+    border-radius: var(--border-radius-medium);
     box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+.details-link:hover {
+    background-color: var(--color-primary-dark);
 }
 
 .rating {
