@@ -8,6 +8,7 @@ import { HomePage } from "../pages/HomePage/HomePage.jsx";
 import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import BookingForm from "../pages/BookingForm/Booking.jsx";
+import TravelerProfile from "../pages/TravelerProfile/TravelerProfile.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: "booking", element: <BookingForm /> },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "confirmation", element: <ConfirmationPage /> },
+      { path: "profile", element: <TravelerProfile /> },
     ],
   },
 ]);

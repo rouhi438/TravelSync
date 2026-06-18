@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import "./LoginPage.css";
-
+import { users } from "../../data/users";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState(null);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +33,18 @@ export default function LoginPage() {
       setError("Please select a role");
       return;
     }
-    console.log("Logging in:", { email, password, role });
+
+    const foundUser = users.find((u) => {
+      const normalizedRole = u.role.toLowerCase();
+      const selectedRole = role.toLowerCase();
+      return u.email === email && normalizedRole.includes(selectedRole);
+    });
+
+    if (!foundUser) {
+      setError("Invalid email, password, or role");
+      return;
+    }
+    navigate("/profile", { state: { user: foundUser } });
   };
 
   return (
