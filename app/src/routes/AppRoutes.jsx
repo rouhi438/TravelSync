@@ -9,6 +9,7 @@ import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import BookingForm from "../pages/BookingForm/Booking.jsx";
 import { WishlistPage } from "../pages/WishlistPage/WishlistPage.jsx";
+import { TravelerProfile } from "../pages/TravelerProfile/TravelerProfile.jsx";
 
 
 export const router = createBrowserRouter([
