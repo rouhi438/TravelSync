@@ -10,6 +10,7 @@ import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import BookingForm from "../pages/BookingForm/Booking.jsx";
 import { WishlistPage } from "../pages/WishlistPage/WishlistPage.jsx";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,7 @@ export const router = createBrowserRouter([
       { path: "wishlist", element: <WishlistPage /> },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "confirmation", element: <ConfirmationPage /> },
+      { path: "profile", element: <TravelerProfile /> },
     ],
   },
 ]);
