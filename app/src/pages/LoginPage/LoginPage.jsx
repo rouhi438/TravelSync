@@ -4,7 +4,8 @@ import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import "./LoginPage.css";
-import { users } from "../../data/users";
+import { useAuth } from "../../context/AuthContext.jsx";
+
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,8 +13,8 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
+  const { login } = useAuth();
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -34,17 +35,12 @@ export default function LoginPage() {
       return;
     }
 
-    const foundUser = users.find((u) => {
-      const normalizedRole = u.role.toLowerCase();
-      const selectedRole = role.toLowerCase();
-      return u.email === email && normalizedRole.includes(selectedRole);
-    });
-
-    if (!foundUser) {
-      setError("Invalid email, password, or role");
-      return;
+    try {
+      await login(email, password);
+      navigate("/profile");
+    } catch (err) {
+      setError(err.message);
     }
-    navigate("/profile", { state: { user: foundUser } });
   };
 
   return (
