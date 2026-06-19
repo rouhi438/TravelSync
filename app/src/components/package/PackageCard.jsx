@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./PackageCard.css";
 export default function PackageCard({ package: pkg }) {
   return (

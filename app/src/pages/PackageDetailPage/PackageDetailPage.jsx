@@ -1,5 +1,4 @@
 import { useLoaderData, Link } from "react-router-dom";
-import { packages } from "../../data/package";
 import "./PackageDetailPage.css";
 import placeholderImage from "../../assets/images/placeholder.png";
 
