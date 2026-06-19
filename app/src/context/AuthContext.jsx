@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import api from "../api.js";
 
 const AuthContext = createContext(null);
 
@@ -20,7 +19,7 @@ export function AuthProvider({ children }) {
     localStorage.setItem("users", JSON.stringify(users));
   }
 
-  async function register(email, password) {
+  async function register(email, password, name, role) {
     const users = getStoredUsers();
 
     const exists = users.find((u) => u.email === email);
@@ -32,12 +31,14 @@ export function AuthProvider({ children }) {
       id: Date.now(),
       email,
       password,
+      name,
+      role,
     };
 
     saveStoredUsers([...users, newUser]);
 
     const accessToken = `fake-token-${newUser.id}`;
-    persist(accessToken, { id: newUser.id, email: newUser.email });
+    persist(accessToken, newUser);
   }
   async function login(email, password) {
     const users = getStoredUsers();
@@ -51,7 +52,7 @@ export function AuthProvider({ children }) {
     }
 
     const accessToken = `fake-token-${existing.id}`;
-    persist(accessToken, { id: existing.id, email: existing.email });
+    persist(accessToken, existing);
   }
   function logout() {
     localStorage.removeItem("token");

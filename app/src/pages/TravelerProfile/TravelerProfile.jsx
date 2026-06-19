@@ -9,10 +9,9 @@ import {
   FaClock,
   FaSearchLocation,
 } from "react-icons/fa";
-
+import { useAuth } from "../../context/AuthContext.jsx";
 export default function TravelerProfile() {
-  const location = useLocation();
-  const user = location.state?.user;
+  const { user } = useAuth();
 
   return (
     <div className={styles.wrapper}>

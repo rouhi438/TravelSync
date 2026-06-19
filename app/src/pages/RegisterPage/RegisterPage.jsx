@@ -62,7 +62,12 @@ export default function RegisterPage() {
       return;
     }
     try {
-      await register(formData.email, formData.password);
+      await register(
+        formData.email,
+        formData.password,
+        formData.fullName,
+        role
+      );
       navigate("/login");
     } catch (err) {
       setError(err.message);
