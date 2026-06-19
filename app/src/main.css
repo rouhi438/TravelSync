@@ -34,7 +34,6 @@ body,
   --image-width: calc(50% - var(--image-offset));
 }
 
-
 body {
   font-family:
     system-ui,
