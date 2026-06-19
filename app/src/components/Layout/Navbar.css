@@ -58,13 +58,14 @@
   color: #2e298d;
   transition: all 0.3s ease;
 }
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    z-index: 30;
-  }
-
+.logout-btn {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+  background: none;
+  border: none;
   .navbar {
     padding: 0.5rem 20px;
     border-bottom: none;
