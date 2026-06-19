@@ -12,37 +12,47 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => {
     return localStorage.getItem("token") || null;
   });
-
-  async function login(email, password) {
-    const response = await fetch(api("/login"), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Invalid email or password");
-    }
-
-    const { accessToken, user } = await response.json();
-    persist(accessToken, user);
+  function getStoredUsers() {
+    const stored = localStorage.getItem("users");
+    return stored ? JSON.parse(stored) : [];
+  }
+  function saveStoredUsers(users) {
+    localStorage.setItem("users", JSON.stringify(users));
   }
 
   async function register(email, password) {
-    const response = await fetch(api("/register"), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
+    const users = getStoredUsers();
 
-    if (!response.ok) {
-      throw new Error("Registration failed");
+    const exists = users.find((u) => u.email === email);
+    if (exists) {
+      throw new Error("User already exists");
     }
 
-    const { accessToken, user } = await response.json();
-    persist(accessToken, user);
-  }
+    const newUser = {
+      id: Date.now(),
+      email,
+      password,
+    };
 
+    saveStoredUsers([...users, newUser]);
+
+    const accessToken = `fake-token-${newUser.id}`;
+    persist(accessToken, { id: newUser.id, email: newUser.email });
+  }
+  async function login(email, password) {
+    const users = getStoredUsers();
+
+    const existing = users.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (!existing) {
+      throw new Error("Invalid email or password");
+    }
+
+    const accessToken = `fake-token-${existing.id}`;
+    persist(accessToken, { id: existing.id, email: existing.email });
+  }
   function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
