@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import "./PackageCard.css";
-
 export default function PackageCard({ package: pkg }) {
   return (
     <div className="package-card">
@@ -12,6 +12,9 @@ export default function PackageCard({ package: pkg }) {
           <span className="price">€ {pkg.price}</span>
           <span className="duration">{pkg.duration}</span>
         </div>
+        <Link to={`/package/${pkg.id}`} className="details-link">
+          View Details
+        </Link>
       </div>
     </div>
   );
