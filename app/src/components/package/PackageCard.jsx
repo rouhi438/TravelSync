@@ -1,5 +1,6 @@
 import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./PackageCard.css";
+import { Link } from "react-router-dom";
 export default function PackageCard({ package: pkg }) {
   const { isInWishlist, toggleWishlist } = useWishlist();
   const inWishlist = isInWishlist(pkg.id);
