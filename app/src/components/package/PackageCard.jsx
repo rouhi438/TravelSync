@@ -17,16 +17,18 @@ export default function PackageCard({ package: pkg }) {
           <span className="duration">{pkg.duration}</span>
         </div>
 
-        <button
-          type="button"
-          className="wishlist-btn"
-          onClick={() => toggleWishlist(pkg.id)}
-        >
-          {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
-        </button>
-        <Link to={`/package/${pkg.id}`} className="details-link">
-          View Details
-        </Link>
+        <div className="package-actions">
+          <button
+            type="button"
+            className="wishlist-btn"
+            onClick={() => toggleWishlist(pkg.id)}
+          >
+            {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+          </button>
+          <Link to={`/package/${pkg.id}`} className="details-link">
+            View Details
+          </Link>
+        </div>
       </div>
     </div>
   );

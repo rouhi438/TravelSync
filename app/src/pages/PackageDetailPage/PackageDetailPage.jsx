@@ -1,9 +1,11 @@
 import { useLoaderData, Link } from "react-router-dom";
 import "./PackageDetailPage.css";
 import placeholderImage from "../../assets/images/placeholder.png";
+import { useNavigate } from "react-router-dom";
 
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
+  const navigate = useNavigate();
 
   return (
     <main className="package-detail-container">
@@ -30,6 +32,12 @@ export function PackageDetailPage() {
         <Link to="/explore" className="back-btn">
           Back to Explore
         </Link>
+        <button
+          className="book-btn"
+          onClick={() => navigate("/booking", { state: { pkg } })}
+        >
+          Book Now
+        </button>
       </div>
     </main>
   );
