@@ -3,8 +3,11 @@ import "./PackageDetailPage.css";
 import placeholderImage from "../../assets/images/placeholder.png";
 import InteractiveRating from "../../components/rating/InteractiveRating";
 import { getRatingStats } from "../../utils/ratingUtils";
+import { useNavigate } from "react-router-dom";
+
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
+  const navigate = useNavigate();
 
   const userId = "user_1"; //replace with real user id from AuthContext
   const { avg, count } = getRatingStats(pkg.ratings);
@@ -42,9 +45,12 @@ export function PackageDetailPage() {
         <Link to="/explore" className="back-btn">
           Back to Explore
         </Link>
-        <Link to="/booking" className="back-btn">
+        <button
+          className="book-btn"
+          onClick={() => navigate("/booking", { state: { pkg } })}
+        >
           Book Now
-        </Link>
+        </button>
       </div>
     </main>
   );
