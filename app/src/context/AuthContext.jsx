@@ -31,7 +31,6 @@ export function AuthProvider({ children }) {
     const newUser = {
       id: Date.now(),
       email,
-      password,
       name,
       role,
     };
@@ -44,14 +43,14 @@ export function AuthProvider({ children }) {
   async function login(email, password) {
     const users = getStoredUsers();
 
-    const existing = users.find(
-      (u) => u.email === email && u.password === password
-    );
+    const existing = users.find((u) => u.email === email);
 
     if (!existing) {
       throw new Error("Invalid email or password");
     }
-
+    if (!password || password.length < 3) {
+      throw new Error("Invalid email or password");
+    }
     const accessToken = `fake-token-${existing.id}`;
     persist(accessToken, existing);
   }
