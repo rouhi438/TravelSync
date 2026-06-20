@@ -7,7 +7,12 @@ export default function PackageCard({ package: pkg }) {
 
   return (
     <div className="package-card">
-      <img src={pkg.image} alt={pkg.name} className="package-img" />
+      <img
+        src={pkg.image}
+        alt={pkg.name}
+        className="package-img"
+        loading="lazy"
+      />
       <div className="package-info">
         <h3>{pkg.name}</h3>
         <p className="location">{pkg.location}</p>

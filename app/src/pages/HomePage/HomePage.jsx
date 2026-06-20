@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 import airplaneImg from "../../assets/images/airplane-removebg-preview.png";
 
 export function HomePage() {
@@ -12,13 +13,22 @@ export function HomePage() {
             unforgettable experiences.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary">Explore</button>
-            <button className="btn-secondary">Get Started</button>
+            <Link to="/explore" className="btn-primary">
+              Explore
+            </Link>
+            <Link to="/register" className="btn-secondary">
+              Get Started
+            </Link>
           </div>
         </div>
       </div>
       <div className="right">
-        <img src={airplaneImg} alt="airplane" className="air-plain-image" />
+        <img
+          src={airplaneImg}
+          alt="airplane"
+          className="air-plain-image"
+          loading="lazy"
+        />
       </div>
     </div>
   );
