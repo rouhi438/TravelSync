@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./PackageCard.css";
 export default function PackageCard({ package: pkg }) {
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const inWishlist = isInWishlist(pkg.id);
+
   return (
     <div className="package-card">
       <img src={pkg.image} alt={pkg.name} className="package-img" />
@@ -12,6 +15,14 @@ export default function PackageCard({ package: pkg }) {
           <span className="price">€ {pkg.price}</span>
           <span className="duration">{pkg.duration}</span>
         </div>
+
+        <button
+          type="button"
+          className="wishlist-btn"
+          onClick={() => toggleWishlist(pkg.id)}
+        >
+          {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+        </button>
         <Link to={`/package/${pkg.id}`} className="details-link">
           View Details
         </Link>

@@ -8,6 +8,7 @@ import { HomePage } from "../pages/HomePage/HomePage.jsx";
 import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import BookingForm from "../pages/BookingForm/Booking.jsx";
+import { WishlistPage } from "../pages/WishlistPage/WishlistPage.jsx";
 import { PackageDetailPage } from "../pages/PackageDetailPage/PackageDetailPage.jsx";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage.jsx";
 import { packages } from "../data/package.js";
@@ -25,6 +26,7 @@ export const router = createBrowserRouter([
       { path: "explore", element: <ExplorePage /> },
       { path: "cart", element: <CartPage /> },
       { path: "booking", element: <BookingForm /> },
+      { path: "wishlist", element: <WishlistPage /> },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "confirmation", element: <ConfirmationPage /> },
 
