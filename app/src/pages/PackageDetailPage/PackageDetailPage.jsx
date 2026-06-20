@@ -1,13 +1,11 @@
 import { useLoaderData, Link } from "react-router-dom";
 import "./PackageDetailPage.css";
 import placeholderImage from "../../assets/images/placeholder.png";
-import InteractiveRating from "../../components/rating/InteractiveRating";
-import { getRatingStats } from "../../utils/ratingUtils";
+import { useNavigate } from "react-router-dom";
+
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
-
-  const userId = "user_1"; //replace with real user id from AuthContext
-  const { avg, count } = getRatingStats(pkg.ratings);
+  const navigate = useNavigate();
 
   return (
     <main className="package-detail-container">
@@ -28,23 +26,19 @@ export function PackageDetailPage() {
             <span className="detail-price">€ {pkg.price}</span>
             <span className="detail-duration">{pkg.duration}</span>
           </div>
-          <div className="rating-holder">
-            <InteractiveRating
-              packageId={pkg.id}
-              userId={userId}
-              initialAvg={avg}
-              initialCount={count}
-            />
-          </div>
+          <div className="rating-holder"></div>
         </div>
       </article>
       <div className="btn-holder">
         <Link to="/explore" className="back-btn">
           Back to Explore
         </Link>
-        <Link to="/booking" className="back-btn">
+        <button
+          className="book-btn"
+          onClick={() => navigate("/booking", { state: { pkg } })}
+        >
           Book Now
-        </Link>
+        </button>
       </div>
     </main>
   );

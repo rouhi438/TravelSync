@@ -4,6 +4,7 @@ import { PackageGrid } from "../../components/package/PackageGrid";
 import "./ExplorePage.css";
 import { FaSearch } from "react-icons/fa";
 import { CategoryFilter } from "../../components/category/CategoryFilter";
+import "../PackageDetailPage/PackageDetailPage.css";
 
 export function ExplorePage() {
   const [searchTerm, setSearchTerm] = useState("");
