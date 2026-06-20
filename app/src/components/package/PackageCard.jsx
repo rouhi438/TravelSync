@@ -1,6 +1,5 @@
 import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./PackageCard.css";
-
 export default function PackageCard({ package: pkg }) {
   const { isInWishlist, toggleWishlist } = useWishlist();
   const inWishlist = isInWishlist(pkg.id);
@@ -24,6 +23,9 @@ export default function PackageCard({ package: pkg }) {
         >
           {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
         </button>
+        <Link to={`/package/${pkg.id}`} className="details-link">
+          View Details
+        </Link>
       </div>
     </div>
   );
