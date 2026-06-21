@@ -66,6 +66,40 @@
   text-decoration: none;
   background: none;
   border: none;
+
+.wish-icons,
+.profile-icons {
+  color: #1f2937;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+}
+
+.wishlist-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #d11a2a;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 30;
+  }
+
   .navbar {
     padding: 0.5rem 20px;
     border-bottom: none;

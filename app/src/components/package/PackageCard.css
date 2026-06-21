@@ -55,7 +55,41 @@
   color: #6c757d;
 }
 
+.details-link {
+  color: var(--color-text-on-primary);
+  font-weight: 500;
+  text-decoration: none;
+  background-color: var(--color-primary);
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: var(--button-padding);
+  border-radius: var(--border-radius-medium);
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.details-link:hover {
+  background-color: var(--color-primary-dark);
+}
+
 .rating {
   font-size: 0.85rem;
   margin: 0.5rem 0;
+}
+
+.wishlist-btn {
+  margin-top: 0.8rem;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #e8f7f7;
+  color: #046668;
+}
+
+.wishlist-btn:hover {
+  background-color: #d2f0ef;
 }

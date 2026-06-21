@@ -7,6 +7,33 @@ body,
   width: 100%;
 }
 
+:root {
+  --error-min-height: calc(100vh - 100px);
+  --color-primary: #00a8a8;
+  --color-primary-dark: #008888;
+  --color-text-on-primary: #ffffff;
+  --color-text-body: #333333;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+
+  --spacing-small: 1px;
+  --spacing-medium: 1.5rem;
+  --spacing-large: 2rem;
+  --spacing-xlarge: 3rem;
+
+  --font-size-large: 1.5rem;
+  --border-radius-small: 5px;
+  --border-radius-medium: 10px;
+  --border-radius-large: 12px;
+
+  --box-shadow-default: 0 8px 30px var(--color-shadow);
+
+  --max-width-container: 1200px;
+  --max-width-button: 200px;
+  --underline-offset: 5px;
+  --button-padding: 12px;
+  --image-width: calc(50% - var(--image-offset));
+}
+
 body {
   font-family:
     system-ui,
