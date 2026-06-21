@@ -80,7 +80,7 @@ function Navbar() {
         )}
         <Link className="nav-link" to="/cart" onClick={() => setOpen(false)}>
           Cart
-
+        </Link>
         <Link className="nav-link" to="/login" onClick={() => setOpen(false)}>
           Login
         </Link>

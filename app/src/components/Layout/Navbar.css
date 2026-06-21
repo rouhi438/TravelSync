@@ -58,14 +58,15 @@
   color: #2e298d;
   transition: all 0.3s ease;
 }
+
 .logout-btn {
   color: #000000;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
-  text-decoration: none;
   background: none;
   border: none;
+}
 
 .wish-icons,
 .profile-icons {
@@ -94,16 +95,16 @@
   padding: 0 0.25rem;
 }
 
+.navbar {
+  padding: 0.5rem 20px;
+  border-bottom: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: block;
     z-index: 30;
-  }
-
-  .navbar {
-    padding: 0.5rem 20px;
-    border-bottom: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .nav {
