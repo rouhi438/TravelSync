@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import { HiOutlineHeart, HiOutlineUser } from "react-icons/hi";
 import travelLogo from "../../assets/images/Blue Minimalist Traveling Logo .jpg";
+import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./Navbar.css";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const { wishlistCount } = useWishlist();
 
   return (
     <header className="navbar">
@@ -29,6 +32,7 @@ function Navbar() {
         <Link className="nav-link" to="/explore" onClick={() => setOpen(false)}>
           Explore
         </Link>
+
         <Link className="nav-link" to="/login" onClick={() => setOpen(false)}>
           Login
         </Link>
@@ -39,8 +43,18 @@ function Navbar() {
         >
           Register
         </Link>
-        <Link className="nav-link" to="/cart" onClick={() => setOpen(false)}>
-          Cart
+        <Link
+          className="wish-icons"
+          to="/wishlist"
+          onClick={() => setOpen(false)}
+        >
+          <HiOutlineHeart size={24} />
+          {wishlistCount > 0 && (
+            <span className="wishlist-badge">{wishlistCount}</span>
+          )}
+        </Link>
+        <Link className="profile-icons" to="/login">
+          <HiOutlineUser size={24} />
         </Link>
       </nav>
     </header>
