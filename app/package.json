@@ -14,7 +14,8 @@
     "format": "npx prettier . --write",
     "format:ci": "npx prettier . --end-of-line lf --check",
     "lint": "npx eslint . --fix",
-    "lint:ci": "npx eslint . --max-warnings 0"
+    "lint:ci": "npx eslint . --max-warnings 0",
+    "lighthouse": "lhci autorun"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -29,6 +30,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "globals": "^15.0.0",
+    "http-server": "^14.1.1",
     "prettier": "^3.2.5",
     "vite": "^5.2.0"
   },
