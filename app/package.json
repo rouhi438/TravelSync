@@ -15,7 +15,8 @@
     "format:ci": "prettier . --end-of-line lf --check",
     "lint": "eslint . --fix",
     "lint:ci": "eslint . --max-warnings 0",
-    "lighthouse": "lhci autorun"
+    "lighthouse": "lhci autorun",
+    "lighthouse:ci": "lhci autorun --target=temporary-public-storage"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -30,7 +31,6 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "globals": "^15.0.0",
-    "http-server": "^14.1.1",
     "prettier": "^3.2.5",
     "vite": "^5.2.0"
   },
