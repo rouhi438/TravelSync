@@ -6,10 +6,14 @@ import { WishlistProvider } from "./context/WishlistContext.jsx";
 import React from "react";
 import "./main.css";
 
+import { AuthProvider } from "./context/AuthContext.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <WishlistProvider>
-      <RouterProvider router={router} />
-    </WishlistProvider>
+    <AuthProvider>
+      <WishlistProvider>
+        <RouterProvider router={router} />
+      </WishlistProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

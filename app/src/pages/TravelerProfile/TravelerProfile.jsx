@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./TravelerProfile.module.css";
 import {
   FaUserCircle,
@@ -9,10 +9,9 @@ import {
   FaClock,
   FaSearchLocation,
 } from "react-icons/fa";
-
+import { useAuth } from "../../context/AuthContext.jsx";
 export default function TravelerProfile() {
-  const location = useLocation();
-  const user = location.state?.user;
+  const { user } = useAuth();
 
   return (
     <div className={styles.wrapper}>
@@ -28,18 +27,18 @@ export default function TravelerProfile() {
             <div className={styles.iconWrapper}>
               <FaUserCircle className={styles.profileIcon} />
             </div>
-            <p>
+            <div className={styles.infoRow}>
               <FaUser />
-              <strong>Name:</strong> {user.name}
-            </p>
-            <p>
+              <strong>Name:</strong> <span>{user.name}</span>
+            </div>
+            <div className={styles.infoRow}>
               <FaEnvelope />
-              <strong>Email:</strong> {user.email}
-            </p>
-            <p>
+              <strong>Email:</strong> <span>{user.email}</span>
+            </div>
+            <div className={styles.infoRow}>
               <FaIdBadge />
-              <strong>Role:</strong> {user.role}
-            </p>
+              <strong>Role:</strong> <span>{user.role}</span>
+            </div>
           </div>
         </>
       )}
