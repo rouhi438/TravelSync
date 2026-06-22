@@ -55,6 +55,10 @@
   color: #6c757d;
 }
 
+.rating-section {
+  margin: 15px 0;
+}
+
 .details-link {
   color: var(--color-text-on-primary);
   font-weight: 500;
@@ -71,11 +75,6 @@
 
 .details-link:hover {
   background-color: var(--color-primary-dark);
-}
-
-.rating {
-  font-size: 0.85rem;
-  margin: 0.5rem 0;
 }
 
 .wishlist-btn {
