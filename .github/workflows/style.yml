@@ -1,10 +1,9 @@
-name: Code Linting & Formatting
+name: Checks
 
 on:
   push:
     branches:
       - develop
-      - dimdimit/lighthouse
 
   pull_request:
     branches:
