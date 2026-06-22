@@ -11,10 +11,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "format": "npx prettier . --write",
-    "format:ci": "npx prettier . --end-of-line lf --check",
-    "lint": "npx eslint . --fix",
-    "lint:ci": "npx eslint . --max-warnings 0",
+    "format": "prettier . --write",
+    "format:ci": "prettier . --end-of-line lf --check",
+    "lint": "eslint . --fix",
+    "lint:ci": "eslint . --max-warnings 0",
     "lighthouse": "lhci autorun"
   },
   "dependencies": {
