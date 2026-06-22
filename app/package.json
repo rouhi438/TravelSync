@@ -16,7 +16,7 @@
     "lint": "eslint . --fix",
     "lint:ci": "eslint . --max-warnings 0",
     "lighthouse": "lhci autorun --assertions.categories:accessibility=error,0.9",
-    "lighthouse:ci": "lhci autorun --target=temporary-public-storage"
+    "lighthouse:ci": "lhci autorun --upload.target=temporary-public-storage"
   },
   "dependencies": {
     "react": "^18.2.0",
