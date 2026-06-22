@@ -1,6 +1,10 @@
 name: Code Linting & Formatting
 
 on:
+  push:
+    branches:
+      - develop
+
   pull_request:
     branches:
       - main
