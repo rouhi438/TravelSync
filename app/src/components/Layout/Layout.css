@@ -1,8 +1,9 @@
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  min-height: calc(100vh - 180px);
   padding-top: 100px;
 }

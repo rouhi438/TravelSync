@@ -4,7 +4,6 @@ import { PackageGrid } from "../../components/package/PackageGrid";
 import "./ExplorePage.css";
 import { FaSearch } from "react-icons/fa";
 import { CategoryFilter } from "../../components/category/CategoryFilter";
-import "../PackageDetailPage/PackageDetailPage.css";
 
 export function ExplorePage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,6 +24,11 @@ export function ExplorePage() {
 
   return (
     <div className="explore-container">
+      <h1 className="explore-title">Explore Your Next Adventure with Us</h1>
+      <p className="explore-subtitle">
+        Find travel experience that matches your budget, destination and
+        interests.
+      </p>
       <div className="filters">
         <CategoryFilter
           categories={categoriesList}
@@ -42,6 +46,11 @@ export function ExplorePage() {
             aria-label="Search"
           />
         </div>
+        <p className="results-count" aria-live="polite">
+          {filteredPackages.length > 0
+            ? `${filteredPackages.length} package${filteredPackages.length > 1 ? "s" : ""} found`
+            : "No packages match your search"}
+        </p>
       </div>
       <PackageGrid packages={filteredPackages} />
     </div>
