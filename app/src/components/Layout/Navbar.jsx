@@ -83,7 +83,7 @@ function Navbar() {
           to="/wishlist"
           onClick={() => setOpen(false)}
         >
-          <HiOutlineHeart size={24} />
+          <HiOutlineHeart size={28} />
           {wishlistCount > 0 && (
             <span className="wishlist-badge">{wishlistCount}</span>
           )}

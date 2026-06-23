@@ -1,0 +1,32 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 1,
+      "staticDistDir": "./dist",
+      "isSinglePageApplication": true,
+      "url": [
+        "http://localhost:53727",
+        "http://localhost:53727/explore",
+        "http://localhost:53727/login",
+        "http://localhost:53727/register",
+        "http://localhost:53727/cart",
+        "http://localhost:5173/wishlist",
+        "http://localhost:5173/package/1",
+        "http://localhost:5173/booking",
+        "http://localhost:5173/checkout"
+      ],
+      "settings": {
+        "onlyCategories": ["accessibility"]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouse-reports"
+    },
+    "assert": {
+      "assertions": {
+        "categories:accessibility": ["warn", { "minScore": 0.9 }]
+      }
+    }
+  }
+}

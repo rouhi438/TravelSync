@@ -1,6 +1,10 @@
-name: Code Linting & Formatting
+name: Checks
 
 on:
+  push:
+    branches:
+      - develop
+
   pull_request:
     branches:
       - main
@@ -9,6 +13,10 @@ on:
 jobs:
   checks:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      statuses: write
+      contents: read
     defaults:
       run:
         working-directory: ./app
@@ -17,6 +25,15 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: "20"
-      - run: npm install
-      - run: npm run format:ci
-      - run: npm run lint:ci
+      - name: Install dependencies
+        run: npm install
+      - name: Run format check
+        run: npm run format:ci
+      - name: Run lint check
+        run: npm run lint:ci
+      - name: Build the app
+        run: npm run build
+      - name: Run Lighthouse CI
+        run: npm run lighthouse:ci
+        env:
+          LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
