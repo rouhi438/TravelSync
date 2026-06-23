@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-import { Rating } from "../rating/Rating";
-import { getRatingStats } from "../../utils/ratingUtils";
 import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./PackageCard.css";
 
 export default function PackageCard({ package: pkg }) {
-  const { avg: avgRating, count: reviewCount } = getRatingStats(pkg.ratings);
   const { isInWishlist, toggleWishlist } = useWishlist();
   const inWishlist = isInWishlist(pkg.id);
 
