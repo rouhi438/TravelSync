@@ -3,7 +3,8 @@
   width: 100%;
   padding: var(--spacing-xlarge) var(--spacing-large);
   box-sizing: border-box;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at top left,
       rgba(48, 213, 180, 0.22),
       transparent 35%
