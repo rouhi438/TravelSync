@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Rating } from "../../rating/Rating";
+import { Rating } from "../rating/Rating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./PackageCard.css";
