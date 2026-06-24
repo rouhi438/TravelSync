@@ -26,7 +26,7 @@ export function PackageDetailPage() {
             <span className="detail-price">€ {pkg.price}</span>
             <span className="detail-duration">{pkg.duration}</span>
           </div>
-          <div className="rating-holder"></div>
+          {/* Rating section removed */}
         </div>
       </article>
       <div className="btn-holder">
