@@ -102,13 +102,11 @@
   padding: 0 0.25rem;
 }
 
-.navbar {
-  padding: 0.5rem 20px;
-  border-bottom: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1.5rem;
+  }
+
   .hamburger {
     display: block;
     z-index: 30;

@@ -42,7 +42,14 @@ function Navbar() {
         <Link className="nav-link" to="/explore" onClick={() => setOpen(false)}>
           Explore
         </Link>
-        {!user ? (
+        {user && (
+          <>
+            <button className="nav-link logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        )}
+        {!user && (
           <>
             <Link
               className="nav-link"
@@ -60,20 +67,6 @@ function Navbar() {
               Register
             </Link>
           </>
-        ) : (
-          <>
-            <Link
-              className="nav-link"
-              to="/profile"
-              onClick={() => setOpen(false)}
-            >
-              Profile
-            </Link>
-
-            <button className="nav-link logout-btn" onClick={handleLogout}>
-              Logout
-            </button>
-          </>
         )}
         <Link className="nav-link" to="/cart" onClick={() => setOpen(false)}>
           Cart
@@ -88,13 +81,15 @@ function Navbar() {
             <span className="wishlist-badge">{wishlistCount}</span>
           )}
         </Link>
-        <Link
-          className="profile-icons"
-          to={user ? "/profile" : "/login"}
-          onClick={() => setOpen(false)}
-        >
-          <HiOutlineUser size={24} />
-        </Link>
+        {user && (
+          <Link
+            className="profile-icons"
+            to="/profile"
+            onClick={() => setOpen(false)}
+          >
+            <HiOutlineUser size={24} />
+          </Link>
+        )}
       </nav>
     </header>
   );
