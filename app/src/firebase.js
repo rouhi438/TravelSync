@@ -14,3 +14,5 @@ export const isFirebaseConfigured = Object.values(firebaseConfig).every(Boolean)
 
 const app = isFirebaseConfigured ? initializeApp(firebaseConfig) : null;
 export const auth = app ? getAuth(app) : null;
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
