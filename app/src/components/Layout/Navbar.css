@@ -47,6 +47,7 @@
 
 .nav {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -72,6 +73,11 @@
   font-size: 1.1rem;
   background: none;
   border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
 }
 
 .wish-icons,
