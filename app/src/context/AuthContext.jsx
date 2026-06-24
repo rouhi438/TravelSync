@@ -5,13 +5,22 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, isFirebaseConfigured } from "../firebase";
 const AuthContext = createContext(null);
+
+const authUnavailableError = () =>
+  new Error("Authentication is not configured for this environment.");
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    if (!auth || !isFirebaseConfigured) {
+      setLoading(false);
+      return undefined;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
@@ -21,12 +30,24 @@ export function AuthProvider({ children }) {
   }, []);
 
   function register(email, password) {
+    if (!auth) {
+      return Promise.reject(authUnavailableError());
+    }
+
     return createUserWithEmailAndPassword(auth, email, password);
   }
   function login(email, password) {
+    if (!auth) {
+      return Promise.reject(authUnavailableError());
+    }
+
     return signInWithEmailAndPassword(auth, email, password);
   }
   function logout() {
+    if (!auth) {
+      return Promise.reject(authUnavailableError());
+    }
+
     return signOut(auth);
   }
   return (
