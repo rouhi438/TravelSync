@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     if (!auth || !isFirebaseConfigured) {
       setLoading(false);
-      return undefined;
+      return;
     }
 
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {

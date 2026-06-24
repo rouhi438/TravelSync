@@ -32,7 +32,6 @@ export function PackageDetailPage() {
             <span className="detail-price">€ {pkg.price}</span>
             <span className="detail-duration">{pkg.duration}</span>
           </div>
-          {/* Rating section removed */}
           <div className="rating-holder">
             <InteractiveRating
               packageId={pkg.id}
