@@ -21,13 +21,6 @@ export function AuthProvider({ children }) {
       return;
     }
 
-import { auth } from "../firebase";
-const AuthContext = createContext(null);
-
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
@@ -55,12 +48,6 @@ export function AuthProvider({ children }) {
       return Promise.reject(authUnavailableError());
     }
 
-    return createUserWithEmailAndPassword(auth, email, password);
-  }
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
-  }
-  function logout() {
     return signOut(auth);
   }
   return (
