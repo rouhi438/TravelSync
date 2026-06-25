@@ -4,6 +4,6 @@ main {
   justify-content: flex-start;
   align-items: stretch;
   width: 100%;
-  min-height: calc(100vh - 180px);
+  flex: 1;
   padding-top: 100px;
 }
