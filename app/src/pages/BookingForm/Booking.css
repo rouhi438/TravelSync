@@ -1,7 +1,7 @@
 body:has(.booking-page) {
   background-image: url("../../assets/images/Vintage Travel Poster.webp");
   background-repeat: no-repeat;
-  background-position: fit;
+  background-position: center;
   background-size: cover;
   opacity: 0.8;
 }
