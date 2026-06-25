@@ -57,12 +57,9 @@
 
 .package-actions {
   margin-top: 1rem;
+  margin-bottom: auto;
   display: grid;
   gap: 0.9rem;
-}
-
-.package-actions {
-  margin-bottom: auto;
 }
 
 .details-link {
