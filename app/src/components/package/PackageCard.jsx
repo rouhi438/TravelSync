@@ -3,6 +3,7 @@ import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./PackageCard.css";
 
 export default function PackageCard({ package: pkg }) {
+  const { avg: avgRating, count: reviewCount } = getRatingStats(pkg.rating);
   const { isInWishlist, toggleWishlist } = useWishlist();
   const inWishlist = isInWishlist(pkg.id);
 

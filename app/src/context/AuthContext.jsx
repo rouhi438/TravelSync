@@ -1,77 +1,58 @@
-import { createContext, useContext, useState } from "react";
-
+import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth, isFirebaseConfigured } from "../firebase";
 const AuthContext = createContext(null);
 
+const authUnavailableError = () =>
+  new Error("Authentication is not configured for this environment.");
+
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    const stored = localStorage.getItem("user");
-    return stored ? JSON.parse(stored) : null;
-  });
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const [token, setToken] = useState(() => {
-    return localStorage.getItem("token") || null;
-  });
-
-  function getStoredUsers() {
-    const stored = localStorage.getItem("users");
-    return stored ? JSON.parse(stored) : [];
-  }
-  function saveStoredUsers(users) {
-    localStorage.setItem("users", JSON.stringify(users));
-  }
-
-  async function register(email, password, name, role) {
-    const users = getStoredUsers();
-
-    const exists = users.find((u) => u.email === email);
-    if (exists) {
-      throw new Error("User already exists");
+  useEffect(() => {
+    if (!auth || !isFirebaseConfigured) {
+      setLoading(false);
+      return;
     }
 
-    const newUser = {
-      id: Date.now(),
-      email,
-      name,
-      role,
-    };
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
 
-    saveStoredUsers([...users, newUser]);
+    return () => unsubscribe();
+  }, []);
 
-    const accessToken = `fake-token-${newUser.id}`;
-    persist(accessToken, newUser);
+  function register(email, password) {
+    if (!auth) {
+      return Promise.reject(authUnavailableError());
+    }
+
+    return createUserWithEmailAndPassword(auth, email, password);
   }
-  async function login(email, password) {
-    if (!password || password.length < 3) {
-      throw new Error("Invalid email or password");
-    }
-    const users = getStoredUsers();
-
-    const existing = users.find((u) => u.email === email);
-
-    if (!existing) {
-      throw new Error("Invalid email or password");
+  function login(email, password) {
+    if (!auth) {
+      return Promise.reject(authUnavailableError());
     }
 
-    const accessToken = `fake-token-${existing.id}`;
-    persist(accessToken, existing);
+    return signInWithEmailAndPassword(auth, email, password);
   }
   function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    setToken(null);
-    setUser(null);
-  }
+    if (!auth) {
+      return Promise.reject(authUnavailableError());
+    }
 
-  function persist(accessToken, user) {
-    localStorage.setItem("token", accessToken);
-    localStorage.setItem("user", JSON.stringify(user));
-    setToken(accessToken);
-    setUser(user);
+    return signOut(auth);
   }
-
   return (
-    <AuthContext.Provider value={{ user, token, login, register, logout }}>
-      {children}
+    <AuthContext.Provider value={{ user, login, register, logout }}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 }

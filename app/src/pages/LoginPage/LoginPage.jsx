@@ -9,11 +9,13 @@ import { useAuth } from "../../context/AuthContext.jsx";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState(null);
+
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
   const { login } = useAuth();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -28,10 +30,6 @@ export default function LoginPage() {
     }
     if (!password) {
       setError("Password is required");
-      return;
-    }
-    if (!role) {
-      setError("Please select a role");
       return;
     }
 
@@ -78,23 +76,6 @@ export default function LoginPage() {
                 <HiOutlineEyeOff size={20} />
               )}
             </button>
-          </div>
-
-          <div className="role-buttons">
-            <Button
-              variant={role === "traveler" ? "primary" : "secondary"}
-              onClick={() => setRole("traveler")}
-              type="button"
-            >
-              Traveler
-            </Button>
-            <Button
-              variant={role === "business" ? "primary" : "secondary"}
-              onClick={() => setRole("business")}
-              type="button"
-            >
-              Business
-            </Button>
           </div>
 
           <Button variant="primary" fullWidth type="submit">
