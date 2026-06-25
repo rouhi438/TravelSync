@@ -34,7 +34,7 @@ export function PackageDetailPage() {
         </Link>
         <button
           className="book-btn"
-          onClick={() => navigate("/booking", { state: { pkg } })}
+          onClick={() => navigate("/booking", { state: pkg })}
         >
           Book Now
         </button>
