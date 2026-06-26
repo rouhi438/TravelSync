@@ -29,7 +29,7 @@ export default function TravelerProfile() {
             </div>
             <div className={styles.infoRow}>
               <FaUser />
-              <strong>Name:</strong> <span>{user.name}</span>
+              <strong>Name:</strong> <span>{user.fullName}</span>
             </div>
             <div className={styles.infoRow}>
               <FaEnvelope />
