@@ -10,13 +10,14 @@
         "http://localhost:53727/login",
         "http://localhost:53727/register",
         "http://localhost:53727/cart",
-        "http://localhost:5173/wishlist",
-        "http://localhost:5173/package/1",
-        "http://localhost:5173/booking",
-        "http://localhost:5173/checkout"
+        "http://localhost:51727/wishlist",
+        "http://localhost:51727/package/1",
+        "http://localhost:51727/booking",
+        "http://localhost:51727/checkout"
       ],
       "settings": {
-        "onlyCategories": ["accessibility"]
+        "onlyCategories": ["accessibility"],
+        "chromeFlags": "--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu"
       }
     },
     "upload": {
