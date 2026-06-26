@@ -68,9 +68,7 @@ function Navbar() {
             </Link>
           </>
         )}
-        <Link className="nav-link" to="/cart" onClick={() => setOpen(false)}>
-          Cart
-        </Link>
+
         <Link
           className="wish-icons"
           to="/wishlist"
