@@ -22,7 +22,7 @@ export default function TravelerProfile() {
 
       {user && (
         <>
-          <h2 className={styles.welcome}>Welcome back, {user?.name}!</h2>
+          <h2 className={styles.welcome}>Welcome back, {user?.fullName}!</h2>
           <div className={styles.profileCard}>
             <div className={styles.iconWrapper}>
               <FaUserCircle className={styles.profileIcon} />
