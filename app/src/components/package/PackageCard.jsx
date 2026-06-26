@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+import { Rating } from "../rating/Rating";
+import { getRatingStats } from "../../utils/ratingUtils";
 import { useWishlist } from "../../context/WishlistContext.jsx";
 import "./PackageCard.css";
-import { Link } from "react-router-dom";
+
 export default function PackageCard({ package: pkg }) {
+  const { avg: avgRating, count: reviewCount } = getRatingStats(pkg.ratings);
   const { isInWishlist, toggleWishlist } = useWishlist();
   const inWishlist = isInWishlist(pkg.id);
 
@@ -22,18 +26,20 @@ export default function PackageCard({ package: pkg }) {
           <span className="duration">{pkg.duration}</span>
         </div>
 
-        <div className="package-actions">
-          <button
-            type="button"
-            className="wishlist-btn"
-            onClick={() => toggleWishlist(pkg.id)}
-          >
-            {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
-          </button>
-          <Link to={`/package/${pkg.id}`} className="details-link">
-            View Details
-          </Link>
+        <div className="rating-section">
+          <Rating rating={avgRating} reviewCount={reviewCount} />
         </div>
+
+        <button
+          type="button"
+          className="wishlist-btn"
+          onClick={() => toggleWishlist(pkg.id)}
+        >
+          {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+        </button>
+        <Link to={`/package/${pkg.id}`} className="details-link">
+          View Details
+        </Link>
       </div>
     </div>
   );

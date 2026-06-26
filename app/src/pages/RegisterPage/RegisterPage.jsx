@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import "./RegisterPage.css";
+import { useAuth } from "../../context/AuthContext.jsx";
 
 export default function RegisterPage() {
   const [role, setRole] = useState(null);
@@ -13,12 +14,14 @@ export default function RegisterPage() {
     password: "",
     confirmPassword: "",
     businessName: "",
-    phone: "",
+    cvr: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState("");
 
+  const { register } = useAuth();
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -26,7 +29,7 @@ export default function RegisterPage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -46,11 +49,24 @@ export default function RegisterPage() {
       setError("Passwords do not match");
       return;
     }
+    if (role === "traveler" && !formData.fullName) {
+      setError("Full name is required");
+      return;
+    }
     if (role === "business" && !formData.businessName) {
       setError("Business name is required");
       return;
     }
-    console.log("Registering:", { role, ...formData });
+    if (role === "business" && !formData.cvr) {
+      setError("CVR number is required");
+      return;
+    }
+    try {
+      await register(formData.email, formData.password);
+      navigate("/login");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -77,22 +93,33 @@ export default function RegisterPage() {
         </div>
 
         <form onSubmit={handleSubmit} className="register-form">
-          <Input
-            label="Full Name"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            required
-          />
-
-          {role === "business" && (
+          {role === "traveler" && (
             <Input
-              label="Business Name"
-              name="businessName"
-              value={formData.businessName}
+              label="Full Name"
+              name="fullName"
+              value={formData.fullName}
               onChange={handleChange}
               required
             />
+          )}
+          {role === "business" && (
+            <>
+              <Input
+                label="Business Name"
+                name="businessName"
+                value={formData.businessName}
+                onChange={handleChange}
+                required
+              />
+
+              <Input
+                label="CVR Number"
+                name="cvr"
+                value={formData.cvr}
+                onChange={handleChange}
+                required
+              />
+            </>
           )}
 
           <Input

@@ -9,6 +9,12 @@ You can visit [http://localhost:3000](http://localhost:3000) to see the app runn
 To prepare your application for deployment you can run `npm run build`.  
 To preview your web app you can use `npx vite preview --port 3000`.
 
+## Scripts
+
+- `npm run format` - formats the code in the whole repository as per `.prettierrc`. VS Code is also configured to format any file on save.
+- `npm run lint` - runs linting as configured in `eslint.config.js` and fixes all auto-fixable issues.
+- `npm run lighthouse` - runs a lighthouse accessibility report locally set at 90% pass rate. When run in CI, the 90% rate is treated as warning as currently no page passes the threshold.
+
 ## Environment variables
 
 You can set environment variables in the `.env` file or in the Render.com environment variables section.

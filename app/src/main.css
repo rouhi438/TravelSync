@@ -30,6 +30,13 @@ body,
   --color-text-body: var(--slate-900);
   --color-white: var(--white);
   --color-shadow: var(--shadow-color);
+  --error-min-height: calc(100vh - 100px);
+  --color-primary: #00a8a8;
+  --color-primary-dark: #008888;
+  --color-text-on-primary: #ffffff;
+  --color-text-body: #333333;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --button-gap: 1.5rem;
 
   /* Surface and borders */
   --surface-base: #ffffff;

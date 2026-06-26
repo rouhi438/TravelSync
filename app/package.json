@@ -11,12 +11,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "format": "npx prettier . --write",
-    "format:ci": "npx prettier . --end-of-line lf --check",
-    "lint": "npx eslint . --fix",
-    "lint:ci": "npx eslint . --max-warnings 0"
+    "format": "prettier . --write",
+    "format:ci": "prettier . --end-of-line lf --check",
+    "lint": "eslint . --fix",
+    "lint:ci": "eslint . --max-warnings 0",
+    "lighthouse": "lhci autorun --assertions.categories:accessibility=error,0.9",
+    "lighthouse:ci": "lhci autorun --upload.target=temporary-public-storage"
   },
   "dependencies": {
+    "firebase": "^12.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.6.0",
@@ -24,11 +27,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
+    "@lhci/cli": "^0.15.1",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "globals": "^15.0.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.8.4",
     "vite": "^5.2.0"
   },
   "allowScripts": {
