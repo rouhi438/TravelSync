@@ -2,18 +2,17 @@
   "ci": {
     "collect": {
       "numberOfRuns": 1,
-      "staticDistDir": "./dist",
       "isSinglePageApplication": true,
       "url": [
-        "/",
-        "/explore",
-        "/login",
-        "/register",
-        "/cart",
-        "/wishlist",
-        "/package/1",
-        "/booking",
-        "/checkout"
+        "http://127.0.0.1:4173",
+        "http://127.0.0.1:4173/explore",
+        "http://127.0.0.1:4173/login",
+        "http://127.0.0.1:4173/register",
+        "http://127.0.0.1:4173/cart",
+        "http://127.0.0.1:4173/wishlist",
+        "http://127.0.0.1:4173/package/1",
+        "http://127.0.0.1:4173/booking",
+        "http://127.0.0.1:4173/checkout"
       ],
       "settings": {
         "onlyCategories": ["accessibility"],

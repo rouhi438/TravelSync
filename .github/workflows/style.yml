@@ -39,7 +39,8 @@ jobs:
         run: npm run build
 
       - name: Start preview server
-        run: npm run preview &
+        run: |
+          nohup npm run preview > preview.log 2>&1 &
 
       - name: Wait for preview server
         run: npx wait-on http://127.0.0.1:4173
