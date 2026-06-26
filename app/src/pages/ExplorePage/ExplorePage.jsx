@@ -1,16 +1,20 @@
-import { useState } from "react";
-import { packages } from "../../data/package";
+import { useEffect, useState } from "react";
+import { getPackages } from "../../services/packageService";
 import { PackageGrid } from "../../components/package/PackageGrid";
 import "./ExplorePage.css";
 import { FaSearch } from "react-icons/fa";
 import { CategoryFilter } from "../../components/category/CategoryFilter";
 
 export function ExplorePage() {
+  const [packagesData, setPackagesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const categoriesList = [...new Set(packages.map((p) => p.category))];
+  const categoriesList = [...new Set(packagesData.map((p) => p.category))];
 
-  const filteredPackages = packages.filter((pkg) => {
+  const filteredPackages = packagesData.filter((pkg) => {
     const trimmedSearch = searchTerm.trim();
     const matchesSearch =
       trimmedSearch === "" ||
@@ -21,6 +25,27 @@ export function ExplorePage() {
       selectedCategory === null || pkg.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  useEffect(() => {
+    async function fetchPackages() {
+      try {
+        const data = await getPackages();
+        setPackagesData(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchPackages();
+  }, []);
+  if (loading) {
+    return <div className="loading">Loading packages...</div>;
+  }
+
+  if (error) {
+    return <div className="error">Error: {error}</div>;
+  }
 
   return (
     <div className="explore-container">
@@ -52,7 +77,7 @@ export function ExplorePage() {
             : "No packages match your search"}
         </p>
       </div>
-      <PackageGrid packages={filteredPackages} />
+      <PackageGrid packages={filteredPackages} loading={loading} />
     </div>
   );
 }
