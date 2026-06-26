@@ -21,8 +21,6 @@
 }
 
 .detail-image {
-  height: 100%;
-  aspect-ratio: 16/9;
   width: min(520px, 48%);
   border-radius: var(--border-radius-large);
   object-fit: cover;

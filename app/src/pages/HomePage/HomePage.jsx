@@ -1,42 +1,36 @@
 import { Link } from "react-router-dom";
 import "./HomePage.css";
-import animationMp4 from "../../assets/images/animation.mp4";
+import { Link } from "react-router-dom";
+import airplaneImg from "../../assets/images/airplane-removebg-preview.png";
 
 export function HomePage() {
   return (
-    <>
-      <main className="home-page">
-        <section className="home-hero">
-          <div className="home-video-box">
-            <div className="home-tv-frame">
-              <video autoPlay muted loop playsInline className="home-video">
-                <source src={animationMp4} type="video/mp4" />
-              </video>
-            </div>
+    <div className="hero">
+      <div className="left">
+        <div className="text-content">
+          <h1>Discover Your Next Adventure</h1>
+          <p>
+            Browse personalized travel packages, compare destinations, and book
+            unforgettable experiences.
+          </p>
+          <div className="hero-buttons">
+            <Link to="/explore" className="btn-primary">
+              Explore
+            </Link>
+            <Link to="/register" className="btn-secondary">
+              Get Started
+            </Link>
           </div>
-
-          <div className="home-text-content">
-            <span className="home-subtitle">Travel made simple</span>
-
-            <h1>Discover Your Next Adventure</h1>
-
-            <p>
-              Browse personalized travel packages, compare destinations, and
-              book unforgettable experiences with ease.
-            </p>
-
-            <div className="home-actions">
-              <Link to="/explore" className="home-btn-primary">
-                Explore
-              </Link>
-
-              <Link to="/register" className="home-btn-secondary">
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </div>
+      <div className="right">
+        <img
+          src={airplaneImg}
+          alt="airplane"
+          className="air-plain-image"
+          loading="lazy"
+        />
+      </div>
+    </div>
   );
 }
