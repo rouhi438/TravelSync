@@ -60,6 +60,8 @@
   margin-bottom: auto;
   display: grid;
   gap: 0.9rem;
+}
+
 .rating-section {
   margin: 15px 0;
 }

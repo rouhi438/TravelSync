@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./HomePage.css";
-import { Link } from "react-router-dom";
 import airplaneImg from "../../assets/images/airplane-removebg-preview.png";
 
 export function HomePage() {

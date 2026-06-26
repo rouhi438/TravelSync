@@ -26,7 +26,8 @@ export function ExplorePage() {
     <div className="explore-container">
       <h1 className="explore-title">Explore Your Next Adventure with Us</h1>
       <p className="explore-subtitle">
-        Find travel experiences that match your budget, destination, and interests.
+        Find travel experiences that match your budget, destination, and
+        interests.
       </p>
       <div className="filters">
         <CategoryFilter
