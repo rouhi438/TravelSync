@@ -5,19 +5,19 @@
       "staticDistDir": "./dist",
       "isSinglePageApplication": true,
       "url": [
-        "http://localhost:53727",
-        "http://localhost:53727/explore",
-        "http://localhost:53727/login",
-        "http://localhost:53727/register",
-        "http://localhost:53727/cart",
-        "http://localhost:51727/wishlist",
-        "http://localhost:51727/package/1",
-        "http://localhost:51727/booking",
-        "http://localhost:51727/checkout"
+        "/",
+        "/explore",
+        "/login",
+        "/register",
+        "/wishlist",
+        "/package/1",
+        "/booking",
+        "/checkout",
+        "/confirmation"
       ],
       "settings": {
         "onlyCategories": ["accessibility"],
-        "chromeFlags": "--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu"
+        "chromeFlags": "--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows"
       }
     },
     "upload": {
