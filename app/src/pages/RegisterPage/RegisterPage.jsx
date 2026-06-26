@@ -62,10 +62,19 @@ export default function RegisterPage() {
       return;
     }
     try {
-      await register(formData.email, formData.password);
+      await register(formData.email, formData.password, {
+        role,
+        fullName: role === "traveler" ? formData.fullName : "",
+        businessName: role === "business" ? formData.businessName : "",
+        cvr: role === "business" ? formData.cvr : "",
+      });
       navigate("/login");
     } catch (err) {
-      setError(err.message);
+      if (err.code === "auth/email-already-in-use") {
+        setError("This email is already registered. Try logging in instead.");
+      } else {
+        setError(err.message);
+      }
     }
   };
 
