@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./HomePage.css";
-import animationMp4 from "../../assets/images/animation.mp4";
+import animationMp4 from "../../assets/videos/animation.mp4";
 
 export function HomePage() {
   return (

@@ -159,7 +159,6 @@ const BookingForm = () => {
 
         <div className="booking-actions">
           <button type="submit">Proceed to Checkout</button>
-          <button type="button">Add to Wishlist</button>
         </div>
       </form>
     </section>

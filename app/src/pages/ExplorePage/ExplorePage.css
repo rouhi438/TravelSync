@@ -3,6 +3,27 @@
 
   margin: 0 auto;
   padding: 2rem 1rem;
+  min-height: 70vh;
+}
+.explore-title {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 20px 20px 10px;
+  background-color: #e2df90;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.explore-subtitle {
+  display: block;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 0 20px 20px;
+  background-color: #e2df90;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .filters {
@@ -46,4 +67,11 @@
 .search-wrapper:focus-within {
   outline: 1px solid blue;
   border-color: blue;
+}
+
+.results-count {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-style: italic;
 }

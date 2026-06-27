@@ -3,45 +3,105 @@ body,
 #root {
   margin: 0;
   padding: 0;
-  min-height: 100%;
   width: 100%;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 :root {
+  /* Brand and semantic colors */
+  --teal-500: #00a8a8;
+  --teal-600: #008888;
+  --teal-50: #edf9f9;
+  --teal-100: #ddf3f3;
+  --slate-900: #1f2937;
+  --slate-700: #374151;
+  --slate-500: #6b7280;
+  --white: #ffffff;
+  --shadow-color: rgba(15, 23, 42, 0.16);
+
+  --color-primary: var(--teal-500);
+  --color-primary-dark: var(--teal-600);
+  --color-text-on-primary: var(--white);
+  --color-text-body: var(--slate-900);
+  --color-white: var(--white);
+  --color-shadow: var(--shadow-color);
   --error-min-height: calc(100vh - 100px);
   --color-primary: #00a8a8;
   --color-primary-dark: #008888;
   --color-text-on-primary: #ffffff;
   --color-text-body: #333333;
   --color-shadow: rgba(0, 0, 0, 0.2);
+  --button-gap: 1.5rem;
 
-  --spacing-small: 1px;
-  --spacing-medium: 1.5rem;
-  --spacing-large: 2rem;
-  --spacing-xlarge: 3rem;
+  /* Surface and borders */
+  --surface-base: #ffffff;
+  --surface-muted: #f8fbfb;
+  --border-subtle: #dbe7e7;
 
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  --button-gap: var(--space-6);
+  --error-gap: var(--space-4);
+  --spacing-small: var(--space-1);
+  --spacing-medium: var(--space-6);
+  --spacing-large: var(--space-8);
+  --spacing-xlarge: var(--space-12);
+
+  /* Typography */
+  --font-family-base: "Segoe UI", "Inter", system-ui, -apple-system, sans-serif;
+  --font-size-small: 0.875rem;
+  --font-size-base: 1rem;
   --font-size-large: 1.5rem;
-  --border-radius-small: 5px;
-  --border-radius-medium: 10px;
-  --border-radius-large: 12px;
+  --line-height-base: 1.6;
 
-  --box-shadow-default: 0 8px 30px var(--color-shadow);
+  /* Radius */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
 
+  --border-radius-small: var(--radius-sm);
+  --border-radius-medium: var(--radius-md);
+  --border-radius-large: var(--radius-lg);
+
+  /* Elevation */
+  --shadow-sm: 0 2px 8px var(--shadow-color);
+  --shadow-md: 0 6px 20px var(--shadow-color);
+  --shadow-lg: 0 8px 30px var(--shadow-color);
+  --box-shadow-default: var(--shadow-lg);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
+
+  /* Layout */
   --max-width-container: 1200px;
   --max-width-button: 200px;
   --underline-offset: 5px;
   --button-padding: 12px;
+  --image-offset: 1rem;
   --image-width: calc(50% - var(--image-offset));
+  --error-min-height: calc(100vh - 100px);
 }
 
 body {
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
-  background-color: #fff;
+  font-family: var(--font-family-base);
+  background-color: var(--surface-base);
+  color: var(--color-text-body);
 }
 
 .anime-holder {
