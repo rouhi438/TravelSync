@@ -28,7 +28,7 @@ export default function PackageCard({ package: pkg }) {
         <button
           type="button"
           className="wishlist-btn"
-          onClick={() => toggleWishlist(pkg.id)}
+          onClick={() => toggleWishlist(pkg)}
         >
           {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
         </button>
