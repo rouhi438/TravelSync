@@ -1,7 +1,14 @@
 .package-grid {
+  min-height: var(--package-card-min-height);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+}
+
+.package-card-placeholder {
+  visibility: hidden;
+  pointer-events: none;
+  min-height: var(--package-card-min-height);
 }
 
 @media (max-width: 987px) {

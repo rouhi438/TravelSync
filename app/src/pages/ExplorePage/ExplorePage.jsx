@@ -52,7 +52,7 @@ export function ExplorePage() {
             : "No packages match your search"}
         </p>
       </div>
-      <PackageGrid packages={filteredPackages} />
+      <PackageGrid packages={filteredPackages} totalSlots={packages.length} />
     </div>
   );
 }

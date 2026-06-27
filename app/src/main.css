@@ -96,6 +96,7 @@ body,
   --image-offset: 1rem;
   --image-width: calc(50% - var(--image-offset));
   --error-min-height: calc(100vh - 100px);
+  --package-card-min-height: 470px;
 }
 
 body {

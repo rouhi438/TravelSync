@@ -1,9 +1,8 @@
 .explore-container {
   max-width: 1200px;
-
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   padding: 2rem 1rem;
-  min-height: 70vh;
+  min-height: 900px;
 }
 .explore-title {
   display: block;
@@ -14,6 +13,7 @@
   font-size: clamp(1.8rem, 2.8vw, 2.5rem);
   line-height: 1.2;
   font-weight: 700;
+  min-height: 72px;
 }
 
 .explore-subtitle {
@@ -24,10 +24,12 @@
   background-color: #e2df90;
   font-size: 1rem;
   line-height: 1.5;
+  min-height: 64px;
 }
 
 .filters {
   margin-bottom: 2rem;
+  min-height: 170px;
 }
 
 .search-wrapper {
@@ -74,4 +76,5 @@
   font-size: 0.85rem;
   color: #6c757d;
   font-style: italic;
+  min-height: 1.5rem;
 }
