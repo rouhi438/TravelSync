@@ -16,6 +16,40 @@
   object-fit: cover;
 }
 
+.package-card {
+  position: relative;
+}
+
+.wishlist-heart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+
+  transition: transform 0.2s ease;
+}
+
+.wishlist-heart:hover {
+  transform: scale(1.1);
+}
+
+.wishlist-heart svg {
+  color: #ef4444;
+}
+
 .package-info {
   padding: 1rem;
 }
