@@ -10,16 +10,21 @@ export function WishListCard({ pkg }) {
       <div className="wishlist-card-body">
         <h3>{pkg.name}</h3>
         <p className="wishlist-location">{pkg.location}</p>
-        <p className="wishlist-description">{pkg.shortDescription}</p>
+        {pkg.shortDescription && (
+          <p className="wishlist-description">{pkg.shortDescription}</p>
+        )}
+
         <div className="wishlist-meta-row">
-          <span className="wishlist-price">EUR {pkg.price}</span>
-          <span className="wishlist-duration">{pkg.duration}</span>
+          {pkg.price && <span className="wishlist-price">EUR {pkg.price}</span>}
+          {pkg.duration && (
+            <span className="wishlist-duration">{pkg.duration}</span>
+          )}
         </div>
 
         <button
           type="button"
           className="wishlist-remove-btn"
-          onClick={() => removeFromWishlist(pkg.id)}
+          onClick={() => removeFromWishlist(pkg._id)}
         >
           Remove from wishlist
         </button>
