@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Rating } from "../rating/Rating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useWishlist } from "../../context/WishlistContext.jsx";
+import { HiOutlineHeart, HiHeart } from "react-icons/hi2";
 import "./PackageCard.css";
 
 export default function PackageCard({ package: pkg }) {
@@ -12,6 +13,14 @@ export default function PackageCard({ package: pkg }) {
   return (
     <div className="package-card">
       <img src={pkg.image} alt={pkg.name} className="package-img" />
+      <button
+        type="button"
+        className="wishlist-heart"
+        onClick={() => toggleWishlist(pkg)}
+        aria-label="Toggle wishlist"
+      >
+        {inWishlist ? <HiHeart size={24} /> : <HiOutlineHeart size={24} />}
+      </button>
       <div className="package-info">
         <h3>{pkg.name}</h3>
         <p className="location">{pkg.location}</p>
@@ -24,14 +33,6 @@ export default function PackageCard({ package: pkg }) {
         <div className="rating-section">
           <Rating rating={avgRating} reviewCount={reviewCount} />
         </div>
-
-        <button
-          type="button"
-          className="wishlist-btn"
-          onClick={() => toggleWishlist(pkg)}
-        >
-          {inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
-        </button>
         <Link to={`/package/${pkg.id}`} className="details-link">
           View Details
         </Link>
