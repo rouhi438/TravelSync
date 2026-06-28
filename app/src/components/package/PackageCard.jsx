@@ -8,7 +8,8 @@ import "./PackageCard.css";
 export default function PackageCard({ package: pkg }) {
   const { avg: avgRating, count: reviewCount } = getRatingStats(pkg.ratings);
   const { isInWishlist, toggleWishlist } = useWishlist();
-  const inWishlist = isInWishlist(pkg.id);
+  const packageId = pkg._id ?? pkg.id;
+  const inWishlist = isInWishlist(packageId);
 
   return (
     <div className="package-card">
@@ -38,7 +39,7 @@ export default function PackageCard({ package: pkg }) {
         <div className="rating-section">
           <Rating rating={avgRating} reviewCount={reviewCount} />
         </div>
-        <Link to={`/package/${pkg.id}`} className="details-link">
+        <Link to={`/package/${packageId}`} className="details-link">
           View Details
         </Link>
       </div>

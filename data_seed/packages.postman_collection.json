@@ -1,0 +1,316 @@
+{
+  "info": {
+    "_postman_id": "850b5ce2-88cf-4aa1-bbb3-0aa49158843e",
+    "name": "Packages",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24259017",
+    "_collection_link": "https://go.postman.co/collection/24259017-850b5ce2-88cf-4aa1-bbb3-0aa49158843e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 2,\r\n  \"slug\": \"rocky-mountain-adventure\",\r\n  \"name\": \"Mountain Adventure\",\r\n  \"description\": \"Experience thrilling mountain activities and breathtaking views in the Rockies.\",\r\n  \"shortDescription\": \"A short but intense hiking and rafting getaway for adventure lovers.\",\r\n  \"price\": 1200,\r\n  \"duration\": \"3 days\",\r\n  \"location\": \"Rocky Mountains\",\r\n  \"destination\": \"Rocky Mountains\",\r\n  \"country\": \"Canada\",\r\n  \"category\": \"Adventure\",\r\n  \"travelerType\": \"traveler\",\r\n  \"rating\": 4.7,\r\n  \"reviewCount\": 88,\r\n  \"image\": \"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80\",\r\n  \"gallery\": [\r\n    \"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80\",\r\n    \"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80\"\r\n  ],\r\n  \"highlights\": [\r\n    \"Guided summit hike\",\r\n    \"River rafting\",\r\n    \"Cabin stay\"\r\n  ],\r\n  \"includes\": [\r\n    \"Cabin accommodation\",\r\n    \"Professional guide\",\r\n    \"Safety gear\",\r\n    \"Breakfast\"\r\n  ],\r\n  \"availableSlots\": 9,\r\n  \"itinerary\": [\r\n    {\r\n      \"day\": 1,\r\n      \"activities\": [\r\n        \"Arrival at the mountain lodge\",\r\n        \"Sunset trail walk\",\r\n        \"Campfire dinner\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 2,\r\n      \"activities\": [\r\n        \"Early summit hike\",\r\n        \"Picnic lunch with panoramic views\",\r\n        \"River rafting adventure\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 3,\r\n      \"activities\": [\r\n        \"Nature photography session\",\r\n        \"Check-out and return transfer\"\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 3,\r\n  \"slug\": \"new-york-city-explorer\",\r\n  \"name\": \"City Explorer\",\r\n  \"description\": \"Discover the vibrant culture and iconic landmarks of a bustling city.\",\r\n  \"shortDescription\": \"A curated city break covering museums, food spots, and landmarks.\",\r\n  \"price\": 1000,\r\n  \"duration\": \"4 days\",\r\n  \"location\": \"New York City\",\r\n  \"destination\": \"New York City\",\r\n  \"country\": \"USA\",\r\n  \"category\": \"City Break\",\r\n  \"travelerType\": \"traveler\",\r\n  \"rating\": 4.3,\r\n  \"reviewCount\": 156,\r\n  \"image\": \"https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80\",\r\n  \"gallery\": [\r\n    \"https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80\",\r\n    \"https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?auto=format&fit=crop&w=1200&q=80\"\r\n  ],\r\n  \"highlights\": [\r\n    \"Times Square\",\r\n    \"Broadway night\",\r\n    \"Food market tour\"\r\n  ],\r\n  \"includes\": [\r\n    \"Boutique hotel\",\r\n    \"Metro pass\",\r\n    \"Museum entry\",\r\n    \"Walking guide\"\r\n  ],\r\n  \"availableSlots\": 20,\r\n  \"itinerary\": [\r\n    {\r\n      \"day\": 1,\r\n      \"activities\": [\r\n        \"Hotel check-in\",\r\n        \"Central Park walk\",\r\n        \"Skyline dinner cruise\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 2,\r\n      \"activities\": [\r\n        \"Statue of Liberty visit\",\r\n        \"Financial District tour\",\r\n        \"Broadway show\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 3,\r\n      \"activities\": [\r\n        \"Museum hopping\",\r\n        \"SoHo shopping\",\r\n        \"Rooftop dinner\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 4,\r\n      \"activities\": [\r\n        \"Chelsea Market brunch\",\r\n        \"Free time\",\r\n        \"Departure\"\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 4,\r\n  \"slug\": \"serengeti-safari-expedition\",\r\n  \"name\": \"Safari Expedition\",\r\n  \"description\": \"Embark on an unforgettable safari adventure and witness the majestic wildlife of Africa.\",\r\n  \"shortDescription\": \"A wildlife-focused premium safari with expert guides and luxury tents.\",\r\n  \"price\": 2000,\r\n  \"duration\": \"10 days\",\r\n  \"location\": \"Serengeti National Park\",\r\n  \"destination\": \"Serengeti National Park\",\r\n  \"country\": \"Tanzania\",\r\n  \"category\": \"Wildlife\",\r\n  \"travelerType\": \"traveler\",\r\n  \"rating\": 4.9,\r\n  \"reviewCount\": 64,\r\n  \"image\": \"https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80\",\r\n  \"gallery\": [\r\n    \"https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1200&q=80\",\r\n    \"https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1200&q=80\"\r\n  ],\r\n  \"highlights\": [\r\n    \"Big Five safari\",\r\n    \"Luxury tent stay\",\r\n    \"Sunrise game drive\"\r\n  ],\r\n  \"includes\": [\r\n    \"Full-board lodging\",\r\n    \"Safari jeep\",\r\n    \"Guide\",\r\n    \"Park fees\"\r\n  ],\r\n  \"availableSlots\": 6,\r\n  \"itinerary\": [\r\n    {\r\n      \"day\": 1,\r\n      \"activities\": [\r\n        \"Arrival in Arusha\",\r\n        \"Transfer to camp\",\r\n        \"Welcome briefing\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 2,\r\n      \"activities\": [\r\n        \"Full-day game drive\",\r\n        \"Bush lunch\",\r\n        \"Evening wildlife talk\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 3,\r\n      \"activities\": [\r\n        \"Sunrise safari\",\r\n        \"Village visit\",\r\n        \"Campfire dinner\"\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 5,\r\n  \"slug\": \"kyoto-cultural-immersion\",\r\n  \"name\": \"Cultural Immersion\",\r\n  \"description\": \"Immerse yourself in the rich culture and traditions of a vibrant destination.\",\r\n  \"shortDescription\": \"A calm cultural trip with temples, tea ceremonies, and local craft workshops.\",\r\n  \"price\": 800,\r\n  \"duration\": \"6 days\",\r\n  \"location\": \"Kyoto, Japan\",\r\n  \"destination\": \"Kyoto\",\r\n  \"country\": \"Japan\",\r\n  \"category\": \"Culture\",\r\n  \"travelerType\": \"traveler\",\r\n  \"rating\": 4.6,\r\n  \"reviewCount\": 101,\r\n  \"image\": \"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80\",\r\n  \"gallery\": [\r\n    \"https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80\",\r\n    \"https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1200&q=80\"\r\n  ],\r\n  \"highlights\": [\r\n    \"Tea ceremony\",\r\n    \"Temple pass\",\r\n    \"Local cooking class\"\r\n  ],\r\n  \"includes\": [\r\n    \"Ryokan stay\",\r\n    \"Breakfast\",\r\n    \"Train card\",\r\n    \"Guide sessions\"\r\n  ],\r\n  \"availableSlots\": 11,\r\n  \"itinerary\": [\r\n    {\r\n      \"day\": 1,\r\n      \"activities\": [\r\n        \"Ryokan check-in\",\r\n        \"Gion evening walk\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 2,\r\n      \"activities\": [\r\n        \"Temple tour\",\r\n        \"Tea ceremony\",\r\n        \"Seasonal kaiseki dinner\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 3,\r\n      \"activities\": [\r\n        \"Arashiyama bamboo grove\",\r\n        \"Craft workshop\",\r\n        \"Riverfront free time\"\r\n      ]\r\n    }\r\n  ]\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 6,\r\n  \"slug\": \"caribbean-cruise-getaway\",\r\n  \"name\": \"Cruise Getaway\",\r\n  \"description\": \"Set sail on a luxurious cruise and explore multiple destinations in one trip.\",\r\n  \"shortDescription\": \"A multi-stop cruise package with island excursions and onboard entertainment.\",\r\n  \"price\": 2500,\r\n  \"duration\": \"7 days\",\r\n  \"location\": \"Caribbean\",\r\n  \"destination\": \"Caribbean Islands\",\r\n  \"country\": \"Multiple\",\r\n  \"category\": \"Luxury\",\r\n  \"travelerType\": \"traveler\",\r\n  \"rating\": 4.4,\r\n  \"reviewCount\": 73,\r\n  \"image\": \"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80\",\r\n  \"gallery\": [\r\n    \"https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80\",\r\n    \"https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80\"\r\n  ],\r\n  \"highlights\": [\r\n    \"Island excursions\",\r\n    \"Ocean-view cabin\",\r\n    \"Onboard entertainment\"\r\n  ],\r\n  \"includes\": [\r\n    \"Cabin stay\",\r\n    \"All meals\",\r\n    \"Port transfers\",\r\n    \"Evening shows\"\r\n  ],\r\n  \"availableSlots\": 18,\r\n  \"itinerary\": [\r\n    {\r\n      \"day\": 1,\r\n      \"activities\": [\r\n        \"Boarding and welcome lunch\",\r\n        \"Safety briefing\",\r\n        \"Sail-away party\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 2,\r\n      \"activities\": [\r\n        \"Island beach excursion\",\r\n        \"Pool deck relaxation\",\r\n        \"Live music show\"\r\n      ]\r\n    },\r\n    {\r\n      \"day\": 3,\r\n      \"activities\": [\r\n        \"Snorkeling stop\",\r\n        \"Spa session\",\r\n        \"Captain's dinner\"\r\n      ]\r\n    }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": 7,\r\n\"slug\": \"bali-island-wellness-escape\",\r\n\"name\": \"Island Wellness Escape\",\r\n\"description\": \"Recharge in Bali with beach time, temple visits, and guided wellness sessions.\",\r\n\"shortDescription\": \"A relaxing Bali retreat with culture, nature, and spa experiences.\",\r\n\"price\": 1350,\r\n\"duration\": \"6 days\",\r\n\"location\": \"Bali\",\r\n\"destination\": \"Ubud & Seminyak\",\r\n\"country\": \"Indonesia\",\r\n\"category\": \"Relaxation\",\r\n\"travelerType\": \"traveler\",\r\n\"rating\": 4.7,\r\n\"reviewCount\": 92,\r\n\"image\": \"https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80\",\r\n\"gallery\": [\r\n\"https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80\",\r\n\"https://images.unsplash.com/photo-1518544866330-95a2e4e2f6c1?auto=format&fit=crop&w=1200&q=80\"\r\n],\r\n\"highlights\": [\"Sunrise rice terrace walk\", \"Balinese spa ritual\", \"Temple sunset tour\"],\r\n\"includes\": [\"Resort stay\", \"Airport transfer\", \"Daily breakfast\", \"Guided excursions\"],\r\n\"availableSlots\": 16,\r\n\"itinerary\": [\r\n{ \"day\": 1, \"activities\": [\"Arrival and check-in\", \"Welcome dinner\"] },\r\n{ \"day\": 2, \"activities\": [\"Ubud cultural tour\", \"Traditional dance performance\"] },\r\n{ \"day\": 3, \"activities\": [\"Yoga and spa day\", \"Free beach time\"] }\r\n]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": 8,\r\n\"slug\": \"seoul-city-culture-break\",\r\n\"name\": \"City Culture Break\",\r\n\"description\": \"Explore Seoul’s mix of modern districts, palaces, and local food scenes.\",\r\n\"shortDescription\": \"A fast-paced Seoul trip with history, shopping, and street food.\",\r\n\"price\": 1180,\r\n\"duration\": \"5 days\",\r\n\"location\": \"Seoul\",\r\n\"destination\": \"Seoul\",\r\n\"country\": \"South Korea\",\r\n\"category\": \"City Break\",\r\n\"travelerType\": \"traveler\",\r\n\"rating\": 4.5,\r\n\"reviewCount\": 74,\r\n\"image\": \"https://images.unsplash.com/photo-1549693578-d683be217e58?auto=format&fit=crop&w=1200&q=80\",\r\n\"gallery\": [\"https://images.unsplash.com/photo-1549693578-d683be217e58?auto=format&fit=crop&w=1200&q=80\"],\r\n\"highlights\": [\"Gyeongbokgung Palace\", \"Myeongdong food crawl\", \"Han River night cruise\"],\r\n\"includes\": [\"Hotel stay\", \"Metro card\", \"Palace entry\", \"Local guide\"],\r\n\"availableSlots\": 14,\r\n\"itinerary\": [\r\n{ \"day\": 1, \"activities\": [\"Check-in\", \"Evening in Hongdae\"] },\r\n{ \"day\": 2, \"activities\": [\"Palace and hanok village tour\", \"Street food tasting\"] },\r\n{ \"day\": 3, \"activities\": [\"N Seoul Tower\", \"Shopping and cafe hopping\"] }\r\n]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": 9,\r\n\"slug\": \"santorini-romantic-coastline\",\r\n\"name\": \"Romantic Coastline\",\r\n\"description\": \"Discover white-washed villages, caldera views, and Aegean sunsets in Santorini.\",\r\n\"shortDescription\": \"A scenic Santorini getaway with cruises, cliffside dining, and beaches.\",\r\n\"price\": 1650,\r\n\"duration\": \"6 days\",\r\n\"location\": \"Santorini\",\r\n\"destination\": \"Santorini\",\r\n\"country\": \"Greece\",\r\n\"category\": \"Luxury\",\r\n\"travelerType\": \"traveler\",\r\n\"rating\": 4.8,\r\n\"reviewCount\": 109,\r\n\"image\": \"https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80\",\r\n\"gallery\": [\r\n\"https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80\",\r\n\"https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=1200&q=80\"\r\n],\r\n\"highlights\": [\"Caldera sunset cruise\", \"Oia village walk\", \"Volcanic beach visit\"],\r\n\"includes\": [\"Boutique hotel\", \"Breakfast\", \"Cruise tickets\", \"Airport transfer\"],\r\n\"availableSlots\": 12,\r\n\"itinerary\": [\r\n{ \"day\": 1, \"activities\": [\"Arrival and cliffside check-in\", \"Sunset viewpoint\"] },\r\n{ \"day\": 2, \"activities\": [\"Catamaran cruise\", \"Seafood dinner\"] },\r\n{ \"day\": 3, \"activities\": [\"Winery tasting\", \"Beach relaxation\"] }\r\n]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": 10,\r\n\"slug\": \"swiss-alps-adventure-week\",\r\n\"name\": \"Alpine Adventure Week\",\r\n\"description\": \"Experience the Swiss Alps with mountain railways, hiking trails, and alpine villages.\",\r\n\"shortDescription\": \"An active Europe itinerary with scenic trains and glacier viewpoints.\",\r\n\"price\": 1820,\r\n\"duration\": \"7 days\",\r\n\"location\": \"Swiss Alps\",\r\n\"destination\": \"Interlaken & Jungfrau Region\",\r\n\"country\": \"Switzerland\",\r\n\"category\": \"Adventure\",\r\n\"travelerType\": \"traveler\",\r\n\"rating\": 4.9,\r\n\"reviewCount\": 83,\r\n\"image\": \"https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80\",\r\n\"gallery\": [\r\n\"https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80\",\r\n\"https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1200&q=80\"\r\n],\r\n\"highlights\": [\"Jungfraujoch excursion\", \"Panoramic train routes\", \"Guided alpine hike\"],\r\n\"includes\": [\"Mountain lodge stay\", \"Rail pass\", \"Guide\", \"Breakfast and dinner\"],\r\n\"availableSlots\": 10,\r\n\"itinerary\": [\r\n{ \"day\": 1, \"activities\": [\"Arrival in Interlaken\", \"Lakeside orientation walk\"] },\r\n{ \"day\": 2, \"activities\": [\"Jungfrau railway journey\", \"Glacier viewpoint\"] },\r\n{ \"day\": 3, \"activities\": [\"Alpine hike\", \"Village food tour\"] }\r\n]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": 11,\r\n\"slug\": \"mexico-city-heritage-flavors\",\r\n\"name\": \"Heritage & Flavors\",\r\n\"description\": \"Dive into Mexico City’s history, art, and vibrant culinary neighborhoods.\",\r\n\"shortDescription\": \"A cultural Mexico City package with museums, markets, and local tastings.\",\r\n\"price\": 980,\r\n\"duration\": \"5 days\",\r\n\"location\": \"Mexico City\",\r\n\"destination\": \"Mexico City\",\r\n\"country\": \"Mexico\",\r\n\"category\": \"Culture\",\r\n\"travelerType\": \"traveler\",\r\n\"rating\": 4.6,\r\n\"reviewCount\": 97,\r\n\"image\": \"https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?auto=format&fit=crop&w=1200&q=80\",\r\n\"gallery\": [\r\n\"https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?auto=format&fit=crop&w=1200&q=80\",\r\n\"https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80\"\r\n],\r\n\"highlights\": [\"Historic center walk\", \"Frida Kahlo Museum\", \"Street taco experience\"],\r\n\"includes\": [\"Hotel stay\", \"Museum tickets\", \"Airport transfer\", \"Local guide\"],\r\n\"availableSlots\": 19,\r\n\"itinerary\": [\r\n    { \"day\": 1, \"activities\": [\"Hotel check-in\", \"Zocalo evening tour\"] },\r\n{ \"day\": 2, \"activities\": [\"Museum day\", \"Roma neighborhood food crawl\"] },\r\n{ \"day\": 3, \"activities\": [\"Xochimilco canals\", \"Live mariachi dinner\"] }\r\n]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\": 12,\r\n\"slug\": \"riviera-maya-reef-retreat\",\r\n\"name\": \"Reef Retreat\",\r\n\"description\": \"Enjoy turquoise beaches, cenotes, and Mayan heritage sites along Riviera Maya.\",\r\n\"shortDescription\": \"A sunny Mexico coast escape with snorkeling, ruins, and eco-adventures.\",\r\n\"price\": 1420,\r\n\"duration\": \"6 days\",\r\n\"location\": \"Riviera Maya\",\r\n\"destination\": \"Tulum & Playa del Carmen\",\r\n\"country\": \"Mexico\",\r\n\"category\": \"Relaxation\",\r\n\"travelerType\": \"traveler\",\r\n\"rating\": 4.7,\r\n\"reviewCount\": 86,\r\n\"image\": \"https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=80\",\r\n\"gallery\": [\r\n\"https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=80\",\r\n\"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80\"\r\n],\r\n\"highlights\": [\"Cenote swim tour\", \"Tulum ruins\", \"Coral reef snorkeling\"],\r\n\"includes\": [\"Beach resort stay\", \"Breakfast\", \"Excursion transport\", \"Snorkel gear\"],\r\n\"availableSlots\": 15,\r\n\"itinerary\": [\r\n{ \"day\": 1, \"activities\": [\"Arrival and resort check-in\", \"Beach sunset\"] },\r\n{ \"day\": 2, \"activities\": [\"Tulum archaeological site\", \"Local market visit\"] },\r\n{ \"day\": 3, \"activities\": [\"Cenote and reef adventure\", \"Free evening\"] }\r\n]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "package 1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 1,\r\n  \"slug\": \"beach-paradise-maldives\",\r\n  \"name\": \"Beach Paradise\",\r\n  \"description\": \"Enjoy a relaxing week at a tropical beach resort with all-inclusive amenities.\",\r\n  \"shortDescription\": \"A luxury beach escape with snorkeling, spa time, and sunset cruises.\",\r\n  \"price\": 1500,\r\n  \"duration\": \"7 days\",\r\n  \"location\": \"Maldives\",\r\n  \"destination\": \"Maldives\",\r\n  \"country\": \"Maldives\",\r\n  \"category\": \"Relaxation\",\r\n  \"travelerType\": \"traveler\",\r\n  \"rating\": 4.5,\r\n  \"reviewCount\": 120,\r\n  \"image\": \"https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80\",\r\n  \"gallery\": [\r\n    \"https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80\",\r\n    \"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80\",\r\n    \"https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80\"\r\n  ],\r\n  \"highlights\": [\r\n    \"All-inclusive resort\",\r\n    \"Sunset cruise\",\r\n    \"Guided snorkeling\"\r\n  ],\r\n  \"includes\": [\r\n    \"Hotel stay\",\r\n    \"Airport transfer\",\r\n    \"Breakfast and dinner\",\r\n    \"Island tour\"\r\n  ],\r\n  \"availableSlots\": 14,\r\n  \"itinerary\": [\r\n    {\r\n      \"day\": 1,\r\n      \"activities\": [\r\n        \"Arrival and check-in at the resort\",\r\n        \"Welcome dinner with traditional cuisine\"\r\n      ]\r\n    }\r\n  ]\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"slug\": \"rocky-mountain-adventure\",\r\n    \"name\": \"Mountain Adventure\",\r\n    \"description\":\r\n      \"Experience thrilling mountain activities and breathtaking views in the Rockies.\",\r\n    \"shortDescription\":\r\n      \"A short but intense hiking and rafting getaway for adventure lovers.\",\r\n    \"price\": 1200,\r\n    \"duration\": \"3 days\",\r\n    \"location\": \"Rocky Mountains\",\r\n    \"destination\": \"Rocky Mountains\",\r\n    \"country\": \"Canada\",\r\n    \"category\": \"Adventure\",\r\n    \"travelerType\": \"traveler\",\r\n    \"rating\": 4.7,\r\n    \"reviewCount\": 88,\r\n    \"image\":\r\n      \"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80\",\r\n    \"gallery\": [\r\n      \"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80\",\r\n      \"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80\",\r\n    ],\r\n    \"highlights\": [\"Guided summit hike\", \"River rafting\", \"Cabin stay\"],\r\n    \"includes\": [\r\n      \"Cabin accommodation\",\r\n      \"Professional guide\",\r\n      \"Safety gear\",\r\n      \"Breakfast\",\r\n    ],\r\n    \"availableSlots\": 9,\r\n    \"itinerary\": [\r\n      {\r\n        \"day\": 1,\r\n        \"activities\": [\r\n          \"Arrival at the mountain lodge\",\r\n          \"Sunset trail walk\",\r\n          \"Campfire dinner\",\r\n        ],\r\n      },\r\n      {\r\n        \"day\": 2,\r\n        \"activities\": [\r\n          \"Early summit hike\",\r\n          \"Picnic lunch with panoramic views\",\r\n          \"River rafting adventure\",\r\n        ],\r\n      },\r\n      {\r\n        \"day\": 3,\r\n        \"activities\": [\r\n          \"Nature photography session\",\r\n          \"Check-out and return transfer\",\r\n        ],\r\n      },\r\n    ],\r\n  },",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://crudcrud.com/api/{{crudcollection}}/packages",
+          "protocol": "https",
+          "host": ["crudcrud", "com"],
+          "path": ["api", "{{crudcollection}}", "packages"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "crudcollection",
+      "value": "fd0a1d2feb9d4fb9bb9e47a3f2de3608"
+    }
+  ]
+}
