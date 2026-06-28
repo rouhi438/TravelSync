@@ -10,7 +10,7 @@ import BookingForm from "../pages/BookingForm/Booking.jsx";
 import { WishlistPage } from "../pages/WishlistPage/WishlistPage.jsx";
 import { PackageDetailPage } from "../pages/PackageDetailPage/PackageDetailPage.jsx";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage.jsx";
-import { packages } from "../data/package.js";
+import { getPackageById } from "../services/packageService.js";
 
 import TravelerProfile from "../pages/TravelerProfile/TravelerProfile.jsx";
 
@@ -32,15 +32,14 @@ export const router = createBrowserRouter([
         path: "/package/:id",
         element: <PackageDetailPage />,
         loader: async ({ params }) => {
-          const id = Number(params.id);
-          if (isNaN(id)) {
-            throw new Response("Invalid ID", { status: 404 });
+          try {
+            const pkg = await getPackageById(params.id);
+            return { pkg };
+          } catch (error) {
+            throw new Response(error.message || "Package not found", {
+              status: 404,
+            });
           }
-          const pkg = packages.find((p) => p.id === id);
-          if (!pkg) {
-            throw new Response("Package not found", { status: 404 });
-          }
-          return { pkg };
         },
         errorElement: <ErrorPage />,
       },

@@ -8,66 +8,45 @@
 }
 
 .detail-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: var(--spacing-large);
+  padding: var(--spacing-large);
+  max-width: var(--max-width-container);
   margin: 0 auto;
-  width: 100%;
-  align-items: stretch;
-  background: #ffffff;
-  border-radius: var(--border-radius-large);
-  box-shadow: var(--box-shadow-default);
-  padding: 1.1rem;
 }
 
 .detail-image {
-  width: min(520px, 48%);
+  width: var(--image-width);
   border-radius: var(--border-radius-large);
   object-fit: cover;
-  min-height: 340px;
+  box-shadow: var(--box-shadow-default);
 }
 
 .package-detail-name {
   text-align: center;
-  margin: 0 0 1.1rem;
-  font-size: 2rem;
-  line-height: 1.1;
 }
 
 .detail-location {
   color: var(--color-primary);
-  padding: 0.25rem 0.6rem;
+  padding: var(--spacing-small);
   border-radius: var(--border-radius-small);
-  text-decoration: none;
-  display: inline-flex;
-  align-self: flex-start;
-  background: #edf9f9;
-  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: var(--underline-offset);
 }
 
 .detail-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: var(--box-shadow-default);
   border-radius: var(--border-radius-large);
   padding: var(--spacing-medium);
-  background: #fcfefe;
-  flex: 1;
-  gap: 0.9rem;
-}
-
-.detail-description {
-  line-height: 1.7;
-  color: #445062;
-  margin: 0;
 }
 
 .detail-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0.5rem;
-  border-top: 1px solid #e8eeee;
 }
 
 .detail-price {
@@ -76,26 +55,17 @@
   color: var(--color-primary);
 }
 
-.rating-holder {
-  border-top: 1px solid var(--color-primary);
-  margin-top: 10px;
-}
-
-.detail-duration {
-  color: #6c757d;
-  font-weight: 600;
-}
-
 .btn-holder {
   display: flex;
   justify-content: center;
   padding: var(--spacing-large) 0 0;
-  gap: 0.8rem;
-  width: auto;
+  gap: var(--spacing-large);
+  width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   flex-wrap: wrap;
 }
+
 .book-btn,
 .back-btn {
   color: var(--color-text-on-primary);
@@ -136,19 +106,11 @@
 
 @media (max-width: 678px) {
   .detail-row {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-medium);
     flex-direction: column;
-    padding: 0.9rem;
   }
 
   .detail-image {
     width: 100%;
-    min-height: 240px;
-  }
-
-  .package-detail-name {
-    font-size: 1.6rem;
   }
 
   .btn-holder {
