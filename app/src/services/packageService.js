@@ -1,4 +1,4 @@
-const crudCrudBaseUrl = import.meta.env.VITE_CRUDCRUD_API?.trim();
+const crudCrudBaseUrl = `https://crudcrud.com/api/${import.meta.env.VITE_CRUD_CRUD_API_KEY?.trim()}`;
 
 function normalizePackage(pkg) {
   return {
@@ -13,7 +13,7 @@ function normalizePackage(pkg) {
 
 export async function getPackages() {
   if (!crudCrudBaseUrl) {
-    throw new Error("Missing VITE_CRUDCRUD_API in app/.env.local");
+    throw new Error("Missing VITE_CRUD_CRUD_API_KEY in app/.env.local");
   }
 
   const response = await fetch(`${crudCrudBaseUrl}/packages`);
@@ -28,7 +28,7 @@ export async function getPackages() {
 
 export async function getPackageById(packageId) {
   if (!crudCrudBaseUrl) {
-    throw new Error("Missing VITE_CRUDCRUD_API in app/.env.local");
+    throw new Error("Missing VITE_CRUD_CRUD_API_KEY in app/.env.local");
   }
 
   const response = await fetch(`${crudCrudBaseUrl}/packages/${packageId}`);
