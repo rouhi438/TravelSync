@@ -48,12 +48,14 @@ export function ExplorePage() {
   }
 
   return (
-    <div className="explore-container">
-      <h1 className="explore-title">Explore Your Next Adventure with Us</h1>
-      <p className="explore-subtitle">
-        Find travel experiences that match your budget, destination, and
-        interests.
-      </p>
+    <section className="explore-container">
+      <div className="titles-holder">
+        <h1 className="explore-title">Explore Your Next Adventure with Us</h1>
+        <p className="explore-subtitle">
+          Find travel experiences that match your budget, destination, and
+          interests.
+        </p>
+      </div>
       <div className="filters">
         <CategoryFilter
           categories={categoriesList}
@@ -77,7 +79,7 @@ export function ExplorePage() {
             : "No packages match your search"}
         </p>
       </div>
-      <PackageGrid packages={filteredPackages} loading={loading} />
-    </div>
+      <PackageGrid packages={filteredPackages} />
+    </section>
   );
 }
