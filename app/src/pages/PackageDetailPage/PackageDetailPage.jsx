@@ -17,6 +17,12 @@ export function PackageDetailPage() {
   function handleBookNow() {
     setBookingData((prev) => ({ ...prev, package: pkg }));
     navigate("/booking", { state: pkg });
+    setBookingData((prev) => ({
+      ...prev,
+      packageId: pkg.id,
+      travelerName: "",
+      travelerEmail: "",
+    }));
   }
 
   return (
