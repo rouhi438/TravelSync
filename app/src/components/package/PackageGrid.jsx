@@ -7,7 +7,7 @@ export function PackageGrid({ packages, loading }) {
   }
 
   return (
-    <div className="packages-grid">
+    <div className="package-grid">
       {packages.map((pkg) => (
         <PackageCard
           key={pkg._id ?? pkg.id}
