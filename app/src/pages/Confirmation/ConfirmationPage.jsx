@@ -26,24 +26,23 @@ export function ConfirmationPage() {
 
       <div className="confirmation-card">
         <p>
-          <strong>Booking Reference:</strong>{" "}
-          {confirmationData.bookingReference}
+          <strong>Booking Reference</strong> {confirmationData.bookingReference}
         </p>
         <p>
-          <strong>Adults:</strong> {confirmationData.adultCount}
+          <strong>Adults</strong> {confirmationData.adultCount}
         </p>
         <p>
-          <strong>Children:</strong> {confirmationData.childCount}
+          <strong>Children</strong> {confirmationData.childCount}
         </p>
         <p>
-          <strong>Total Travelers:</strong>{" "}
+          <strong>Total Travelers</strong>{" "}
           {confirmationData.travelers?.length || 0}
         </p>
         <p>
-          <strong>Contact Email:</strong> {confirmationData.email}
+          <strong>Contact Email</strong> {confirmationData.email}
         </p>
         <p>
-          <strong>Payment Method:</strong> {confirmationData.paymentMethod}
+          <strong>Payment Method</strong> {confirmationData.paymentMethod}
         </p>
 
         <div className="confirmation-message-card">

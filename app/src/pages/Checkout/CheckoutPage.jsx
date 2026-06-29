@@ -51,30 +51,30 @@ export function CheckoutPage() {
         <div className="travel-details">
           <h3 className="travel-details-title">Travel Details</h3>
           <p>
-            <strong>Package:</strong>{" "}
+            <strong>Package</strong>{" "}
             {travelDetails.packageName || "Not selected yet"}
           </p>
           <p>
-            <strong>Destination:</strong>{" "}
+            <strong>Destination</strong>{" "}
             {travelDetails.destination || "Not available"}
           </p>
           <p>
-            <strong>Duration:</strong>{" "}
+            <strong>Duration</strong>{" "}
             {travelDetails.duration || "Not available"}
           </p>
           <p>
-            <strong>Price:</strong>{" "}
+            <strong>Price</strong>{" "}
             {travelDetails.price ? `$${travelDetails.price}` : "Not available"}
           </p>
         </div>
         <p>
-          <strong>Adults:</strong> {bookingData.adultCount}
+          <strong>Adults</strong> {bookingData.adultCount}
         </p>
         <p>
-          <strong>Children:</strong> {bookingData.childCount}
+          <strong>Children</strong> {bookingData.childCount}
         </p>
         <p>
-          <strong>Total Travelers:</strong> {travelers.length}
+          <strong>Total Travelers</strong> {travelers.length}
         </p>
       </div>
 
