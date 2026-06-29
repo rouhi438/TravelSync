@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Booking.css";
+import { useBooking } from "../../context/BookingContext.jsx";
 
 const buildTravelerForms = (travelerType, count) => {
   return Array.from({ length: count }, (_, index) => {
@@ -63,9 +64,10 @@ const buildTravelerForms = (travelerType, count) => {
 const BookingForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { bookingData } = useBooking();
   const [adultCount, setAdultCount] = useState(1);
   const [childCount, setChildCount] = useState(0);
-  const selectedTravel = location.state || {};
+  const selectedTravel = location.state || bookingData?.package || {};
 
   const adultForms = buildTravelerForms("Adult", adultCount);
   const childForms = buildTravelerForms("Child", childCount);
