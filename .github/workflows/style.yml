@@ -46,13 +46,6 @@ jobs:
           VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
           VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
 
-      - name: Start preview server
-        run: |
-          nohup npm run preview > preview.log 2>&1 &
-
-      - name: Wait for preview server
-        run: npx wait-on http://127.0.0.1:4173
-
       - name: Run Lighthouse CI
         run: npm run lighthouse:ci
         env:
