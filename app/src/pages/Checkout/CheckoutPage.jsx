@@ -8,6 +8,14 @@ export function CheckoutPage() {
   const bookingData = location.state;
   const travelers = bookingData?.travelers || [];
   const travelDetails = bookingData?.travelDetails || {};
+  const unitPrice = Number(bookingData?.travelDetails?.price) || 0;
+  const adultCount = Number(bookingData?.adultCount) || 0;
+  const childCount = Number(bookingData?.childCount) || 0;
+  const adultPricePerTraveler = unitPrice;
+  const childPricePerTraveler = unitPrice * 0.75;
+  const adultTotal = adultCount * unitPrice;
+  const childTotal = childCount * unitPrice * 0.75;
+  const totalPrice = adultTotal + childTotal;
   const buildFullName = (traveler) =>
     [traveler.firstName, traveler.middleName, traveler.lastName]
       .filter(Boolean)
@@ -79,29 +87,40 @@ export function CheckoutPage() {
           </p>
           <p>
             <strong>Price</strong>{" "}
-            {travelDetails.price ? `$${travelDetails.price}` : "Not available"}
+            {travelDetails.price ? `€${travelDetails.price}` : "Not available"}
           </p>
         </div>
         <div className="traveler-summary">
           <h3 className="traveler-summary-title">Traveler Summary</h3>
           <p className="traveler-summary-line">
-            <strong>Adults</strong> {bookingData.adultCount}
+            <strong>Adults</strong> {adultCount}
             {adultNames.length > 0 && (
               <span className="traveler-names-inline">
-                {adultNames.join(", ")}
+                {adultNames.map((name, index) => (
+                  <span className="traveler-name-item" key={`adult-${index}`}>
+                    {name} €{adultPricePerTraveler.toFixed(2)}
+                  </span>
+                ))}
               </span>
             )}
           </p>
           <p className="traveler-summary-line">
-            <strong>Children</strong> {bookingData.childCount}
+            <strong>Children</strong> {childCount}
             {childNames.length > 0 && (
               <span className="traveler-names-inline">
-                {childNames.join(", ")}
+                {childNames.map((name, index) => (
+                  <span className="traveler-name-item" key={`child-${index}`}>
+                    {name} €{childPricePerTraveler.toFixed(2)}
+                  </span>
+                ))}
               </span>
             )}
           </p>
           <p>
             <strong>Total Travelers</strong> {travelers.length}
+          </p>
+          <p>
+            <strong>Total Price</strong> €{totalPrice.toFixed(2)}
           </p>
         </div>
       </div>
