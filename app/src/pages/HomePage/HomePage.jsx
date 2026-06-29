@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./HomePage.css";
-import animationMp4 from "../../assets/videos/animation.mp4";
+import animationWebm from "../../assets/videos/animation.webm";
 
 export function HomePage() {
   return (
@@ -10,7 +10,7 @@ export function HomePage() {
           <div className="home-video-box">
             <div className="home-tv-frame">
               <video autoPlay muted loop playsInline className="home-video">
-                <source src={animationMp4} type="video/mp4" />
+                <source src={animationWebm} type="video/webm" />
               </video>
             </div>
           </div>
