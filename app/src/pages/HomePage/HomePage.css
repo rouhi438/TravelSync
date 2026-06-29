@@ -26,9 +26,15 @@
   gap: var(--spacing-xlarge);
 }
 
+.home-video-box {
+  width: 100%;
+  max-width: 100%;
+}
+
 .home-tv-frame {
   width: 100%;
   max-width: 540px;
+  margin: 0 auto;
   padding: 14px;
   background: #111827;
   border: 7px solid #2d3748;
@@ -41,7 +47,8 @@
 
 .home-video {
   width: 100%;
-  height: 300px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
   border-radius: 14px;
@@ -115,10 +122,13 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+    justify-items: center;
   }
 
   .home-video-box {
-    order: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .home-actions {
@@ -143,6 +153,10 @@
   }
 
   .home-video {
-    height: 200px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 14px;
+    height: auto;
   }
 }
