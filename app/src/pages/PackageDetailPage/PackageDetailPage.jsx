@@ -5,24 +5,29 @@ import InteractiveRating from "../../components/rating/InteractiveRating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useNavigate } from "react-router-dom";
 import { useBooking } from "../../context/BookingContext.jsx";
+import { useAuth } from "../../context/AuthContext.jsx";
 
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
   const navigate = useNavigate();
-
-  const userId = "user_1"; //replace with real user id from AuthContext
-  const { avg, count } = getRatingStats(pkg.ratings);
+  const { user } = useAuth();
   const { setBookingData } = useBooking();
 
+  const userId = user?.uid ?? "guest";
+  const { avg, count } = getRatingStats(pkg.ratings);
+
   function handleBookNow() {
-    setBookingData((prev) => ({ ...prev, package: pkg }));
-    navigate("/booking", { state: pkg });
+    if (!user) {
+      navigate("/login");
+      return;
+    }
     setBookingData((prev) => ({
       ...prev,
       packageId: pkg.id,
       travelerName: "",
       travelerEmail: "",
     }));
+    navigate("/booking", { state: pkg });
   }
 
   return (
@@ -59,7 +64,7 @@ export function PackageDetailPage() {
           Back to Explore
         </Link>
         <button className="book-btn" onClick={handleBookNow}>
-          Book Now
+          {user ? "Book now" : "Log in to book"}
         </button>
       </div>
     </main>

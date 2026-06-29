@@ -30,7 +30,6 @@
   color: var(--color-primary);
   padding: var(--spacing-small);
   border-radius: var(--border-radius-small);
-  text-decoration: underline;
   text-underline-offset: var(--underline-offset);
 }
 
