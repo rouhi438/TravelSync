@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import { packages } from "../../data/package";
 import "./HomePage.css";
 import animationMp4 from "../../assets/videos/animation.mp4";
 
 export function HomePage() {
+  const featuredPackages = [...packages]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
   return (
     <>
       <main className="home-page">
@@ -34,6 +38,26 @@ export function HomePage() {
                 Get Started
               </Link>
             </div>
+          </div>
+        </section>
+        <section className="home-featured-section">
+          <h2>Featured Packages</h2>
+
+          <div className="home-cards-grid">
+            {featuredPackages.map((pkg) => (
+              <Link
+                key={pkg.id}
+                to={`/package/${pkg.id}`}
+                className="home-package-card"
+              >
+                <img src={pkg.image} alt={pkg.name} />
+
+                <div className="home-card-info">
+                  <h3>{pkg.name}</h3>
+                  <p>{pkg.location}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
       </main>
