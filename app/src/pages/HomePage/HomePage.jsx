@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { packages } from "../../data/package";
+import { getPackages } from "../../services/packageService";
 import "./HomePage.css";
 import animationMp4 from "../../assets/videos/animation.mp4";
 
 export function HomePage() {
-  const featuredPackages = [...packages]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 3);
+  const [featuredPackages, setFeaturedPackages] = useState([]);
+  useEffect(() => {
+    async function loadFeaturedPackages() {
+      try {
+        const data = await getPackages();
+        setFeaturedPackages(
+          [...data].sort(() => Math.random() - 0.5).slice(0, 3)
+        );
+      } catch (error) {
+        console.error("failed to load featured packages:", error);
+      }
+    }
+    loadFeaturedPackages();
+  }, []);
+
   return (
     <>
       <main className="home-page">
