@@ -4,6 +4,7 @@ import placeholderImage from "../../assets/images/placeholder.png";
 import InteractiveRating from "../../components/rating/InteractiveRating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useNavigate } from "react-router-dom";
+import { useBooking } from "../../context/BookingContext.jsx";
 
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
@@ -11,6 +12,18 @@ export function PackageDetailPage() {
 
   const userId = "user_1"; //replace with real user id from AuthContext
   const { avg, count } = getRatingStats(pkg.ratings);
+  const { setBookingData } = useBooking();
+
+  function handleBookNow() {
+    setBookingData((prev) => ({ ...prev, package: pkg }));
+    navigate("/booking", { state: pkg });
+    setBookingData((prev) => ({
+      ...prev,
+      packageId: pkg.id,
+      travelerName: "",
+      travelerEmail: "",
+    }));
+  }
 
   return (
     <main className="package-detail-container">
@@ -45,10 +58,7 @@ export function PackageDetailPage() {
         <Link to="/explore" className="back-btn">
           Back to Explore
         </Link>
-        <button
-          className="book-btn"
-          onClick={() => navigate("/booking", { state: { pkg } })}
-        >
+        <button className="book-btn" onClick={handleBookNow}>
           Book Now
         </button>
       </div>

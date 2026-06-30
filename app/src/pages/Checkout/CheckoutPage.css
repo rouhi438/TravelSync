@@ -40,6 +40,21 @@ body:has(.checkout-page) {
   font-size: 0.98rem;
 }
 
+.traveler-summary-line {
+  margin: 0 0 0.35rem;
+}
+
+.traveler-names-inline {
+  margin-left: 0.45rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.7rem;
+}
+
+.traveler-name-item {
+  white-space: nowrap;
+}
+
 .checkout-form {
   display: flex;
   flex-direction: column;
