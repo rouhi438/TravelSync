@@ -2,21 +2,21 @@
   "ci": {
     "collect": {
       "numberOfRuns": 1,
+      "staticDistDir": "./dist",
       "isSinglePageApplication": true,
       "url": [
-        "http://127.0.0.1:4173",
-        "http://127.0.0.1:4173/explore",
-        "http://127.0.0.1:4173/login",
-        "http://127.0.0.1:4173/register",
-        "http://127.0.0.1:4173/cart",
-        "http://127.0.0.1:4173/wishlist",
-        "http://127.0.0.1:4173/package/1",
-        "http://127.0.0.1:4173/booking",
-        "http://127.0.0.1:4173/checkout"
+        "/",
+        "/explore",
+        "/login",
+        "/register",
+        "/cart",
+        "/wishlist",
+        "/package/6a410460efe88d03e8496c05",
+        "/booking",
+        "/checkout"
       ],
       "settings": {
-        "onlyCategories": ["accessibility"],
-        "chromeFlags": "--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows"
+        "onlyCategories": ["accessibility"]
       }
     },
     "upload": {

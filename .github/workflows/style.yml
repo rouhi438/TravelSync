@@ -37,13 +37,14 @@ jobs:
 
       - name: Build the app
         run: npm run build
-
-      - name: Start preview server
-        run: |
-          nohup npm run preview > preview.log 2>&1 &
-
-      - name: Wait for preview server
-        run: npx wait-on http://127.0.0.1:4173
+        env:
+          VITE_CRUD_CRUD_API_KEY: ${{ secrets.VITE_CRUD_CRUD_API_KEY }}
+          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
+          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
+          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
 
       - name: Run Lighthouse CI
         run: npm run lighthouse:ci
