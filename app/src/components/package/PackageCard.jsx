@@ -5,7 +5,11 @@ import { useWishlist } from "../../context/WishlistContext.jsx";
 import { HiOutlineHeart, HiHeart } from "react-icons/hi2";
 import "./PackageCard.css";
 
-export default function PackageCard({ package: pkg }) {
+export default function PackageCard({
+  package: pkg,
+  searchTerm,
+  selectedCategory,
+}) {
   const { avg: avgRating, count: reviewCount } = getRatingStats(pkg.ratings);
   const { isInWishlist, toggleWishlist } = useWishlist();
   const packageId = pkg._id ?? pkg.id;
@@ -39,7 +43,10 @@ export default function PackageCard({ package: pkg }) {
         <div className="rating-section">
           <Rating rating={avgRating} reviewCount={reviewCount} />
         </div>
-        <Link to={`/package/${packageId}`} className="details-link">
+        <Link
+          to={`/package/${packageId}?search=${searchTerm}&category=${selectedCategory || ""}`}
+          className="details-link"
+        >
           View Details
         </Link>
       </div>
