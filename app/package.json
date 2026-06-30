@@ -11,13 +11,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0 --port 4173",
     "format": "prettier . --write",
     "format:ci": "prettier . --end-of-line lf --check",
     "lint": "eslint . --fix",
     "lint:ci": "eslint . --max-warnings 0",
-    "start:ci": "npm run build && npm run preview",
-    "lighthouse:ci": "lhci autorun --collect.url=http://127.0.0.1:4173"
+    "lighthouse": "lhci autorun --assertions.categories:accessibility=error,0.9",
+    "lighthouse:ci": "lhci autorun --upload.target=temporary-public-storage"
   },
   "dependencies": {
     "firebase": "^12.15.0",

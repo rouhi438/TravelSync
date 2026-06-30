@@ -12,7 +12,7 @@ const buildTravelerForms = (travelerType, count) => {
       <fieldset className="traveler-card" key={fieldPrefix}>
         <legend>{`${travelerType} ${travelerNumber}`}</legend>
 
-        <label htmlFor={`${fieldPrefix}-firstName`}>First Name:</label>
+        <label htmlFor={`${fieldPrefix}-firstName`}>First Name</label>
         <input
           id={`${fieldPrefix}-firstName`}
           type="text"
@@ -20,14 +20,14 @@ const buildTravelerForms = (travelerType, count) => {
           required
         />
 
-        <label htmlFor={`${fieldPrefix}-middleName`}>Middle Name:</label>
+        <label htmlFor={`${fieldPrefix}-middleName`}>Middle Name</label>
         <input
           id={`${fieldPrefix}-middleName`}
           type="text"
           name={`${fieldPrefix}-middleName`}
         />
 
-        <label htmlFor={`${fieldPrefix}-lastName`}>Last Name:</label>
+        <label htmlFor={`${fieldPrefix}-lastName`}>Last Name</label>
         <input
           id={`${fieldPrefix}-lastName`}
           type="text"
@@ -35,7 +35,7 @@ const buildTravelerForms = (travelerType, count) => {
           required
         />
 
-        <label htmlFor={`${fieldPrefix}-gender`}>Gender:</label>
+        <label htmlFor={`${fieldPrefix}-gender`}>Gender</label>
         <select
           id={`${fieldPrefix}-gender`}
           name={`${fieldPrefix}-gender`}
@@ -49,7 +49,7 @@ const buildTravelerForms = (travelerType, count) => {
           <option value="female">Female</option>
         </select>
 
-        <label htmlFor={`${fieldPrefix}-dob`}>Date of Birth:</label>
+        <label htmlFor={`${fieldPrefix}-dob`}>Date of Birth</label>
         <input
           id={`${fieldPrefix}-dob`}
           type="date"
@@ -126,7 +126,7 @@ const BookingForm = () => {
 
         <div className="traveler-count-grid">
           <div className="count-field">
-            <label htmlFor="adultCount">Adults:</label>
+            <label htmlFor="adultCount">Adults</label>
             <select
               id="adultCount"
               value={adultCount}
@@ -141,7 +141,7 @@ const BookingForm = () => {
           </div>
 
           <div className="count-field">
-            <label htmlFor="childCount">Children:</label>
+            <label htmlFor="childCount">Children</label>
             <select
               id="childCount"
               value={childCount}
