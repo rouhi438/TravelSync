@@ -1,9 +1,5 @@
 body:has(.booking-page) {
-  background-image: url("../../assets/images/Vintage Travel Poster.webp");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  opacity: 0.8;
+  background: linear-gradient(180deg, #f7fafc 0%, #eef4f8 100%);
 }
 
 .booking-page {
@@ -11,6 +7,7 @@ body:has(.booking-page) {
   margin: 2rem auto;
   padding: 2rem;
   box-sizing: border-box;
+  color: #0f172a;
 }
 
 .booking-form {
@@ -18,9 +15,11 @@ body:has(.booking-page) {
   flex-direction: column;
   gap: 1.5rem;
   text-align: left;
-  background-color: #e4fbf9;
+  background-color: #ffffff;
   padding: 2rem;
   border-radius: 12px;
+  border: 1px solid #dbe5ee;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
 .traveler-count-grid {
@@ -43,12 +42,23 @@ body:has(.booking-page) {
 }
 
 .traveler-card {
-  border: 1px solid #d1d5db;
+  border: 1px solid #cfd8e3;
+  background-color: #f8fbff;
   border-radius: 10px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+.traveler-card legend {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.booking-form label {
+  color: #1f2937;
+  font-weight: 500;
 }
 
 .booking-form input,
@@ -61,7 +71,17 @@ body:has(.booking-page) {
 
 .booking-form input,
 .booking-form select {
-  border: 1px solid #9ca3af;
+  border: 1px solid #b6c5d5;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-actions button:focus-visible {
+  outline: 3px solid #b6c5d5;
+  outline-offset: 1px;
+  border-color: #b6c5d5;
 }
 
 .booking-actions {
@@ -72,11 +92,71 @@ body:has(.booking-page) {
 
 .booking-actions button {
   border: none;
-  background: #30d5b4;
-  color: #000000;
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
   cursor: pointer;
+  font-weight: 400;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.booking-actions button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
 }
 
 .booking-actions button[type="button"] {
-  background: #30d5b4;
+  background: var #00a8a8 (--color-primary);
+  color: var #ffffff(--color-text-on-primary);
+}
+
+@media (max-width: 640px) {
+  .booking-page {
+    padding: 1rem;
+  }
+
+  .booking-form {
+    padding: 1.25rem;
+  }
+
+  .traveler-count-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .count-field {
+    max-width: 100%;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .booking-actions {
+    flex-direction: column;
+  }
+
+  .booking-actions button {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-page {
+    margin: 1rem auto;
+    padding: 0.75rem;
+  }
+
+  .booking-form {
+    padding: 1rem;
+    gap: 1.1rem;
+  }
+
+  .traveler-card {
+    padding: 1rem;
+    gap: 0.6rem;
+  }
 }
