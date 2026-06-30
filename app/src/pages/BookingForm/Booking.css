@@ -1,5 +1,7 @@
-body:has(.booking-page) {
-  background: linear-gradient(180deg, #f7fafc 0%, #eef4f8 100%);
+@supports selector(body:has(.booking-page)) {
+  body:has(.booking-page) {
+    background: linear-gradient(180deg, var(--surface-base) 0%, #eef4f8 100%);
+  }
 }
 
 .booking-page {
@@ -7,7 +9,7 @@ body:has(.booking-page) {
   margin: 2rem auto;
   padding: 2rem;
   box-sizing: border-box;
-  color: #0f172a;
+  color: var(--color-text-body);
 }
 
 .booking-form {
@@ -15,10 +17,10 @@ body:has(.booking-page) {
   flex-direction: column;
   gap: 1.5rem;
   text-align: left;
-  background-color: #ffffff;
+  background-color: var(--surface-base);
   padding: 2rem;
   border-radius: 12px;
-  border: 1px solid #dbe5ee;
+  border: 1px solid var(--border-subtle);
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
@@ -42,8 +44,8 @@ body:has(.booking-page) {
 }
 
 .traveler-card {
-  border: 1px solid #cfd8e3;
-  background-color: #f8fbff;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-muted);
   border-radius: 10px;
   padding: 1.5rem;
   display: flex;
@@ -52,12 +54,12 @@ body:has(.booking-page) {
 }
 
 .traveler-card legend {
-  color: #0f172a;
+  color: var(--color-text-body);
   font-weight: 600;
 }
 
 .booking-form label {
-  color: #1f2937;
+  color: var(--color-text-body);
   font-weight: 500;
 }
 
@@ -71,9 +73,9 @@ body:has(.booking-page) {
 
 .booking-form input,
 .booking-form select {
-  border: 1px solid #b6c5d5;
-  background-color: #ffffff;
-  color: #0f172a;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--surface-base);
+  color: var(--color-text-body);
 }
 
 .booking-form input:focus,
@@ -104,11 +106,6 @@ body:has(.booking-page) {
 .booking-actions button:hover {
   background: var(--color-primary-dark);
   transform: translateY(-1px);
-}
-
-.booking-actions button[type="button"] {
-  background: var #00a8a8 (--color-primary);
-  color: var #ffffff(--color-text-on-primary);
 }
 
 @media (max-width: 640px) {
