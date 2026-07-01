@@ -149,7 +149,38 @@ export function PackageDetailPage() {
           </>
         )}
       </div>
-      <article className="detail-row">
+
+      <div className="detail-main-grid">
+        <div className="detail-content-left">
+          <div className="content-section">
+            <h1 className="package-name">{pkg.name}</h1>
+            {pkg.shortDescription && (
+              <p className="package-short-desc">{pkg.shortDescription}</p>
+            )}
+            <p className="package-full-desc">{pkg.description}</p>
+          </div>
+          {/*highlights*/}
+          {pkg.highlights && pkg.highlights.length > 0 && (
+            <div className="content-section highlight-section">
+              <h2 className="section-title">
+                <FaStar className="section-icon" /> Highlights
+              </h2>
+              <ul className="highlight-list">
+                {pkg.highlights.map((item, index) => (
+                  <li className="highlight-item" key={index}>
+                    <span className="highlight-icon">
+                      {/* {getHighlightIcon(item)} */}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {/* includes*/}
+        </div>
+      </div>
+      {/* <article className="detail-row">
         <img
           src={pkg.image || placeholderImage}
           alt={pkg.name}
@@ -182,7 +213,7 @@ export function PackageDetailPage() {
         <button className="book-btn" onClick={handleBookNow}>
           Book Now
         </button>
-      </div>
+      </div> */}
     </main>
   );
 }
