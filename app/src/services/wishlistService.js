@@ -1,5 +1,6 @@
-const CRUD_CRUD_KEY = import.meta.env.VITE_CRUD_CRUD_API_KEY;
-const WISHLIST_URL = `https://crudcrud.com/api/${CRUD_CRUD_KEY}/wishlist`;
+import api from "../api";
+
+const WISHLIST_URL = api("/wishlist");
 
 export async function getWishlist() {
   const response = await fetch(WISHLIST_URL);
