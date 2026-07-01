@@ -194,6 +194,71 @@
   display: block;
 }
 
+/*----info bar ----*/
+.info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background: var(--color-background-light);
+  border-radius: var(--border-radius-medium);
+  padding: 0.8rem 1.5rem;
+  margin-bottom: var(--spacing-large);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--box-shadow-default);
+  gap: 0.5rem 1rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1 1 auto;
+  min-width: 120px;
+  padding: 0.4rem 0;
+}
+
+.info-divider {
+  width: 1px;
+  background: var(--color-border-light);
+  align-self: stretch;
+}
+
+.info-icon {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.info-icon.star-icon {
+  color: #f5b342;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.info-value {
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  color: var(--color-text-body);
+}
+
+.info-value.price-highlight {
+  color: var(--color-primary);
+  font-size: var(--font-size-large);
+}
+
+.info-sub {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-left: 0.2rem;
+}
+
 /*=============================================*/
 .detail-row {
   display: flex;

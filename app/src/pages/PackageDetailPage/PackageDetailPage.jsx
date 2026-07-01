@@ -7,7 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { useBooking } from "../../context/BookingContext.jsx";
 import { useRef, useState, useEffect } from "react";
 
-import { FaImage } from "react-icons/fa";
+import {
+  FaImage,
+  FaMapMarkerAlt,
+  FaClock,
+  FaTag,
+  FaStar,
+  FaUsers,
+} from "react-icons/fa";
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
   const navigate = useNavigate();
@@ -61,7 +68,6 @@ export function PackageDetailPage() {
           {hasGallery && (
             <button
               className="gallery-toggle-btn"
-              className="gallery-toggle-btn"
               onClick={() => setIsGalleryOpen(!isGalleryOpen)}
               aria-label="Toggle gallery"
             >
@@ -103,7 +109,46 @@ export function PackageDetailPage() {
           </div>
         )}
       </section>
-
+      <div className="info-bar">
+        <div className="info-item">
+          <FaMapMarkerAlt className="info-icon" />
+          <span className="info-label">Location</span>
+          <span className="info-value">{pkg.location}</span>
+          {pkg.country && pkg.country !== pkg.location && (
+            <span className="info-sub">{pkg.country}</span>
+          )}
+        </div>
+        <div className="info-divider" />
+        <div className="info-item">
+          <FaClock className="info-icon" />
+          <span className="info-label">Duration</span>
+          <span className="info-value">{pkg.duration}</span>
+        </div>
+        <div className="info-divider" />
+        <div className="info-item">
+          <FaTag className="info-icon" />
+          <span className="info-label">Price</span>
+          <span className="info-value price-highlight">€{pkg.price}</span>
+        </div>
+        <div className="info-divider" />
+        <div className="info-item">
+          <FaStar className="info-icon star-icon" />
+          <span className="info-label">Rating</span>
+          <span className="info-value">
+            {avg.toFixed(1)} <span className="info-sub">({count} reviews)</span>
+          </span>
+        </div>
+        {pkg.travelerType && (
+          <>
+            <div className="info-divider" />
+            <div className="info-item">
+              <FaUsers className="info-icon" />
+              <span className="info-label">For</span>
+              <span className="info-value">{pkg.travelerType}</span>
+            </div>
+          </>
+        )}
+      </div>
       <article className="detail-row">
         <img
           src={pkg.image || placeholderImage}
