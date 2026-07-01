@@ -5,29 +5,30 @@ import InteractiveRating from "../../components/rating/InteractiveRating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useNavigate } from "react-router-dom";
 import { useBooking } from "../../context/BookingContext.jsx";
+import { useAuth } from "../../context/AuthContext.jsx";
 import { useSearchParams } from "react-router-dom";
 
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const { setBookingData } = useBooking();
 
+  const userId = user?.uid ?? "guest";
   const [params] = useSearchParams();
   const search = params.get("search") || "";
   const category = params.get("category") || "";
 
-  const userId = "user_1"; //replace with real user id from AuthContext
   const { avg, count } = getRatingStats(pkg.ratings);
-  const { setBookingData } = useBooking();
 
   function handleBookNow() {
-    setBookingData((prev) => ({ ...prev, package: pkg }));
-    navigate("/booking", { state: pkg });
     setBookingData((prev) => ({
       ...prev,
       packageId: pkg.id,
       travelerName: "",
       travelerEmail: "",
     }));
+    navigate("/booking", { state: pkg });
   }
 
   return (
@@ -67,7 +68,7 @@ export function PackageDetailPage() {
           Back to Explore
         </Link>
         <button className="book-btn" onClick={handleBookNow}>
-          Book Now
+          Book now
         </button>
       </div>
     </main>
