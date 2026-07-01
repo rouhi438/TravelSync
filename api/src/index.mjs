@@ -1,13 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import bodyParser from "body-parser";
-import knex from "./database_client.js";
 import nestedRouter from "./routers/nested.js";
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 const apiRouter = express.Router();
 const crudCrudBaseUrl = process.env.CRUD_CRUD_API_KEY?.trim()
@@ -22,12 +20,20 @@ function getCrudCrudUrl(resourcePath) {
   return `${crudCrudBaseUrl}${resourcePath}`;
 }
 
+class HttpError extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+  }
+}
+
 async function proxyCrudCrudRequest(resourcePath, options = {}) {
   const response = await fetch(getCrudCrudUrl(resourcePath), options);
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(
+    throw new HttpError(
+      response.status,
       errorText || `CrudCrud request failed with ${response.status}`,
     );
   }
@@ -39,12 +45,8 @@ async function proxyCrudCrudRequest(resourcePath, options = {}) {
   return response.json();
 }
 
-// This is an example of how to set up a route. Replace it with your own.
-apiRouter.get("/", async (req, res) => {
-  // Here is an example of making a query to the database you set up:
-  const query = "SELECT 'Hello, world!' AS message;";
-  const result = await knex.raw(query);
-  res.json(result);
+apiRouter.get("/", (req, res) => {
+  res.json({ message: "API is running" });
 });
 
 apiRouter.get("/wishlist", async (req, res) => {
@@ -79,6 +81,12 @@ apiRouter.delete("/wishlist/:id", async (req, res) => {
     });
     res.status(204).send();
   } catch (error) {
+    if (error.status === 404) {
+      // Treat missing records as already deleted to keep delete idempotent.
+      res.status(204).send();
+      return;
+    }
+
     res.status(502).json({ message: error.message });
   }
 });
