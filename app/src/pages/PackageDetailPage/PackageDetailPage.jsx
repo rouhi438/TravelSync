@@ -22,10 +22,6 @@ export function PackageDetailPage() {
   const { avg, count } = getRatingStats(pkg.ratings);
 
   function handleBookNow() {
-    if (!user) {
-      navigate("/login");
-      return;
-    }
     setBookingData((prev) => ({
       ...prev,
       packageId: pkg.id,
@@ -72,7 +68,7 @@ export function PackageDetailPage() {
           Back to Explore
         </Link>
         <button className="book-btn" onClick={handleBookNow}>
-          {user ? "Book now" : "Log in to book"}
+          Book now
         </button>
       </div>
     </main>
