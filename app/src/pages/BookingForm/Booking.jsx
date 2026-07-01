@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Booking.css";
 import { useBooking } from "../../context/BookingContext.jsx";
+import { useAuth } from "../../context/AuthContext.jsx";
 
 const buildTravelerForms = (travelerType, count) => {
   return Array.from({ length: count }, (_, index) => {
@@ -71,7 +72,7 @@ const BookingForm = () => {
 
   const adultForms = buildTravelerForms("Adult", adultCount);
   const childForms = buildTravelerForms("Child", childCount);
-
+  const { user } = useAuth();
   const handleProceedToCheckout = (event) => {
     event.preventDefault();
 
@@ -100,7 +101,10 @@ const BookingForm = () => {
         dob: formData.get(`Child${travelerNumber}-dob`) || "",
       };
     });
-
+    if (!user) {
+      navigate("/login");
+      return;
+    }
     navigate("/checkout", {
       state: {
         adultCount,
@@ -160,7 +164,9 @@ const BookingForm = () => {
         {childCount > 0 && <div className="traveler-forms">{childForms}</div>}
 
         <div className="booking-actions">
-          <button type="submit">Proceed to Checkout</button>
+          <button type="submit">
+            {user ? "Proceed to Checkout" : "Log in to Checkout"}
+          </button>
         </div>
       </form>
     </section>

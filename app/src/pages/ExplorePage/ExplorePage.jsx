@@ -4,6 +4,7 @@ import { PackageGrid } from "../../components/package/PackageGrid";
 import "./ExplorePage.css";
 import { FaSearch } from "react-icons/fa";
 import { CategoryFilter } from "../../components/category/CategoryFilter";
+import { useSearchParams } from "react-router-dom";
 
 export function ExplorePage() {
   const [packagesData, setPackagesData] = useState([]);
@@ -12,6 +13,17 @@ export function ExplorePage() {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const [params] = useSearchParams();
+
+  useEffect(() => {
+    const searchFromUrl = params.get("search") || "";
+    const categoryFromUrl = params.get("category") || null;
+
+    setSearchTerm(searchFromUrl);
+    setSelectedCategory(categoryFromUrl);
+  }, [params]);
+
   const categoriesList = [...new Set(packagesData.map((p) => p.category))];
 
   const filteredPackages = packagesData.filter((pkg) => {
@@ -79,7 +91,11 @@ export function ExplorePage() {
             : "No packages match your search"}
         </p>
       </div>
-      <PackageGrid packages={filteredPackages} />
+      <PackageGrid
+        packages={filteredPackages}
+        searchTerm={searchTerm}
+        selectedCategory={selectedCategory}
+      />
     </section>
   );
 }

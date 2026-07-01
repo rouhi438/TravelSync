@@ -5,7 +5,10 @@ import InteractiveRating from "../../components/rating/InteractiveRating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useNavigate } from "react-router-dom";
 import { useBooking } from "../../context/BookingContext.jsx";
+
 import { useRef, useState, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext.jsx";
+import { useSearchParams } from "react-router-dom";
 
 import {
   FaImage,
@@ -15,32 +18,36 @@ import {
   FaStar,
   FaUsers,
 } from "react-icons/fa";
+
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
   const navigate = useNavigate();
-
-  const userId = "user_1"; //replace with real user id from AuthContext
-  const { avg, count } = getRatingStats(pkg.ratings);
+  const { user } = useAuth();
   const { setBookingData } = useBooking();
 
   const [selectedImage, setSelectedImage] = useState(pkg.image);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const galleryRef = useRef(null);
 
+  const userId = user?.uid ?? "guest";
+  const [params] = useSearchParams();
+  const search = params.get("search") || "";
+  const category = params.get("category") || "";
+
+  const { avg, count } = getRatingStats(pkg.ratings);
   useEffect(() => {
     const gallery = galleryRef.current;
     if (!gallery) return;
   });
 
   function handleBookNow() {
-    setBookingData((prev) => ({ ...prev, package: pkg }));
-    navigate("/booking", { state: pkg });
     setBookingData((prev) => ({
       ...prev,
       packageId: pkg.id,
       travelerName: "",
       travelerEmail: "",
     }));
+    navigate("/booking", { state: pkg });
   }
   const allImages = pkg.gallery ? [pkg.image, ...pkg.gallery] : [pkg.image];
   const hasGallery = pkg.gallery && pkg.gallery.length > 0;
@@ -207,11 +214,14 @@ export function PackageDetailPage() {
         </div>
       </article>
       <div className="btn-holder">
-        <Link to="/explore" className="back-btn">
+        <Link
+          to={`/explore?search=${search}&category=${category}`}
+          className="back-btn"
+        >
           Back to Explore
         </Link>
         <button className="book-btn" onClick={handleBookNow}>
-          Book Now
+          Book now
         </button>
       </div> */}
     </main>
