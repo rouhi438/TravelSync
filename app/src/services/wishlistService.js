@@ -87,6 +87,12 @@ export async function deleteWishlistItem(crudId) {
   });
 
   if (!response.ok) {
+    // Upstream proxy can intermittently fail even when an item is effectively gone.
+    if (response.status === 502) {
+      markWishlistItemRemoved(crudId);
+      return;
+    }
+
     throw new Error("Failed to delete wishlist item");
   }
 

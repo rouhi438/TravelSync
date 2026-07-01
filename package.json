@@ -1,0 +1,11 @@
+{
+  "name": "travelsync",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm --prefix api run dev\" \"npm --prefix app run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

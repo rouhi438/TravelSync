@@ -75,8 +75,10 @@ apiRouter.post("/wishlist", async (req, res) => {
 });
 
 apiRouter.delete("/wishlist/:id", async (req, res) => {
+  const wishlistItemPath = `/wishlist/${req.params.id}`;
+
   try {
-    await proxyCrudCrudRequest(`/wishlist/${req.params.id}`, {
+    await proxyCrudCrudRequest(wishlistItemPath, {
       method: "DELETE",
     });
     res.status(204).send();
@@ -87,7 +89,21 @@ apiRouter.delete("/wishlist/:id", async (req, res) => {
       return;
     }
 
-    res.status(502).json({ message: error.message });
+    // Retry once for transient upstream gateway issues.
+    try {
+      await proxyCrudCrudRequest(wishlistItemPath, {
+        method: "DELETE",
+      });
+      res.status(204).send();
+      return;
+    } catch (retryError) {
+      if (retryError.status === 404) {
+        res.status(204).send();
+        return;
+      }
+
+      res.status(502).json({ message: retryError.message });
+    }
   }
 });
 
