@@ -1,7 +1,6 @@
 import { useLoaderData, Link } from "react-router-dom";
 import "./PackageDetailPage.css";
 import placeholderImage from "../../assets/images/placeholder.png";
-import InteractiveRating from "../../components/rating/InteractiveRating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useNavigate } from "react-router-dom";
 import { useBooking } from "../../context/BookingContext.jsx";
@@ -57,6 +56,14 @@ export function PackageDetailPage() {
   const category = params.get("category") || "";
 
   const { avg, count } = getRatingStats(pkg.ratings);
+  const displayRating = typeof pkg.rating === "number" ? pkg.rating : avg;
+  const displayReviewCount =
+    typeof pkg.reviewCount === "number" ? pkg.reviewCount : count;
+  const [selectedRating, setSelectedRating] = useState(() => {
+    const stored = localStorage.getItem(`rating_${pkg.id}_${userId}`);
+    return stored ? parseInt(stored, 10) : 0;
+  });
+  const [hoveredRating, setHoveredRating] = useState(0);
 
   useEffect(() => {
     const gallery = galleryRef.current;
@@ -83,6 +90,11 @@ export function PackageDetailPage() {
       travelerName: "",
       travelerEmail: "",
     }));
+  }
+
+  function handleRatingSelect(rating) {
+    localStorage.setItem(`rating_${pkg.id}_${userId}`, rating);
+    setSelectedRating(rating);
   }
   // match highlight activity with related icon
   const getHighlightIcon = (text) => {
@@ -227,7 +239,8 @@ export function PackageDetailPage() {
           <FaStar className="info-icon star-icon" />
           <span className="info-label">Rating</span>
           <span className="info-value">
-            {avg.toFixed(1)} <span className="info-sub">({count} reviews)</span>
+            {displayRating.toFixed(1)}{" "}
+            <span className="info-sub">({displayReviewCount} reviews)</span>
           </span>
         </div>
         {pkg.travelerType && (
@@ -352,14 +365,39 @@ export function PackageDetailPage() {
             <div className="sidebar-divider" />
             <div className="sidebar-rating">
               <div className="sidebar-rating-stars">
-                <InteractiveRating
-                  packageId={pkg.id}
-                  userId={userId}
-                  initialAvg={avg}
-                  initialCount={count}
-                />
+                {[...Array(5)].map((_, index) => {
+                  const value = index + 1;
+                  const isFilled = value <= (selectedRating || hoveredRating);
+
+                  return (
+                    <button
+                      key={value}
+                      type="button"
+                      className="rating-star-button"
+                      onClick={() => handleRatingSelect(value)}
+                      onTouchEnd={() => handleRatingSelect(value)}
+                      onMouseEnter={() => setHoveredRating(value)}
+                      onMouseLeave={() => setHoveredRating(0)}
+                      aria-label={`Rate ${value} out of 5`}
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        padding: 0,
+                        cursor: "pointer",
+                      }}
+                    >
+                      {isFilled ? (
+                        <FaStar color="#00a8a8" size={20} />
+                      ) : (
+                        <FaRegStar color="#e4e5e9" size={20} />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
-              <span className="sidebar-rating-count">{count} reviews</span>
+              <span className="sidebar-rating-count">
+                ({selectedRating}.0 / 5.0)
+              </span>
             </div>
             <button
               className={`sidebar-book-btn ${pkg.availableSlots === 0 ? "disabled" : ""}`}

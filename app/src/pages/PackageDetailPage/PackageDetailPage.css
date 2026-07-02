@@ -430,8 +430,11 @@
   border-radius: var(--border-radius-medium);
   padding: 1.5rem;
   box-shadow: var(--box-shadow-default);
-  position: sticky;
-  top: 1.5rem;
+}
+
+.sidebar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
 .sidebar-price {
@@ -496,6 +499,14 @@
   align-items: center;
   gap: 0.8rem;
   margin: 0.5rem 0 0.8rem 0;
+}
+
+.rating-star-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
 }
 
 .sidebar-rating-stars {
@@ -637,6 +648,7 @@
   .detail-sidebar {
     order: 2;
     align-self: stretch;
+    position: static;
   }
 
   .detail-content-left {
@@ -646,6 +658,8 @@
   .sidebar-card {
     position: static;
     top: auto;
+    max-height: none;
+    overflow: visible;
   }
 
   .quick-info-bar {
