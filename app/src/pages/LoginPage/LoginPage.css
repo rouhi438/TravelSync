@@ -43,6 +43,7 @@
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
+  margin-top: 8px;
   background: none;
   border: none;
   cursor: pointer;
@@ -51,6 +52,8 @@
   align-items: center;
   justify-content: center;
   padding: 0;
+  height: 24px;
+  width: 24px;
 }
 
 .eye-icon:hover {
