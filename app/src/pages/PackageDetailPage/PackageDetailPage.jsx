@@ -313,6 +313,47 @@ export function PackageDetailPage() {
           )}
         </div>
         {/*right-side*/}
+        <aside className="detail-sidebar">
+          <div className="sidebar-card">
+            <div className="sidebar-price">
+              <span className="sidebar-price-amount">{pkg.price}</span>
+              <span className="sidebar-price-period">per person</span>
+            </div>
+            <div className="sidebar-divider" />
+            <div className="sidebar-info-row">
+              <FaClock className="sidebar-row-icon" />
+              <span className="sidebar-row-label">Duration</span>
+              <span className="sidebar-row-value">{pkg.duration}</span>
+            </div>
+            <div className="sidebar-info-row">
+              <FaMapMarkerAlt className="sidebar-row-icon" />
+              <span className="sidebar-row-label">Location</span>
+              <span className="sidebar-row-value">{pkg.Location}</span>
+            </div>
+            {pkg.destination && pkg.destination !== pkg.location && (
+              <div className="sidebar-info-row">
+                <FaGlobeAmericas className="sidebar-row-icon" />
+                <span className="sidebar-row-label">Destination</span>
+                <span className="sidebar-row-value">{pkg.destination}</span>
+              </div>
+            )}
+            {pkg.availableSlots !== undefined && (
+              <div className="sidebar-info-row">
+                <FaUsers className="sidebar-row-icon" />
+                <span className="sidebar-row-label">Availability</span>
+                <span
+                  className={`sidebar-row-value ${pkg.availableSlots > 0 ? "available-text" : "sold-out-text"}</span>`}
+                >
+                  {pkg.availableSlots > 0
+                    ? `${pkg.availableSlots} spots`
+                    : "Sold Out"}
+                </span>
+              </div>
+            )}
+            <div className="sidebar-divider" />
+            {/* Rating in sidebar */}
+          </div>
+        </aside>
       </div>
       {/* <article className="detail-row">
         <img
