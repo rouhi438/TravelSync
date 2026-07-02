@@ -74,13 +74,15 @@ export function PackageDetailPage() {
   }, []);
 
   function handleBookNow() {
+    setBookingData((prev) => ({ ...prev, package: pkg }));
+    navigate("/booking", { state: pkg });
+
     setBookingData((prev) => ({
       ...prev,
       packageId: pkg.id,
       travelerName: "",
       travelerEmail: "",
     }));
-    navigate("/booking", { state: pkg });
   }
   // match highlight activity with related icon
   const getHighlightIcon = (text) => {
@@ -316,7 +318,7 @@ export function PackageDetailPage() {
         <aside className="detail-sidebar">
           <div className="sidebar-card">
             <div className="sidebar-price">
-              <span className="sidebar-price-amount">{pkg.price}</span>
+              <span className="sidebar-price-amount">€ {pkg.price}</span>
               <span className="sidebar-price-period">per person</span>
             </div>
             <div className="sidebar-divider" />
@@ -352,10 +354,38 @@ export function PackageDetailPage() {
             )}
             <div className="sidebar-divider" />
             {/* Rating in sidebar */}
+            <div className="sidebar-rating">
+              <div className="sidebar-rating-stars">
+                <InteractiveRating
+                  packageId={pkg.id}
+                  userId={userId}
+                  initialAvg={avg}
+                  initialCount={count}
+                />
+              </div>
+              <span className="sidebar-rating-count">{count} reviews</span>
+            </div>
+            <button
+              className={`sidebar-book-btn ${pkg.availableSlots === 0 ? "disabled" : ""}`}
+              onClick={handleBookNow}
+              disabled={pkg.availableSlots === 0}
+            >
+              {pkg.availableSlots === 0 ? "Sold Out" : "Book Now"}
+            </button>
+            <p className="sidebar-guarantee">
+              <FaCheckCircle className="guarantee-icon" />
+              Best price guarantee • Free cancellation
+            </p>
+          </div>
+          {/* Trust badges */}
+          <div className="sidebar-trust">
+            <span className="trust-item">✓ Secure booking</span>
+            <span className="trust-item">✓ 24/7 support</span>
+            <span className="trust-item">✓ Verified reviews</span>
           </div>
         </aside>
       </div>
-      {/* <article className="detail-row">
+      <article className="detail-row">
         <img
           src={pkg.image || placeholderImage}
           alt={pkg.name}
@@ -391,7 +421,7 @@ export function PackageDetailPage() {
         <button className="book-btn" onClick={handleBookNow}>
           Book now
         </button>
-      </div> */}
+      </div>
     </main>
   );
 }
