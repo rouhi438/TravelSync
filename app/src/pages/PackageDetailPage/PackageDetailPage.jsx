@@ -257,11 +257,11 @@ export function PackageDetailPage() {
               <h2 className="section-title">
                 <FaStar className="section-icon" /> Highlights
               </h2>
-              <ul className="highlight-list">
+              <ul className="highlights-list">
                 {pkg.highlights.map((item, index) => (
                   <li className="highlight-item" key={index}>
                     <span className="highlight-icon">
-                      {/* {getHighlightIcon(item)} */}
+                      {getHighlightIcon(item)}
                     </span>
                     <span>{item}</span>
                   </li>
@@ -269,7 +269,6 @@ export function PackageDetailPage() {
               </ul>
             </div>
           )}
-          {/* includes*/}
           {pkg.includes && pkg.includes.length > 0 && (
             <div className="content-section includes-section">
               <h2 className="section-title">
@@ -285,7 +284,6 @@ export function PackageDetailPage() {
               </ul>
             </div>
           )}
-          {/*--itinerary*/}
           {pkg.itinerary && pkg.itinerary.length > 0 && (
             <div className="content-section itinerary-section">
               <h2 className="section-title">
@@ -314,7 +312,6 @@ export function PackageDetailPage() {
             </div>
           )}
         </div>
-        {/*right-side*/}
         <aside className="detail-sidebar">
           <div className="sidebar-card">
             <div className="sidebar-price">
@@ -330,7 +327,7 @@ export function PackageDetailPage() {
             <div className="sidebar-info-row">
               <FaMapMarkerAlt className="sidebar-row-icon" />
               <span className="sidebar-row-label">Location</span>
-              <span className="sidebar-row-value">{pkg.Location}</span>
+              <span className="sidebar-row-value">{pkg.location}</span>
             </div>
             {pkg.destination && pkg.destination !== pkg.location && (
               <div className="sidebar-info-row">
@@ -344,7 +341,7 @@ export function PackageDetailPage() {
                 <FaUsers className="sidebar-row-icon" />
                 <span className="sidebar-row-label">Availability</span>
                 <span
-                  className={`sidebar-row-value ${pkg.availableSlots > 0 ? "available-text" : "sold-out-text"}</span>`}
+                  className={`sidebar-row-value ${pkg.availableSlots > 0 ? "available-text" : "sold-out-text"}`}
                 >
                   {pkg.availableSlots > 0
                     ? `${pkg.availableSlots} spots`
@@ -353,7 +350,6 @@ export function PackageDetailPage() {
               </div>
             )}
             <div className="sidebar-divider" />
-            {/* Rating in sidebar */}
             <div className="sidebar-rating">
               <div className="sidebar-rating-stars">
                 <InteractiveRating
@@ -377,7 +373,6 @@ export function PackageDetailPage() {
               Best price guarantee • Free cancellation
             </p>
           </div>
-          {/* Trust badges */}
           <div className="sidebar-trust">
             <span className="trust-item">✓ Secure booking</span>
             <span className="trust-item">✓ 24/7 support</span>
@@ -385,41 +380,21 @@ export function PackageDetailPage() {
           </div>
         </aside>
       </div>
-      <article className="detail-row">
-        <img
-          src={pkg.image || placeholderImage}
-          alt={pkg.name}
-          className="detail-image"
-          onError={(e) => {
-            e.target.src = placeholderImage;
-          }}
-        />
-        <div className="detail-content">
-          <p className="detail-location">{pkg.location}</p>
-          <p className="detail-description">{pkg.description}</p>
-          <div className="detail-meta">
-            <span className="detail-price">€ {pkg.price}</span>
-            <span className="detail-duration">{pkg.duration}</span>
-          </div>
-          <div className="rating-holder">
-            <InteractiveRating
-              packageId={pkg.id}
-              userId={userId}
-              initialAvg={avg}
-              initialCount={count}
-            />
-          </div>
-        </div>
-      </article>
+
       <div className="btn-holder">
         <Link
           to={`/explore?search=${search}&category=${category}`}
-          className="back-btn"
+          className="action-btn back-btn"
         >
-          Back to Explore
+          <FaChevronLeft className="btn-icon" /> Back to Explore
         </Link>
-        <button className="book-btn" onClick={handleBookNow}>
-          Book now
+        <button
+          className={`action-btn book-btn ${pkg.availableSlots === 0 ? "disabled" : ""}`}
+          onClick={handleBookNow}
+          disabled={pkg.availableSlots === 0}
+        >
+          {pkg.availableSlots === 0 ? "Sold Out" : "Book Now"}
+          <FaSuitcase className="btn-icon" />
         </button>
       </div>
     </main>
