@@ -1,16 +1,14 @@
 import { useLoaderData, Link } from "react-router-dom";
 import "./PackageDetailPage.css";
-import placeholderImage from "../../assets/images/placeholder.png";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useNavigate } from "react-router-dom";
 import { useBooking } from "../../context/BookingContext.jsx";
-
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { useSearchParams } from "react-router-dom";
+import { PackageGallery } from "../../components/packageGallery/PackageGallery.jsx";
 
 import {
-  FaImage,
   FaMapMarkerAlt,
   FaClock,
   FaTag,
@@ -44,10 +42,6 @@ export function PackageDetailPage() {
   const { user } = useAuth();
   const { setBookingData } = useBooking();
 
-  const [selectedImage, setSelectedImage] = useState(pkg.image);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const galleryRef = useRef(null);
-
   const userId = user?.uid ?? "guest";
   const [params] = useSearchParams();
   const search = params.get("search") || "";
@@ -62,21 +56,6 @@ export function PackageDetailPage() {
     return stored ? parseInt(stored, 10) : 0;
   });
   const [hoveredRating, setHoveredRating] = useState(0);
-
-  useEffect(() => {
-    const gallery = galleryRef.current;
-    if (!gallery) return;
-
-    const handleWheel = (e) => {
-      if (e.deltaY !== 0) {
-        e.preventDefault();
-        gallery.scrollLeft += e.deltaY;
-      }
-    };
-
-    gallery.addEventListener("wheel", handleWheel, { passive: false });
-    return () => gallery.removeEventListener("wheel", handleWheel);
-  }, []);
 
   function handleBookNow() {
     setBookingData((prev) => ({ ...prev, package: pkg }));
@@ -144,73 +123,9 @@ export function PackageDetailPage() {
     return <FaCheckCircle />;
   };
 
-  const allImages = pkg.gallery ? [pkg.image, ...pkg.gallery] : [pkg.image];
-  const hasGallery = pkg.gallery && pkg.gallery.length > 0;
-
   return (
     <main className="package-detail-container">
-      <nav className="page-path" aria-label="Page-path">
-        <Link to="/">Home</Link>
-        <span className="path-separator">›</span>
-        <Link to="/explore">Explore</Link>
-        <span className="path-separator">›</span>
-        <span className="current-path">{pkg.name}</span>
-      </nav>
-
-      <section className="detail-hero">
-        <div className="hero-image-wrapper">
-          <img
-            src={selectedImage || placeholderImage}
-            alt={pkg.name}
-            className="hero-image"
-            onError={(e) => {
-              e.target.src = placeholderImage;
-            }}
-          />
-          {hasGallery && (
-            <button
-              className="gallery-toggle-btn"
-              onClick={() => setIsGalleryOpen(!isGalleryOpen)}
-              aria-label="Toggle gallery"
-            >
-              <FaImage /> {isGalleryOpen ? "Hide Gallery" : "Show Gallery"}
-            </button>
-          )}
-          <div className="hero-badge">
-            <span className="badge-category">{pkg.category || "package"}</span>
-            {pkg.availableSlots !== undefined && (
-              <span
-                className={`badge-availability ${pkg.availableSlots > 0 ? "available" : "sold-out"}`}
-              >
-                {pkg.availableSlots > 0
-                  ? `${pkg.availableSlots} spots left`
-                  : "Sold out"}
-              </span>
-            )}
-          </div>
-        </div>
-
-        {isGalleryOpen && hasGallery && (
-          <div className="gallery-preview" ref={galleryRef}>
-            {allImages.map((img, index) => (
-              <button
-                key={index}
-                className={`gallery-view ${selectedImage === img ? "active" : ""}`}
-                onClick={() => setSelectedImage(img)}
-                aria-label={`View image ${index + 1}`}
-              >
-                <img
-                  src={img || placeholderImage}
-                  alt={`${pkg.name} - view ${index + 1}`}
-                  onError={(e) => {
-                    e.target.src = placeholderImage;
-                  }}
-                />
-              </button>
-            ))}
-          </div>
-        )}
-      </section>
+      <PackageGallery pkg={pkg} />
       <div className="info-bar">
         <div className="info-item">
           <FaMapMarkerAlt className="info-icon" />

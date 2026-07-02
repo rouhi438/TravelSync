@@ -96,6 +96,19 @@ body,
   --image-offset: 1rem;
   --image-width: calc(50% - var(--image-offset));
   --error-min-height: calc(100vh - 100px);
+
+  /* DetailPage Variable */
+  --navbar-height: 80px;
+  --sidebar-width: 340px;
+  --gallery-thumb-size: 100px;
+  --gallery-thumb-height: 70px;
+  --quick-info-gap: 1rem;
+
+  --color-background-light: var(--surface-muted, #f8fbfb);
+  --color-border-light: var(--border-subtle, #dbe7e7);
+  --box-shadow-default: var(--shadow-md, 0 6px 20px rgba(15, 23, 42, 0.16));
+  --box-shadow-hover: var(--shadow-lg, 0 8px 30px rgba(15, 23, 42, 0.16));
+  --font-size-xxlarge: var(--font-size-large, 1.5rem);
 }
 
 body {
