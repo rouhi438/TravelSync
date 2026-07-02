@@ -8,6 +8,7 @@
   transition:
     background 0.2s ease,
     opacity 0.2s ease;
+  min-height: 44px;
 }
 
 .primary {

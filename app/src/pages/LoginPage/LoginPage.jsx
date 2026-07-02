@@ -44,7 +44,7 @@ export default function LoginPage() {
   return (
     <div className="login-wrapper">
       <div className="login-box">
-        <h2>Login or Create an account</h2>
+        <h2>Login</h2>
         {error && <p className="error-text">{error}</p>}
         <form onSubmit={handleSubmit} className="login-form">
           <Input
