@@ -1,12 +1,40 @@
 import { useLoaderData, Link } from "react-router-dom";
 import "./PackageDetailPage.css";
-import placeholderImage from "../../assets/images/placeholder.png";
-import InteractiveRating from "../../components/rating/InteractiveRating";
 import { getRatingStats } from "../../utils/ratingUtils";
 import { useNavigate } from "react-router-dom";
 import { useBooking } from "../../context/BookingContext.jsx";
+import { useState } from "react";
 import { useAuth } from "../../context/AuthContext.jsx";
 import { useSearchParams } from "react-router-dom";
+import { PackageGallery } from "../../components/packageGallery/PackageGallery.jsx";
+
+import {
+  FaMapMarkerAlt,
+  FaClock,
+  FaTag,
+  FaStar,
+  FaUsers,
+  FaCalendarAlt,
+  FaCheckCircle,
+  FaRegStar,
+  FaChevronLeft,
+  FaSuitcase,
+  FaUmbrellaBeach,
+  FaWifi,
+  FaUtensils,
+  FaShip,
+  FaSwimmingPool,
+  FaSpa,
+  FaMountain,
+  FaCamera,
+  FaLeaf,
+  FaSun,
+  FaMoon,
+  FaPlane,
+  FaCar,
+  FaBed,
+  FaGlobeAmericas,
+} from "react-icons/fa";
 
 export function PackageDetailPage() {
   const { pkg } = useLoaderData();
@@ -20,55 +48,304 @@ export function PackageDetailPage() {
   const category = params.get("category") || "";
 
   const { avg, count } = getRatingStats(pkg.ratings);
+  const displayRating = typeof pkg.rating === "number" ? pkg.rating : avg;
+  const displayReviewCount =
+    typeof pkg.reviewCount === "number" ? pkg.reviewCount : count;
+  const [selectedRating, setSelectedRating] = useState(() => {
+    const stored = localStorage.getItem(`rating_${pkg.id}_${userId}`);
+    return stored ? parseInt(stored, 10) : 0;
+  });
+  const [hoveredRating, setHoveredRating] = useState(0);
 
   function handleBookNow() {
+    setBookingData((prev) => ({ ...prev, package: pkg }));
+    navigate("/booking", { state: pkg });
+
     setBookingData((prev) => ({
       ...prev,
       packageId: pkg.id,
       travelerName: "",
       travelerEmail: "",
     }));
-    navigate("/booking", { state: pkg });
   }
+
+  function handleRatingSelect(rating) {
+    localStorage.setItem(`rating_${pkg.id}_${userId}`, rating);
+    setSelectedRating(rating);
+  }
+  // match highlight activity with related icon
+  const getHighlightIcon = (text) => {
+    const lower = text.toLowerCase();
+    if (lower.includes("snorkel") || lower.includes("dive"))
+      return <FaSwimmingPool />;
+    if (lower.includes("sunset") || lower.includes("cruise")) return <FaShip />;
+    if (lower.includes("spa") || lower.includes("massage")) return <FaSpa />;
+    if (lower.includes("mountain") || lower.includes("hike"))
+      return <FaMountain />;
+    if (lower.includes("beach") || lower.includes("sand"))
+      return <FaUmbrellaBeach />;
+    if (lower.includes("wifi") || lower.includes("internet")) return <FaWifi />;
+    if (
+      lower.includes("food") ||
+      lower.includes("cuisine") ||
+      lower.includes("dinner")
+    )
+      return <FaUtensils />;
+    if (lower.includes("camera") || lower.includes("photo"))
+      return <FaCamera />;
+    if (lower.includes("nature") || lower.includes("garden")) return <FaLeaf />;
+    if (lower.includes("sun") || lower.includes("pool")) return <FaSun />;
+    if (lower.includes("night") || lower.includes("moon")) return <FaMoon />;
+    return <FaCheckCircle />;
+  };
+
+  //match include icon with related icon
+  const getIncludeIcon = (text) => {
+    const lower = text.toLowerCase();
+    if (
+      lower.includes("hotel") ||
+      lower.includes("stay") ||
+      lower.includes("resort")
+    )
+      return <FaBed />;
+    if (lower.includes("airport") || lower.includes("transfer"))
+      return <FaCar />;
+    if (
+      lower.includes("breakfast") ||
+      lower.includes("meal") ||
+      lower.includes("dinner")
+    )
+      return <FaUtensils />;
+    if (lower.includes("tour") || lower.includes("guide"))
+      return <FaGlobeAmericas />;
+    if (lower.includes("flight") || lower.includes("plane")) return <FaPlane />;
+    if (lower.includes("wifi")) return <FaWifi />;
+    return <FaCheckCircle />;
+  };
 
   return (
     <main className="package-detail-container">
-      <h1 className="package-detail-name">{pkg.name}</h1>
-      <article className="detail-row">
-        <img
-          src={pkg.image || placeholderImage}
-          alt={pkg.name}
-          className="detail-image"
-          onError={(e) => {
-            e.target.src = placeholderImage;
-          }}
-        />
-        <div className="detail-content">
-          <p className="detail-location">{pkg.location}</p>
-          <p className="detail-description">{pkg.description}</p>
-          <div className="detail-meta">
-            <span className="detail-price">€ {pkg.price}</span>
-            <span className="detail-duration">{pkg.duration}</span>
-          </div>
-          <div className="rating-holder">
-            <InteractiveRating
-              packageId={pkg.id}
-              userId={userId}
-              initialAvg={avg}
-              initialCount={count}
-            />
-          </div>
+      <PackageGallery pkg={pkg} />
+      <div className="info-bar">
+        <div className="info-item">
+          <FaMapMarkerAlt className="info-icon" />
+          <span className="info-label">Location</span>
+          <span className="info-value">{pkg.location}</span>
+          {pkg.country && pkg.country !== pkg.location && (
+            <span className="info-sub">{pkg.country}</span>
+          )}
         </div>
-      </article>
+        <div className="info-divider" />
+        <div className="info-item">
+          <FaClock className="info-icon" />
+          <span className="info-label">Duration</span>
+          <span className="info-value">{pkg.duration}</span>
+        </div>
+        <div className="info-divider" />
+        <div className="info-item">
+          <FaTag className="info-icon" />
+          <span className="info-label">Price</span>
+          <span className="info-value price-highlight">€{pkg.price}</span>
+        </div>
+        <div className="info-divider" />
+        <div className="info-item">
+          <FaStar className="info-icon star-icon" />
+          <span className="info-label">Rating</span>
+          <span className="info-value">
+            {displayRating.toFixed(1)}{" "}
+            <span className="info-sub">({displayReviewCount} reviews)</span>
+          </span>
+        </div>
+        {pkg.travelerType && (
+          <>
+            <div className="info-divider" />
+            <div className="info-item">
+              <FaUsers className="info-icon" />
+              <span className="info-label">For</span>
+              <span className="info-value">{pkg.travelerType}</span>
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="detail-main-grid">
+        <div className="detail-content-left">
+          <div className="content-section">
+            <h1 className="package-name">{pkg.name}</h1>
+            {pkg.shortDescription && (
+              <p className="package-short-desc">{pkg.shortDescription}</p>
+            )}
+            <p className="package-full-desc">{pkg.description}</p>
+          </div>
+          {/*highlights*/}
+          {pkg.highlights && pkg.highlights.length > 0 && (
+            <div className="content-section highlight-section">
+              <h2 className="section-title">
+                <FaStar className="section-icon" /> Highlights
+              </h2>
+              <ul className="highlights-list">
+                {pkg.highlights.map((item, index) => (
+                  <li className="highlight-item" key={index}>
+                    <span className="highlight-icon">
+                      {getHighlightIcon(item)}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {pkg.includes && pkg.includes.length > 0 && (
+            <div className="content-section includes-section">
+              <h2 className="section-title">
+                <FaCheckCircle className="section-icon" /> What&apos;s Included
+              </h2>
+              <ul className="includes-list">
+                {pkg.includes.map((item, index) => (
+                  <li key={index} className="include-item">
+                    <span className="include-icon">{getIncludeIcon(item)}</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {pkg.itinerary && pkg.itinerary.length > 0 && (
+            <div className="content-section itinerary-section">
+              <h2 className="section-title">
+                <FaCalendarAlt className="section-icon" /> Itinerary
+              </h2>
+              <div className="itinerary-timeline">
+                {pkg.itinerary.map((day, index) => (
+                  <div key={index} className="itinerary-day">
+                    <div className="itinerary-day-header">
+                      <span className="itinerary-day-number">
+                        Day {day.day}
+                      </span>
+                      <span className="itinerary-day-line" />
+                    </div>
+                    <ul className="itinerary-activities">
+                      {day.activities.map((activity, actIndex) => (
+                        <li key={actIndex} className="itinerary-activity">
+                          <span className="activity-bullet" />
+                          <span>{activity}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+        <aside className="detail-sidebar">
+          <div className="sidebar-card">
+            <div className="sidebar-price">
+              <span className="sidebar-price-amount">€ {pkg.price}</span>
+              <span className="sidebar-price-period">per person</span>
+            </div>
+            <div className="sidebar-divider" />
+            <div className="sidebar-info-row">
+              <FaClock className="sidebar-row-icon" />
+              <span className="sidebar-row-label">Duration</span>
+              <span className="sidebar-row-value">{pkg.duration}</span>
+            </div>
+            <div className="sidebar-info-row">
+              <FaMapMarkerAlt className="sidebar-row-icon" />
+              <span className="sidebar-row-label">Location</span>
+              <span className="sidebar-row-value">{pkg.location}</span>
+            </div>
+            {pkg.destination && pkg.destination !== pkg.location && (
+              <div className="sidebar-info-row">
+                <FaGlobeAmericas className="sidebar-row-icon" />
+                <span className="sidebar-row-label">Destination</span>
+                <span className="sidebar-row-value">{pkg.destination}</span>
+              </div>
+            )}
+            {pkg.availableSlots !== undefined && (
+              <div className="sidebar-info-row">
+                <FaUsers className="sidebar-row-icon" />
+                <span className="sidebar-row-label">Availability</span>
+                <span
+                  className={`sidebar-row-value ${pkg.availableSlots > 0 ? "available-text" : "sold-out-text"}`}
+                >
+                  {pkg.availableSlots > 0
+                    ? `${pkg.availableSlots} spots`
+                    : "Sold Out"}
+                </span>
+              </div>
+            )}
+            <div className="sidebar-divider" />
+            <div className="sidebar-rating">
+              <div className="sidebar-rating-stars">
+                {[...Array(5)].map((_, index) => {
+                  const value = index + 1;
+                  const isFilled = value <= (selectedRating || hoveredRating);
+
+                  return (
+                    <button
+                      key={value}
+                      type="button"
+                      className="rating-star-button"
+                      onClick={() => handleRatingSelect(value)}
+                      onTouchEnd={() => handleRatingSelect(value)}
+                      onMouseEnter={() => setHoveredRating(value)}
+                      onMouseLeave={() => setHoveredRating(0)}
+                      aria-label={`Rate ${value} out of 5`}
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        padding: 0,
+                        cursor: "pointer",
+                      }}
+                    >
+                      {isFilled ? (
+                        <FaStar color="#00a8a8" size={20} />
+                      ) : (
+                        <FaRegStar color="#e4e5e9" size={20} />
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+              <span className="sidebar-rating-count">
+                ({selectedRating}.0 / 5.0)
+              </span>
+            </div>
+            <button
+              className={`sidebar-book-btn ${pkg.availableSlots === 0 ? "disabled" : ""}`}
+              onClick={handleBookNow}
+              disabled={pkg.availableSlots === 0}
+            >
+              {pkg.availableSlots === 0 ? "Sold Out" : "Book Now"}
+            </button>
+            <p className="sidebar-guarantee">
+              <FaCheckCircle className="guarantee-icon" />
+              Best price guarantee • Free cancellation
+            </p>
+          </div>
+          <div className="sidebar-trust">
+            <span className="trust-item">✓ Secure booking</span>
+            <span className="trust-item">✓ 24/7 support</span>
+            <span className="trust-item">✓ Verified reviews</span>
+          </div>
+        </aside>
+      </div>
+
       <div className="btn-holder">
         <Link
           to={`/explore?search=${search}&category=${category}`}
-          className="back-btn"
+          className="action-btn back-btn"
         >
-          Back to Explore
+          <FaChevronLeft className="btn-icon" /> Back to Explore
         </Link>
-        <button className="book-btn" onClick={handleBookNow}>
-          Book now
+        <button
+          className={`action-btn book-btn ${pkg.availableSlots === 0 ? "disabled" : ""}`}
+          onClick={handleBookNow}
+          disabled={pkg.availableSlots === 0}
+        >
+          {pkg.availableSlots === 0 ? "Sold Out" : "Book Now"}
+          <FaSuitcase className="btn-icon" />
         </button>
       </div>
     </main>
