@@ -35,9 +35,7 @@ import {
   FaPlane,
   FaCar,
   FaBed,
-  FaDollarSign,
   FaGlobeAmericas,
-  FaInfoCircle,
 } from "react-icons/fa";
 
 export function PackageDetailPage() {
@@ -285,7 +283,7 @@ export function PackageDetailPage() {
           {pkg.includes && pkg.includes.length > 0 && (
             <div className="content-section includes-section">
               <h2 className="section-title">
-                <FaCheckCircle className="section-icon" /> What's Included
+                <FaCheckCircle className="section-icon" /> What&apos;s Included
               </h2>
               <ul className="includes-list">
                 {pkg.includes.map((item, index) => (
