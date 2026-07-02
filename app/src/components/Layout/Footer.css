@@ -63,6 +63,12 @@
 
 .footer-section h2 {
   margin: 0 0 8px 0;
+  font-family:
+    "Sora",
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .footer-section .footer-logo + p {

@@ -14,7 +14,7 @@
 
 .wishlist-count {
   margin: 0 0 1.2rem;
-  color: #4b5563;
+  color: var(--color-text-muted);
 }
 
 .wishlist-grid {
@@ -24,18 +24,23 @@
 }
 
 .wishlist-empty-text {
-  color: #4b5563;
+  color: var(--color-text-muted);
   margin-bottom: 1rem;
 }
 
 .wishlist-browse-btn {
   display: inline-block;
   text-decoration: none;
-  background-color: #e6f8f8;
-  color: #045f60;
+  background-color: var(--color-accent-soft-bg);
+  color: var(--color-link-brand);
   border-radius: 10px;
   padding: 0.6rem 0.9rem;
   font-weight: 600;
+}
+
+.wishlist-browse-btn:focus-visible {
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 1px;
 }
 
 @media (max-width: 990px) {

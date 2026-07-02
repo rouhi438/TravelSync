@@ -24,6 +24,12 @@
   font-size: clamp(1.8rem, 2.8vw, 2.5rem);
   line-height: 1.2;
   font-weight: 700;
+  font-family:
+    "Sora",
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .explore-subtitle {
@@ -45,8 +51,11 @@
   padding: 2px;
   padding-left: 15px;
   margin-bottom: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .search-icon {
@@ -66,13 +75,13 @@
 }
 
 .search-wrapper:hover {
-  border: 1px solid rgb(70, 70, 248);
-  transition: all 0.6s ease;
+  border-color: var(--color-primary);
 }
 
 .search-wrapper:focus-within {
-  outline: 1px solid blue;
-  border-color: blue;
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px #b6c5d5;
 }
 
 .results-count {
