@@ -317,7 +317,8 @@
 }
 
 /*----------highlight --------------*/
-.highlights-list {
+.highlights-list,
+.includes-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.6rem 1.5rem;
@@ -326,7 +327,8 @@
   margin: 0.5rem 0 0 0;
 }
 
-.highlight-item {
+.highlight-item,
+.include-item {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -334,7 +336,8 @@
   padding: 0.3rem 0;
 }
 
-.highlight-icon {
+.highlight-icon,
+.include-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -344,6 +347,75 @@
   border-radius: 50%;
   color: var(--color-primary);
   font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.includes-list .include-icon-wrapper {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* Itinerary – timeline */
+.itinerary-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.itinerary-day {
+  display: flex;
+  flex-direction: column;
+}
+
+.itinerary-day-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.itinerary-day-number {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 0.1rem 1rem;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.itinerary-day-line {
+  flex: 1;
+  height: 2px;
+  background: var(--color-border-light);
+}
+
+.itinerary-activities {
+  list-style: none;
+  padding: 0;
+  margin: 0.2rem 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.itinerary-activity {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text-body);
+}
+
+.activity-bullet {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  margin-top: 0.6rem;
   flex-shrink: 0;
 }
 

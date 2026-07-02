@@ -17,6 +17,28 @@ import {
   FaTag,
   FaStar,
   FaUsers,
+  FaCalendarAlt,
+  FaCheckCircle,
+  FaRegStar,
+  FaChevronLeft,
+  FaSuitcase,
+  FaUmbrellaBeach,
+  FaWifi,
+  FaUtensils,
+  FaShip,
+  FaSwimmingPool,
+  FaSpa,
+  FaMountain,
+  FaCamera,
+  FaLeaf,
+  FaSun,
+  FaMoon,
+  FaPlane,
+  FaCar,
+  FaBed,
+  FaDollarSign,
+  FaGlobeAmericas,
+  FaInfoCircle,
 } from "react-icons/fa";
 
 export function PackageDetailPage() {
@@ -35,10 +57,21 @@ export function PackageDetailPage() {
   const category = params.get("category") || "";
 
   const { avg, count } = getRatingStats(pkg.ratings);
+
   useEffect(() => {
     const gallery = galleryRef.current;
     if (!gallery) return;
-  });
+
+    const handleWheel = (e) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        gallery.scrollLeft += e.deltaY;
+      }
+    };
+
+    gallery.addEventListener("wheel", handleWheel, { passive: false });
+    return () => gallery.removeEventListener("wheel", handleWheel);
+  }, []);
 
   function handleBookNow() {
     setBookingData((prev) => ({
@@ -49,6 +82,56 @@ export function PackageDetailPage() {
     }));
     navigate("/booking", { state: pkg });
   }
+  // match highlight activity with related icon
+  const getHighlightIcon = (text) => {
+    const lower = text.toLowerCase();
+    if (lower.includes("snorkel") || lower.includes("dive"))
+      return <FaSwimmingPool />;
+    if (lower.includes("sunset") || lower.includes("cruise")) return <FaShip />;
+    if (lower.includes("spa") || lower.includes("massage")) return <FaSpa />;
+    if (lower.includes("mountain") || lower.includes("hike"))
+      return <FaMountain />;
+    if (lower.includes("beach") || lower.includes("sand"))
+      return <FaUmbrellaBeach />;
+    if (lower.includes("wifi") || lower.includes("internet")) return <FaWifi />;
+    if (
+      lower.includes("food") ||
+      lower.includes("cuisine") ||
+      lower.includes("dinner")
+    )
+      return <FaUtensils />;
+    if (lower.includes("camera") || lower.includes("photo"))
+      return <FaCamera />;
+    if (lower.includes("nature") || lower.includes("garden")) return <FaLeaf />;
+    if (lower.includes("sun") || lower.includes("pool")) return <FaSun />;
+    if (lower.includes("night") || lower.includes("moon")) return <FaMoon />;
+    return <FaCheckCircle />;
+  };
+
+  //match include icon with related icon
+  const getIncludeIcon = (text) => {
+    const lower = text.toLowerCase();
+    if (
+      lower.includes("hotel") ||
+      lower.includes("stay") ||
+      lower.includes("resort")
+    )
+      return <FaBed />;
+    if (lower.includes("airport") || lower.includes("transfer"))
+      return <FaCar />;
+    if (
+      lower.includes("breakfast") ||
+      lower.includes("meal") ||
+      lower.includes("dinner")
+    )
+      return <FaUtensils />;
+    if (lower.includes("tour") || lower.includes("guide"))
+      return <FaGlobeAmericas />;
+    if (lower.includes("flight") || lower.includes("plane")) return <FaPlane />;
+    if (lower.includes("wifi")) return <FaWifi />;
+    return <FaCheckCircle />;
+  };
+
   const allImages = pkg.gallery ? [pkg.image, ...pkg.gallery] : [pkg.image];
   const hasGallery = pkg.gallery && pkg.gallery.length > 0;
 
@@ -185,7 +268,51 @@ export function PackageDetailPage() {
             </div>
           )}
           {/* includes*/}
+          {pkg.includes && pkg.includes.length > 0 && (
+            <div className="content-section includes-section">
+              <h2 className="section-title">
+                <FaCheckCircle className="section-icon" /> What's Included
+              </h2>
+              <ul className="includes-list">
+                {pkg.includes.map((item, index) => (
+                  <li key={index} className="include-item">
+                    <span className="include-icon">{getIncludeIcon(item)}</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {/*--itinerary*/}
+          {pkg.itinerary && pkg.itinerary.length > 0 && (
+            <div className="content-section itinerary-section">
+              <h2 className="section-title">
+                <FaCalendarAlt className="section-icon" /> Itinerary
+              </h2>
+              <div className="itinerary-timeline">
+                {pkg.itinerary.map((day, index) => (
+                  <div key={index} className="itinerary-day">
+                    <div className="itinerary-day-header">
+                      <span className="itinerary-day-number">
+                        Day {day.day}
+                      </span>
+                      <span className="itinerary-day-line" />
+                    </div>
+                    <ul className="itinerary-activities">
+                      {day.activities.map((activity, actIndex) => (
+                        <li key={actIndex} className="itinerary-activity">
+                          <span className="activity-bullet" />
+                          <span>{activity}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
+        {/*right-side*/}
       </div>
       {/* <article className="detail-row">
         <img
