@@ -21,14 +21,14 @@ body,
   --slate-900: #1f2937;
   --slate-700: #374151;
   --slate-500: #6b7280;
-  --white: #ffffff;
+  --neutral-0: #ffffff;
   --shadow-color: rgba(15, 23, 42, 0.16);
 
   --color-primary: #00a8a8;
   --color-primary-dark: #008888;
   --color-text-on-primary: #ffffff;
   --color-text-body: #333333;
-  --color-white: var(--white);
+  --color-white: var(--neutral-0);
   --color-shadow: rgba(0, 0, 0, 0.2);
   --color-text-muted: #4b5563;
   --color-link-brand: #045f60;
