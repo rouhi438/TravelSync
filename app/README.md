@@ -1,93 +1,222 @@
-# The App package
+# 🌍✈ Travel Guru
 
-This package sets up a [React](https://react.dev/) web app and uses [Vite](https://vitejs.dev/) to manage the bundling and serving of web assets.
-The React app uses [React Router](https://reactrouter.com/en/main) for Single Page Application routing.
+🔗 Live Demo: https://travel-sync-self.vercel.app/
 
-For development you can run the command `npm run dev` which uses `vite` to watch files so the web app updates each time you save a change.  
-You can visit [http://localhost:3000](http://localhost:3000) to see the app running.
+Travel Guru is a full-stack web application developed as the final project for the Hack Your Future program. It simulates a modern travel booking platform where users can discover travel packages, explore destinations, save their favorite trips to a wishlist, and complete a booking journey from traveler information to booking confirmation.
 
-To prepare your application for deployment you can run `npm run build`.  
-To preview your web app you can use `npx vite preview --port 3000`.
+---
 
-## Scripts
+# ✨ Features
 
-- `npm run format` - formats the code in the whole repository as per `.prettierrc`. VS Code is also configured to format any file on save.
-- `npm run lint` - runs linting as configured in `eslint.config.js` and fixes all auto-fixable issues.
-- `npm run lighthouse` - runs a lighthouse accessibility report locally set at 90% pass rate. When run in CI, the 90% rate is treated as warning as currently no page passes the threshold.
+### Traveler
 
-## Environment variables
+- Register and log in using Firebase Authentication
+- View traveler profile
+- Explore travel packages
+- Search and filter packages
+- View detailed package information including itinerary and image gallery
+- Save and remove packages from the wishlist
+- Complete group and individual bookings
+- Review booking summary during checkout
+- Receive a booking confirmation
 
-You can set environment variables in the `.env` file or in the Render.com environment variables section.
+### Business
 
-## JSX
+- Register and log in as a business user (in progress)
+- Basic business dashboard (in progress)
 
-Vite has built in support for [JSX](https://www.w3schools.com/react/react_jsx.asp). Any file that contains JSX code should have the `.jsx` file extension.
+---
 
-## CSS
+# 🛠 Tech Stack
 
-Vite has built in support for CSS imports, simply create a `.css` file and import it:
+### Frontend
 
+- React
+- Vite
+- React Router
+- CSS
+
+### Backend
+
+- Node.js
+- Express
+
+### Authentication & Database
+
+- Firebase Authentication
+- Firestore
+
+### API
+
+- CrudCrud (Packages and Wishlist)
+
+---
+
+# 📁 Project Structure
+
+```text
+app/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── context/
+│   ├── pages/
+│   ├── routes/
+│   ├── services/
+│   └── utils/
+├── public/
+├── index.html
+└── package.json
 ```
-import "./main.css";
+
+---
+
+# 📄 Pages
+
+- Home
+- Explore
+- Package Details
+- Booking Form
+- Checkout
+- Confirmation
+- Wishlist
+- Login
+- Register
+- Traveler Profile
+
+---
+
+# 🚀 How to Run
+
+### Frontend
+
+Navigate to the project folder and install the dependencies:
+
+```bash
+npm install
 ```
 
-## Assets
+Start the development server:
 
-Any asset linked in `index.html` should be placed in the `public` folder.  
-For assets that are used by React components, they should be placed in the `assets` folder.  
-You can import them into your files like this:
-
-```
-import hyfLogo from "../../assets/hyf.svg";
+```bash
+npm run dev
 ```
 
-## Calling the API using `fetch` and the `api()` helper
+### Backend (Optional)
 
-When you need data from the API, you can use `fetch` but it's important to not hardcode the URLs since they will differ between your development environment and the deployment environment. For this we can use the `api()` helper function.
+Navigate to the `api` folder.
 
-Assuming you've deployed your API somewhere and you've defined the following environment variable:
+Install dependencies:
 
-```
-VITE_API_URL=https://my-cool-domain:1234
-
-```
-
-When you call `api('/nested')` the helper generates the following URL `https://my-cool-domain:1234/api/nested` which you can pass to `fetch`:
-
-```
-const response = await fetch(api('/nested'));
+```bash
+npm install
 ```
 
-## Deploying a static web app
+Run the backend server:
 
-> Last tested: 2024-04-11
+```bash
+npm run dev
+```
 
-Follow the steps [here](../api/README.md#deploying) first to deploy your database and your web service.
+**Note:** The current application uses **Firebase** for authentication and **CrudCrud** for package and wishlist data, so the frontend can run without starting the local backend.
 
-Once you've done that, click "New" and this time select "Static Site".
+---
 
-![](../images/render/app/step16.png)
-![](../images/render/app/step17.png)
+# 🔑 Environment Variables
 
-Select the same repository as you used for the web service.
+### Frontend (`.env.local`)
 
-![](../images/render/app/step18.png)
+```env
+VITE_CRUD_CRUD_API_KEY=your-crudcrud-api-key
 
-Fill in the required fields and add the "VITE_API_URL" environment variable with the value based on the URL your web service got (for example `https://hyf-template-api.onrender.com/api`). Then click "Create Static Site".
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
 
-![](../images/render/app/step19.png)
-![](../images/render/app/step20.png)
+### Backend (`api/.env`)
 
-In the next screen, wait until you see the text "Your site is live".  
-Then navigate to "Redirects/Rewrites".
+```env
+PORT=3001
+CRUD_CRUD_API_KEY=your-crudcrud-api-key
+```
 
-![](../images/render/app/step21.png)
+---
 
-Click "Add Rule" and input the below rule settings before clicking "Save Changes".
+# 📌 Current Status
 
-![](../images/render/app/step22.png)
-![](../images/render/app/step23.png)
+✅ Firebase Authentication
 
-After this you should be able to test your web app in your browser on the URL shown, which should be something like `https://hyf-template-app.onrender.com/`.
+✅ Firestore user profiles
 
-If everything has been done correctly then your web app should be able to load data from your web service's API.
+✅ Explore page with search and filtering
+
+✅ Package detail page
+
+✅ Wishlist functionality
+
+✅ Booking flow
+
+✅ Checkout summary
+
+✅ Booking confirmation
+
+✅ Responsive layout
+
+✅ CrudCrud integration for packages and wishlist
+
+---
+
+# 🎯 Goal of the Project
+
+The goal of Travel Guru is to practice modern full-stack web development by building a realistic travel booking application. Throughout the project, we focused on:
+
+- Building a responsive and consistent user interface
+- Creating reusable React components
+- Implementing client-side routing
+- Managing application state with React Context
+- Integrating Firebase Authentication and Firestore
+- Working with external APIs using CrudCrud
+- Applying collaborative Git and GitHub workflows
+
+---
+
+# 📸 Project Preview
+
+| Home                                                            | Explore                                                                |
+| --------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| <img src="./screenshots/HomePage.png" alt="Home" width="420" /> | <img src="./screenshots/ExplorePage1.png" alt="Explore" width="420" /> |
+
+| Package Details                                                                 | Wishlist                                                             |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| <img src="./screenshots/PackageDetail.png" alt="Package Details" width="420" /> | <img src="./screenshots/Wishlist2.png" alt="Wishlist" width="420" /> |
+
+| Booking                                                               | Checkout                                                                |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| <img src="./screenshots/BookingPage.png" alt="Booking" width="420" /> | <img src="./screenshots/CheckoutPage.png" alt="Checkout" width="420" /> |
+
+| Confirmation                                                                    | Profile                                                           |
+| ------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| <img src="./screenshots/ConfirmationPage.png" alt="Confirmation" width="420" /> | <img src="./screenshots/profile.png" alt="Profile" width="420" /> |
+
+# 🚧 Future Improvements
+
+- Business package management
+- Business profile and page
+- Booking history
+- Advanced booking search dashboard
+- Improve (Dynamic)homepage content
+- Customer reviews and rating
+- Online payment integration
+- Improved accessibility
+- SEO optimization
+- Performance improvements
+
+---
+
+# 👥 Authors
+
+Built as a final project by a Hack Your Future student team: Abbas, Emebet, and Iglesia, using React, Vite, Firebase, Express, and CrudCrud.
