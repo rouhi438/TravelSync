@@ -58,7 +58,11 @@ export function CheckoutPage() {
       <section className="checkout-page">
         <h1>Checkout</h1>
         <p>No booking data found. Please complete the booking form first.</p>
-        <button type="button" onClick={() => navigate("/booking")}>
+        <button
+          type="button"
+          className="checkout-redirect-button"
+          onClick={() => navigate("/booking")}
+        >
           Go To Booking Form
         </button>
       </section>
@@ -188,7 +192,11 @@ export function CheckoutPage() {
         </label>
 
         <div className="checkout-actions">
-          <button type="button" onClick={() => navigate("/booking")}>
+          <button
+            type="button"
+            className="back-button"
+            onClick={() => navigate("/booking")}
+          >
             Back
           </button>
           <button type="submit">Confirm Booking</button>

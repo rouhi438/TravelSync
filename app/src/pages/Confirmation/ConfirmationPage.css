@@ -1,3 +1,9 @@
+@supports selector(body:has(.confirmation-page)) {
+  body:has(.confirmation-page) {
+    background: linear-gradient(180deg, var(--surface-base) 0%, #eef4f8 100%);
+  }
+}
+
 .confirmation-page {
   width: min(720px, 100%);
   margin: 2rem auto;
@@ -32,10 +38,24 @@
 
 .confirmation-page button {
   font: inherit;
-  padding: 0.6rem 0.9rem;
+  padding: 0.55rem 1rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  background: #30d5b4;
-  color: #ffffff;
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  font-weight: 400;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.confirmation-page button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+.confirmation-page button:focus-visible {
+  outline: 3px solid #b6c5d5;
+  outline-offset: 1px;
 }

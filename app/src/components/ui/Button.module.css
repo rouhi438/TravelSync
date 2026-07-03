@@ -2,22 +2,24 @@
   padding: 10px 16px;
   border-radius: 8px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
   border: none;
   transition:
-    background 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease,
     opacity 0.2s ease;
   min-height: 44px;
 }
 
 .primary {
-  background-color: #00a8a8;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
 }
 
 .primary:hover {
-  background-color: #008f8f;
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
 }
 
 .secondary {

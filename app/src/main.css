@@ -21,22 +21,23 @@ body,
   --slate-900: #1f2937;
   --slate-700: #374151;
   --slate-500: #6b7280;
-  --white: #ffffff;
+  --neutral-0: #ffffff;
   --shadow-color: rgba(15, 23, 42, 0.16);
 
-  --color-primary: var(--teal-500);
-  --color-primary-dark: var(--teal-600);
-  --color-text-on-primary: var(--white);
-  --color-text-body: var(--slate-900);
-  --color-white: var(--white);
-  --color-shadow: var(--shadow-color);
-  --error-min-height: calc(100vh - 100px);
   --color-primary: #00a8a8;
   --color-primary-dark: #008888;
   --color-text-on-primary: #ffffff;
   --color-text-body: #333333;
+  --color-white: var(--neutral-0);
   --color-shadow: rgba(0, 0, 0, 0.2);
-  --button-gap: 1.5rem;
+  --color-text-muted: #4b5563;
+  --color-link-brand: #045f60;
+  --color-danger: #b91c1c;
+  --color-danger-bg: #fde8e8;
+  --color-danger-bg-hover: #fbd5d5;
+  --color-accent-soft-bg: #e6f8f8;
+  --focus-ring-color: #b6c5d5;
+  --error-min-height: calc(100vh - 100px);
 
   /* Surface and borders */
   --surface-base: #ffffff;
@@ -95,7 +96,6 @@ body,
   --button-padding: 12px;
   --image-offset: 1rem;
   --image-width: calc(50% - var(--image-offset));
-  --error-min-height: calc(100vh - 100px);
 }
 
 body {
